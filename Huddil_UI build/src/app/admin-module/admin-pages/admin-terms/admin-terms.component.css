@@ -1,0 +1,219 @@
+/* admin page common css */
+
+.adminBodyMainContainer {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+.leftColumnContainer {
+    width: 200px;
+    height: 100%;
+}
+
+.rightColumnContainer {
+    width: calc(100% - 200px);
+    height: 100%;
+    background: #fff;
+}
+
+
+/* end common css */
+
+.adminBreadCrum {
+    padding-left: 30px;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.homeBreadCrum {
+    cursor: pointer;
+}
+
+
+/* POLICY LIST START */
+
+.policyListMainContainer {
+    background-color: #F2F2F2;
+    height: auto;
+}
+
+.policyListTableContainer {
+    padding: 15px;
+    width: 100%;
+    min-height: auto;
+    max-height: 675px;
+    overflow-y: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 98%;
+    border: 1px solid darkgray;
+}
+
+.tbody-color {
+    background: #ffffff;
+}
+
+.table-th {
+    background: #484848;
+    color: #ffffff;
+}
+
+.errormsz {
+    margin: 0px;
+    font-size: 10px;
+    color: red;
+}
+
+td,
+th {
+    border-right: 1px solid darkgray;
+    text-align: left;
+    padding: 5px;
+    text-align: center;
+    /* min-width: 100px;
+    max-width: 400px; */
+}
+
+td {
+    border-bottom: 1px dashed darkgray;
+}
+
+
+/* POLICY LIST END */
+
+.addPolicyButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0px;
+}
+
+.addPolicyButton {
+    height: 40px;
+    border: none;
+    color: #ffffff;
+}
+
+.addPolicyContainer {
+    height: auto;
+    background: #F2F2F2;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.addPolicyContainer::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    margin-left: 0em;
+    right: 5%;
+    top: 0;
+    box-sizing: border-box;
+    border: .5em solid black;
+    border-color: transparent transparent #f2f2f2 #f2f2f2;
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+    box-shadow: -1px 1px 0px 0 #ccc;
+}
+
+.inputFields,
+calendarInputContainer {
+    height: 35px;
+    width: 215px;
+    padding-left: 8px;
+}
+
+.calendarInputContainer {
+    position: relative;
+}
+
+.calendar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* Gopi: Doubt- all input fiels height: I've given 35px. Why 41px in browser? */
+
+.userType {
+    height: 41px;
+}
+
+.fileBrowseConatiner {
+    height: 40px;
+    width: 200px;
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.fileName {
+    height: auto;
+    width: auto;
+    padding-left: 15px;
+    color: black;
+    font-size: 12px;
+}
+
+.fileInput {
+    width: 90px;
+    height: 95%;
+    /* z-index: 1; */
+    cursor: pointer;
+}
+
+.activeDate {
+    background: #BFBFBF;
+    border: none;
+    padding-left: 20px;
+}
+
+.cancelSaveButtons {
+    height: 40px;
+    width: 120px;
+    border: none;
+    color: #ffffff;
+}
+
+.loaderIcon {
+    text-align: center;
+}
+
+.fileOfFile {
+    font-size: 14px;
+}
+
+.fileAndFileNameContainer input {
+    color: transparent;
+}
+
+.noClick {
+    cursor: no-drop;
+}

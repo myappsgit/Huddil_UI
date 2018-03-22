@@ -1,0 +1,29 @@
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    flex-flow: row wrap;
+}
+
+.testimonialBlock img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.testimonialBlock {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.testimonialBlock p {
+    margin: 0px;
+    margin-left: 15px;
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.testimonialAuthor {
+    color: #004DB7;
+    font-weight: bold;
+}

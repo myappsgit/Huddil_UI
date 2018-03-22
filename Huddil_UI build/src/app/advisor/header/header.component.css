@@ -1,0 +1,138 @@
+header {
+    background: #EF6C00;
+    position: relative;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.header-left {
+    background: #EF6C00;
+    width: 200px;
+    height: 90px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-right {
+    padding-right: 26px;
+}
+
+.header-left h2 {
+    color: #fff;
+    padding: 25px;
+    text-align: center;
+    font-size: 36px;
+    margin: 0px;
+}
+
+.header-right ul li i {
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.header-right ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 180px;
+}
+
+.usernameBlock {
+    margin-right: 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+.huddilLogo {
+    width: 160px;
+    padding-left: 20px;
+}
+
+
+/*user Menu starts*/
+
+.userMenuContainer {
+    width: 198px;
+    height: auto;
+    z-index: 99999;
+    position: absolute;
+    right: 3px;
+    top: 70px;
+    border-radius: 17px;
+    background-color: white;
+    border: 1px solid #E1E1E1;
+}
+
+.userMenuFieldsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.userMenuSubFieldsContainer {
+    display: flex;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #e0e0e0;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #959595;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.userMenuFieldsContainer div:last-child {
+    border-bottom-style: none;
+}
+
+.userMenuSubFieldsContainer i {
+    padding-right: 20px;
+}
+
+.userMenuFieldsContainer .userMenuSubFieldsContainer:last-child:hover {
+    background-color: #ff8a65;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #ffffff;
+}
+
+.userMenuSubFieldsContainer:hover {
+    background-color: #ff8a65;
+    color: #ffffff;
+}
+
+.userMenuFieldsContainer .userMenuSubFieldsContainer:first-child:hover {
+    background-color: #ff8a65;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #ffffff;
+}
+
+.userMenuContainer:after,
+.userMenuContainer:before {
+    bottom: 100%;
+    right: 12%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.userMenuContainer:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: white;
+    border-width: 10px;
+    margin-left: -10px;
+}

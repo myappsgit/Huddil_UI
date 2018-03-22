@@ -1,0 +1,225 @@
+/* admin page common css */
+
+.adminBodyMainContainer {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+.leftColumnContainer {
+    width: 200px;
+    height: 100%;
+}
+
+.rightColumnContainer {
+    width: calc(100% - 200px);
+    height: 100%;
+    background: #fff;
+}
+
+
+/* end common css */
+
+
+/* BREAD CURM START */
+
+.adminBreadCrum {
+    padding-left: 30px;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.homeBreadCrum {
+    cursor: pointer;
+}
+
+
+/* BREAD CRUM END */
+
+
+/* AMINITIES TABLE START */
+
+.amenitiesListMainContainer {
+    background: #F2F2F2;
+    height: auto;
+}
+
+.amenitiesListTableContainer {
+    padding: 15px;
+    min-height: 670px;
+    max-height: 670px;
+    overflow-y: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid darkgray;
+}
+
+.tbody-color {
+    background-color: #ffffff;
+}
+
+.table-th {
+    background: #484848;
+    color: #ffffff;
+}
+
+td,
+th {
+    border-right: 1px solid darkgray;
+    padding: 5px;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px dashed darkgray;
+}
+
+
+/* tr:nth-child(even) {
+    background-color: #dddddd;
+} */
+
+
+/* AMINITIES TABLE END */
+
+
+/* ADD AMINITY START*/
+
+.addAmenityButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.addAmenityButton {
+    height: 40px;
+    border: none;
+    color: #ffffff;
+}
+
+.addAmenitiesOuterContainer {
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    position: relative;
+}
+
+.addAmenitiesOuterContainer::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    margin-left: 0em;
+    right: 5%;
+    top: 0;
+    box-sizing: border-box;
+    border: .5em solid black;
+    border-color: transparent transparent #f2f2f2 #f2f2f2;
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+    box-shadow: -1px 1px 0px 0 #ccc;
+}
+
+.addAmenitiesContainer {
+    height: auto;
+    width: 600px;
+    background: #F2F2F2;
+}
+
+.addAmenitiesInnterContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.addAmenitiesErrorContainer {
+    color: red;
+    font-size: 10px;
+    padding-left: 10px;
+    margin-top: -10px;
+}
+
+.nameInputField {
+    height: 35px;
+    width: 170px;
+    padding-left: 8px;
+}
+
+.fileBrowseConatiner {
+    height: 40px;
+    width: 200px;
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.fileName {
+    height: auto;
+    width: auto;
+    padding-left: 15px;
+    color: black;
+    font-size: 12px;
+}
+
+.fileInput {
+    width: 90px;
+    height: 95%;
+    /* z-index: 1; */
+    cursor: pointer;
+}
+
+
+/* #selectFile_input {
+    opacity: 0;
+    position: relative;
+    z-index: 100;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+} */
+
+
+/* Gopi: Not the proper way to do this. Improve. */
+
+.textAreaClass {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 40px;
+    min-height: 40px;
+    max-height: 50px;
+}
+
+.cancelSaveButtons {
+    height: 40px;
+    width: 80px;
+    border: none;
+    color: #ffffff;
+}
+
+
+/* ADD AMINITY END */

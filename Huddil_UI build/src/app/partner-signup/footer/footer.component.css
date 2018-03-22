@@ -1,0 +1,97 @@
+footer {
+    background: #212121;
+    padding: 10px;
+}
+
+.footerBoxesContainer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #949494;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    flex-flow: row wrap;
+}
+
+.footerBox h2 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.footerBox ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.footerBox li {
+    color: #949494;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.newsletterForm input {
+    background: #545454;
+    border: none;
+    padding: 10px;
+    color: #fff;
+}
+
+.newsletterForm button {
+    border: 1px solid #fff;
+    background: no-repeat;
+    color: #949494;
+    padding: 8px 22px;
+    margin-top: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.footerBottomContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    flex-flow: row wrap;
+}
+
+.footerBottomItems ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footerBottomItems li {
+    color: #949494;
+    cursor: pointer;
+}
+
+.importantLinks li {
+    font-size: 12px;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.footerBottomItems p {
+    color: #949494;
+    margin: 0px;
+}
+
+.socialIcons li {
+    float: left;
+    margin-left: 10px;
+}
+
+.socialIcons i {
+    background: #949494;
+    color: #212121;
+    height: 35px;
+    width: 35px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 32px;
+}
+
+.footerBox form {
+    display: flex;
+    flex-direction: column;
+}

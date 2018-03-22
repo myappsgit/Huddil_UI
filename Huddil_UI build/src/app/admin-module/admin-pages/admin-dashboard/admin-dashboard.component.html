@@ -1,0 +1,119 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Dashboard</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+
+            <div class="adminStatusContainers adminBoxShadow">
+                <!-- <div class="loadingBarContainer" *ngIf="this.adminService.isLoading">
+                    <i class="fa fa-spinner fa-spin fa-3x"></i>
+                </div> -->
+                <div class="contentContainer">
+                    <div class="headingContianer">
+                        <label class="heading">Payment Status</label>
+                        <div class="paymentStatusMonthYearContainer">
+                            <select class="selectYear searchFields" id="select_year" [(ngModel)]="selectedYear" (change)="getPaymentStatus()">
+                        <option [disabled]="true" value="">Select Year</option>
+                        <option value="2017">2017</option>
+                        <option [selected]="true" value="2018">2018</option>
+                    </select>
+                            <select class="selectMonth searchFields" id="select_month" [(ngModel)]="selectedMonth" (change)="getPaymentStatus()">
+                        <option [disabled]="true" value="">Select Month</option>
+                        <option [selected]="true" value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                        </div>
+                    </div>
+                    <div class="sectionsContainer">
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Payment
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/online payment.svg" />Online Payment</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.online}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/offline payment.svg" />Offline Payment</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.offline}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/offline payment.svg" />Cancellation Charge</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.onlineCancelCharge}}</span>
+                            </div>
+                        </div>
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Refund
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/online refund.svg" />Online Refund</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.onlineRefund}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/offline cancelled.svg" />Offline Cancellation</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.offlineRefund}}</span>
+                            </div>
+                        </div>
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Charges
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/huddil commission.svg" />Huddil Commission</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.commission}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img src="assets/icons/admin-icons/transaction charge.svg" />Transaction Charge</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.transcationCharge}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan"><img class="rupeeIcon" src="assets/icons/admin-icons/settlement.svg" />Settlement<label class="smallText">(SP)</label></span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.settlement}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <admin-user-status-component></admin-user-status-component>
+            <admin-facility-status-component></admin-facility-status-component>
+        </div>
+    </div>
+</div>
+<admin-footer></admin-footer>
+<!-- <div *ngIf="this.adminService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.adminService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.adminService.isWarningPopup" [class.errorPopup]="this.adminService.isErrorPopup">
+            <h3 *ngIf="this.adminService.isWarningPopup"> Alert</h3>
+            <h3 *ngIf="this.adminService.isErrorPopup"> Error</h3>
+            <h3 *ngIf="this.adminService.isSuccessPopup"> Success</h3>
+        </div>
+        <div class="popup-body">
+            {{this.adminService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()">OK</button>
+        </div>
+    </div>
+</div> -->
+<admin-popup-component></admin-popup-component>

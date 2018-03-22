@@ -1,0 +1,119 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Locations</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+
+            <!-- CITY LIST AND ADD CITY CONTAINER START -->
+
+            <div class="listMainContainer adminBoxShadow">
+
+                <div class="listTableContainer">
+
+                    <table>
+                        <tbody class="tbody-color">
+
+                            <tr class="table-th">
+                                <th>ID</th>
+                                <th>Cities</th>
+                            </tr>
+
+                            <tr class="cityRow" id="city{{city.id}}" *ngFor="let city of cityArray" (click)="showListOfLocalitiesContainer(city.id)">
+                                <td>{{city.id}}</td>
+                                <td>{{city.name}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="addButtonContainer">
+                <button class="addButton adminButton" (click)="showAddCityContainer()" id="button_addCity">+ Add City</button>
+            </div>
+
+            <div class="addOutterContainer" *ngIf="showAddCityContainerBoolean">
+                <form [formGroup]="addCityForm" (ngSubmit)="addCity()">
+                    <div class="addContainer adminBoxShadow">
+                        <div class="addInnterContainer">
+
+                            <input type="text" class="nameInputField" placeholder="Enter City" formControlName="cityNameInput" id="input_cityName">
+                            <button class="cancelSaveButtons adminButton" type="button" (click)="cancel()" id="button_cancel">Cancel</button>
+                            <button class="cancelSaveButtons adminButton" type="submit" id="button_save">Save</button>
+                        </div>
+                        <div class="addLocationErrorContainer" *ngIf="showAddCityErrorMessage">
+                            {{addCityErrorMessage}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CITY LIST AND ADD CITY CONTAINER END -->
+
+            <br>
+
+            <!-- LOCALITY LIST AND ADD LOCALITY CONTAINER START -->
+
+            <div *ngIf="showLocalityListContainerBoolean">
+
+                <div class="listMainContainer adminBoxShadow">
+                    <div class="listTableContainer ">
+                        <table>
+                            <tbody class="tbody-color ">
+                                <tr class="table-th ">
+                                    <th>ID</th>
+                                    <th>Localities</th>
+                                </tr>
+                                <tr *ngFor="let locality of listOfLocalities">
+                                    <td>{{locality.id}}</td>
+                                    <td>{{locality.name}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="noLocalityFoundMessage" *ngIf="isLocalityNull">{{noLocalityMsg}}</div>
+                    </div>
+                </div>
+
+                <div class="addButtonContainer">
+                    <button class="addButton adminButton" (click)="showAddLocalityContainer()" id="button_addLocality">+ Add Locality</button>
+                </div>
+
+                <div class="addOutterContainer" *ngIf="showAddLocalityContainerBoolean">
+
+                    <form [formGroup]="addLocalityForm" (ngSubmit)="addLocality()">
+                        <div class="addContainer adminBoxShadow">
+                            <div class="addInnterContainer">
+
+                                <input type="text" class="nameInputField" placeholder="Enter Locality" formControlName="locationNameInput" id="input_localityName">
+                                <button class="cancelSaveButtons adminButton" type="button" (click)="cancel()" id="button_cancelForLocality">Cancel</button>
+                                <button class="cancelSaveButtons adminButton" type="submit" id="button_saveForLocality">Save</button>
+                            </div>
+                            <div class="addLocationErrorContainer" *ngIf="showLocalityErrorMessage">
+                                {{addLocalityErrorMessage}}
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- LOCALITY LIST AND ADD LOCALITY CONTAINER END -->
+
+        </div>
+
+    </div>
+</div>
+<admin-footer></admin-footer>
+<admin-popup-component></admin-popup-component>

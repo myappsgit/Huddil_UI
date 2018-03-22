@@ -1,0 +1,50 @@
+.adminSideMenuMainContainer {
+    width: 200px;
+    height: 100%;
+    background-color: #eee;
+}
+
+.sideMenuItem {
+    height: 54px;
+    border-bottom: 1px solid white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+div:focus {
+    outline: none;
+}
+
+.active-link {
+    color: #311B92;
+}
+
+
+/* .sideMenuItem.active-link {
+    color: #311B92;
+} */
+
+.sidebarIcon {
+    padding-right: 10px;
+    min-width: 25px;
+    font-size: 24px;
+}
+
+.sideMenuItem p {
+    min-width: 100px;
+    font-size: 16px;
+}
+
+
+/*Gopi: We need to add this. Because, material icons are designed differently from font awesome icons*/
+
+.materialIcons {
+    font-size: 24px;
+    margin-top: 5px;
+    margin-left: -3px;
+}

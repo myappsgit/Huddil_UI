@@ -1,0 +1,43 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']" class="clickableItem">Home</li>
+        <span>&rarr;</span>
+        <li>Favourites</li>
+    </ul>
+</div>
+<div class="facilityDetailsContainer">
+    <div class="favoriteFacilityHeading">
+        <p class="headingFavouriteList">Favourites List</p>
+        <p class="slider"></p>
+    </div>
+    <div *ngIf="emptyFavoriteData">
+        <h2>No items in favourites list</h2>
+    </div>
+    <div *ngIf="errorMsz!=''">
+        <p>{{errorMsz}}</p>
+    </div>
+    <div class="facilityItemContainer" *ngIf="favoriteFacilityData != null">
+
+        <facility-listing-info class="facilityItems" *ngFor="let facilityData of favoriteFacilityData" [facilityDetailsInfo]="facilityData"></facility-listing-info>
+
+    </div>
+    <pagination *ngIf="totalPaginationTabs>0" [totalPaginationTabs]="totalPaginationTabs" (displayPage_Output)="facilityByPagination($event)" [currentPage]="currentPage"></pagination>
+</div>
+<app-footer></app-footer>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" id="button_ok_sessionNotExpired" *ngIf="!isSessionExpired" (click)="closePopup(0)">OK</button>
+            <button class="consumerModuleButtons" id="button_ok_sessionExpired" *ngIf="isSessionExpired" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>

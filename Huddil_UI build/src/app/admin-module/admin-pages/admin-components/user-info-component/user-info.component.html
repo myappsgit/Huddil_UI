@@ -1,0 +1,52 @@
+<div class="userInfoContainer">
+
+    <div class="userProfileContainer">
+        <!-- <span class="active" *ngIf="isUserActive"></span>
+        <span class="blocked" *ngIf="!isUserActive"></span>
+        <img src="assets/meetingRoom.jpg" class="userThumbnail" /> -->
+        <div class="nameAndStatusContainer">
+            <span class="userNameSpan">{{userInfoObject_Input.userName}}</span>
+            <small>User Name</small>
+            <!-- <small *ngIf="isUserActive">Active Now</small>
+            <small *ngIf="!isUserActive">Blocked Now</small> -->
+        </div>
+    </div>
+
+    <div class="verticalLine"></div>
+
+    <div class="userEmailIdContainer">
+        <div class="emailIdContainer">
+            {{userInfoObject_Input.emailId}}
+            <small>Email</small>
+        </div>
+    </div>
+
+    <div class="verticalLine"></div>
+
+    <div class="userMobileNumberContainer">
+        <div class="mobileNumberContainer">
+            {{userInfoObject_Input.mobileNo}}
+            <small style="color:green;" *ngIf="this.userInfoObject_Input.active == 1 || this.userInfoObject_Input.active == 3">Mobile Verified</small>
+            <small style="color:red;" *ngIf="this.userInfoObject_Input.active == 0 || this.userInfoObject_Input.active == 2">Mobile Not Verified</small>
+        </div>
+    </div>
+
+    <div class="verticalLine"></div>
+
+    <div class="activeDeactiveButtonContainer">
+        <span></span>
+        <button class="activeButton" title={{buttonTitleText}} (click)="activateOrBlockUser(userInfoObject_Input.id, userInfoObject_Input.active)" [class.deactiveButton]="this.userInfoObject_Input.active == 2 || this.userInfoObject_Input.active == 3" id="button_activeOrBlock">{{buttonText}}</button>
+        <span>{{buttonTitleText}}</span>
+    </div>
+
+    <div class="verticalLine" [class.huddilCommissionContainerHide]="!displayHuddilCommission"></div>
+
+    <div class="huddilCommissionContainer" [class.huddilCommissionContainerHide]="!displayHuddilCommission">
+        <span class="huddilCommissionHeading">Huddil Commission</span>
+        <span class="huddilCommissionText">Current Month:{{currentMonthCommission}}%</span>
+        <span class="huddilCommissionText">Next Month:<input type="number" id="input_newSpCommission" [(ngModel)]="newSpCommissionNgModel" class="commissionInputField" placeholder="{{nextMonthCommission}}">%</span>
+        <span class="huddilCommissionErrorMessage">{{huddilCommissionErrorMessage}}</span>
+        <button class="saveCommissionButton adminButton" (click)="updateSpCommission(userInfoObject_Input.id)" id="button_updateSpCommission">Save</button>
+    </div>
+
+</div>

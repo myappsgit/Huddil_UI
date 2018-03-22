@@ -1,0 +1,310 @@
+/*breadcrumbs starts*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*breadcrumbs ends*/
+
+.bookingsTitle p,
+.historyTitle p,
+.cancellationTitle p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+#mybookingsViewContainer {
+    background: #ffffff;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    /*border: 1px solid red;*/
+}
+
+.bookingsTitle,
+.historyTitle,
+.cancellationTitle {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.bookingDetailsFirstRow,
+.bookingDetailsSecondRow,
+.historyDetailsFirstRow,
+.historyDetailsSecondRow,
+.cancellationDetailsFirstRow,
+.cancellationDetailsSecondRow {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookingDetailsFirstRow p,
+.bookingDetailsSecondRow p,
+.historyDetailsFirstRow p,
+.historyDetailsSecondRow p,
+.cancellationDetailsFirstRow p,
+.cancellationDetailsSecondRow p {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 160px
+}
+
+.bookingDetailsFirstRow span,
+.bookingDetailsSecondRow span,
+.historyDetailsFirstRow span,
+.historyDetailsSecondRow span,
+.cancellationDetailsFirstRow span,
+.cancellationDetailsSecondRow span {
+    padding-top: 5px;
+}
+
+.bookingsDetalsTableContainer,
+.historyDetalsTableContainer,
+.cancellationDetalsTableContainer {
+    box-shadow: 0px 2px 9px -1px #aaa;
+    margin-top: 30px;
+    width: 80%;
+}
+
+.bookingsThumbnail,
+.historyThumbnail,
+.cancellationThumbnail {
+    /*width: 18%;*/
+    /*border: 1px solid red;*/
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.bookingDetailsData,
+.historyDetailsData,
+.cancellationDetailsData {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumbnail {
+    width: 230px;
+    height: 175px;
+    object-fit: cover;
+}
+
+.cancelPolicy p {
+    font-size: 12px;
+    margin: 3px 0px;
+}
+
+.headding {
+    font-weight: bold;
+    color: #8B8B8B;
+    font-size: 14px;
+}
+
+.data {
+    color: #1D62C0;
+    font-size: 12px;
+}
+
+.cancellationPolicyContainer {
+    color: #A0A0A0;
+    width: 42%;
+}
+
+.cancelButton,
+.proceedButton {
+    width: 120px;
+    height: 40px;
+    border: none;
+    /*background-color: #6A97FF;*/
+    color: white;
+    margin-top: 19px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.hintError {
+    color: red;
+    font-size: 11px;
+    font-weight: lighter!important;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-top: -16px;
+}
+
+.cancelledPriceContainer p {
+    font-size: 13px;
+    height: 10px;
+}
+
+.cancelPopup {
+    background: #D8D8D8;
+    width: 22%;
+    border: 1px solid grey;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+
+/*.myHistoryDetailsContainer,
+.myCancelDetailsContainer {
+    margin-top: 50px;
+}*/
+
+.ratingContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.historyDetalsTableContainer div:last-child {
+    border-bottom-style: none;
+}
+
+.fa-star {
+    color: #BBBBBB;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.gold {
+    color: #FF8500!important;
+}
+
+.textArea {
+    width: 600px;
+    height: 100px;
+    resize: none;
+    padding: 20px;
+}
+
+.cancelBtn {
+    border: none;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #767676;
+}
+
+.submitButton {
+    border: none;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #6A97FF;
+}
+
+.actionButtons {
+    margin-top: 15px;
+}
+
+.reviewPopup {
+    background: #D8D8D8;
+    position: absolute;
+    width: 380px;
+    border: 1px solid grey;
+    height: 100px;
+    top: 0px;
+    margin: 200px;
+    text-align: center;
+}
+
+.cancellationDetailsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .bookingDetailsData,
+    .historyDetailsData,
+    .cancellationDetailsData {
+        flex-flow: wrap;
+        justify-content: center;
+    }
+    .bookingDetailsFirstRow,
+    .bookingDetailsSecondRow,
+    .historyDetailsFirstRow,
+    .historyDetailsSecondRow,
+    .cancellationDetailsFirstRow,
+    .cancellationDetailsSecondRow {
+        flex-flow: wrap;
+        justify-content: center;
+        border-bottom: none;
+    }
+    .textArea {
+        width: 200px;
+    }
+    .ratingAndCommentBoxContainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ratingAndCommentBoxContainers {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 24px;
+    }
+    .cancellationPolicyContainer {
+        display: flex;
+        flex-direction: column;
+        padding-left: 25px;
+    }
+    .bookingsDetalsTableContainer,
+    .historyDetalsTableContainer,
+    .cancellationDetalsTableContainer {
+        width: 100%;
+    }
+    .bookingDetailsFirstRow p,
+    .bookingDetailsSecondRow p,
+    .historyDetailsFirstRow p,
+    .historyDetailsSecondRow p,
+    .cancellationDetailsFirstRow p,
+    .cancellationDetailsSecondRow p {
+        display: flex;
+        flex-direction: row;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

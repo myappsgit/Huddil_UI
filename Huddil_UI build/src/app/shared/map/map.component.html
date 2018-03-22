@@ -1,0 +1,20 @@
+<div class="mapChangeTypeContainer" [class.consumerMap]="moduleName=='consumer'" [class.serviceproviderMap]="moduleName=='service-provider'">
+    <p class="whatsaroundTitle"><strong>What's Around</strong></p>
+    <select id="details_nearby_select" (change)="changeNearbyOption()">
+                        <option selected="true" value="none">None</option>
+                         <option  value="hotels">Hotels</option>
+                        <option value="atm">ATM</option>
+                       
+                         <option value="bank">Bank</option>
+                         <option value="bus_station"> Bus Station</option>
+                           <option value="cafe"> Cafe</option>
+                            <option value="hospital"> Hospital</option>
+                              <option value="parking"> Parking</option>
+                               <option value="restaurant"> Restaurant</option>
+                               <option value="train_station"> Railway Station</option>
+
+                    </select>
+</div>
+<div id="consumerMap" [class.consumerMap]="moduleName=='consumer'" [class.serviceproviderMap]="moduleName=='service-provider'" style="height: 250px;">
+
+</div>

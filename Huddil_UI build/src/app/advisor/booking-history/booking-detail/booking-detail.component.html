@@ -1,0 +1,164 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <advisor-sidebar></advisor-sidebar>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+
+            <ul>
+
+                <li>>Booking Details Dashboard</li>
+
+            </ul>
+
+        </div>
+        <div class="service-provider-page booking-history-container">
+            <div class="editDetailsParentContainer" *ngIf="showEditSection">
+                <div class="headingContainer">
+                    <p class="heading">Booking Details</p>
+                    <p class="slider"></p>
+                </div>
+                <div class="bookingDetailsContainer">
+                    <div class="facilitybookingDetailsContainer">
+                        <div class="leftDetailsUpperContainer">
+                            <div>
+                                <p class="detailsHeading">Booking Id</p>
+                                <p class="details">0258</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Venue Name & Address</p>
+                                <p class="details">Incubex Coworking Space</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booked By Name</p>
+                                <p class="details">Farhan Shariff</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Date Of Booking</p>
+                                <p class="details">Dec 17, 2017</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Payment Mode</p>
+                                <p class="details">online</p>
+                            </div>
+                        </div>
+                        <div class="leftDetailsBottomContainer">
+                            <div>
+                                <p class="detailsHeading">Facility Type</p>
+                                <p class="details">Meeting Room</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Address</p>
+                                <p class="details">Bannerghatta Road</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Contact Number</p>
+                                <p class="details">9999999999</p>
+                            </div>
+                            <div>
+                                <p>Email Id</p>
+                                <p class="details">abc@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booking Amount</p>
+                                <p class="details">$ 12000</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="bookingStatusDetailsContainer">
+                        <p class="detailsHeading">Booking Status</p>
+                        <select class="details" id="select_bookingStatus">
+                <option>Confirmation</option>
+            </select>
+                    </div>
+                </div>
+                <div class="ratingContainer">
+                    <div class="detailsHeading starRating">
+                        <p>Farhan Name</p>
+                        <rating [ratingValue]="4"></rating>
+                    </div>
+                    <div class="paragraphContainer">
+                        <p>Booking.com is a travel fare aggregator website and travel metasearch engine for lodging reservations of Dutch origin. Since 2005, it has been owned and operated by United States-based The Priceline Group.</p>
+                    </div>
+                    <div class="replyIcon">
+                        <i class="fa fa-reply" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="bottomContainer">
+                    <button (click)="showViewSectionContainer()" class="rectangleButtons cancelbtn" id="button_cancel">Cancel</button>
+                    <button class="rectangleButtons savebtn" id="button_save">Save</button>
+                </div>
+            </div>
+            <!--view option -->
+            <div class="editDetailsParentContainer" *ngIf="showViewSection">
+                <div class="headingContainer">
+                    <div class="viewHeader">
+                        <p class="heading">Booking Details</p>
+                        <button (click)="showEditSectionContainer()" class="rectangleButtons editbtn" id="button_edit">Edit</button>
+                    </div>
+                    <p class="slider"></p>
+                </div>
+                <div class="bookingDetailsContainer">
+                    <div class="facilitybookingDetailsContainer">
+                        <div class="leftDetailsUpperContainer">
+                            <div>
+                                <p class="detailsHeading">Booking Id</p>
+                                <p class="details">0258</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Venue Name & Address</p>
+                                <p class="details">Incubex Coworking Space</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booked By Name</p>
+                                <p class="details">Farhan Shariff</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Date Of Booking</p>
+                                <p class="details">Dec 17, 2017</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Payment Mode</p>
+                                <p class="details">online</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booking Amount</p>
+                                <p class="details">$ 12000</p>
+                            </div>
+                        </div>
+                        <div class="leftDetailsBottomContainer">
+                            <div>
+                                <p class="detailsHeading">Facility Type</p>
+                                <p class="details">Meeting Room</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Address</p>
+                                <p class="details">Bannerghatta Road</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Contact Number</p>
+                                <p class="details">9999999999</p>
+                            </div>
+                            <div>
+                                <p>Email Id</p>
+                                <p class="details">abc@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Customer's Review</p>
+                                <p class="details"><i class="fa fa-comments-o"></i></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<advisor-footer></advisor-footer>

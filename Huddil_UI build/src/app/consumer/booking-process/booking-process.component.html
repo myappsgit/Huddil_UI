@@ -1,0 +1,7 @@
+<div class="paymentMainPage">
+    <p *ngIf="loading">Please wait do not refresh the page...</p>
+    <img *ngIf="loading" src="assets/loading.gif">
+    <p class="success" *ngIf="successStatus!=''">{{successStatus}}</p>
+    <p class="failed" *ngIf="errorStatus!=''">{{errorStatus}}</p>
+    <p *ngIf="successStatus || errorStatus">Please wait... . You will be redirected in 5 seconds.</p>
+</div>

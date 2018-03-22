@@ -1,0 +1,12 @@
+<div class="reviewsContainer" *ngIf="facilityReviewsData.length==0">
+    <p>No reviews.</p>
+</div>
+<div class="reviewsContainer" *ngIf="facilityReviewsData.length>0">
+
+    <div class="reviewsItem" *ngFor="let review of facilityReviewsData">
+        <div class="userInformation"><i class="fa fa-user"></i><span>{{review.userPref.displayName}}</span></div>
+        <div class="reviewInformation">
+            <rating [ratingValue]="review.rating"></rating><span>{{review.dateTime | date}} </span></div>
+        <div class="dateInformation">{{review.comments}}</div>
+    </div>
+</div>

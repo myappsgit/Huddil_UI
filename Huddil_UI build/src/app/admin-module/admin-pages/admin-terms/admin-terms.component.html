@@ -1,0 +1,80 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Terms</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+
+            <div class="policyListMainContainer adminBoxShadow">
+                <div class="policyListTableContainer">
+                    <table>
+                        <tbody class="tbody-color">
+                            <tr class="table-th">
+                                <th>S.No</th>
+                                <!-- <th>Description</th> -->
+                                <th>User Type</th>
+                                <th>Policy Active Date</th>
+                                <th>Policy Created Date</th>
+                            </tr>
+                            <tr *ngFor="let termsAndCondition of listOfTermsAndConditions">
+                                <td>{{termsAndCondition.id}}</td>
+                                <!-- <td>{{termsAndCondition.description}}</td> -->
+                                <td>{{termsAndCondition.userType.type}}</td>
+                                <td>{{termsAndCondition.startDate}}</td>
+                                <td>{{termsAndCondition.date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="addPolicyButtonContainer">
+                <button class="adminButton addPolicyButton" (click)="showAddPolicyContainer()" id="button_terms">+ Add Policy</button>
+            </div>
+
+            <div [hidden]="!showAddPolicyContainerBoolean">
+
+                <div class="addPolicyContainer adminBoxShadow">
+
+                    <div class="calendarInputContainer">
+                        <i class="fa fa-calendar-minus-o calendar" aria-hidden="true" id="active-dateIcon"></i>
+                        <input type="text" class="inputFields" placeholder="Active Date" id="active-date">
+
+                    </div>
+
+                    <select class="inputFields userType" id="select-userType">
+                        <option disabled >Select User Type</option>
+                        <option value="8">Consumer</option>
+                        <option value="7">Service Provider</option>
+
+                    </select>
+
+                    <div class="fileBrowseConatiner">
+                        <p class="fileName">HTML File</p>
+                        <div class="fileAndFileNameContainer">
+                            <input (change)="termsFileChange($event)" class="fileInput" id="selectFile_input" type="file" accept="text/html" />
+                        </div>
+                        <span class="fileOfFile">{{fileData.name}}</span>
+                    </div>
+
+                    <button class="cancelSaveButtons adminButton" (click)="cancel()" id="button_cancel">Cancel</button>
+                    <button [class.noClick]="isSavingTerms" class="cancelSaveButtons adminButton" (click)="saveTerms()" id="button_save">Save</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<admin-footer></admin-footer>
+<admin-popup-component></admin-popup-component>

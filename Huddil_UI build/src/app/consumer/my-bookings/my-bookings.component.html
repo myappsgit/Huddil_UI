@@ -1,0 +1,130 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']">Home</li>
+
+        <span>&rarr;</span>
+        <li>My Booking</li>
+
+    </ul>
+</div>
+<div id="mybookingsParentContainer">
+    <div class="bookingContainerTitle">
+        <p>My Bookings</p>
+    </div>
+    <!--<div class="containerData" >No Bookings Available</div>-->
+
+    <div class="tabsContainer">
+        <div class="tabs">
+            <button class="upcomingButton" (click)="showUpcomingContainerData()" [class.selectedTab]="forUpcomingContainer" id="button_upcoming">Upcoming</button>
+            <button class="historyButton" (click)="showHistoryContainerData()" [class.selectedTab]="forHistoryContainer" id="button_history">History</button>
+            <button class="cancelButton" (click)="showCancelContainerData()" [class.selectedTab]="forCancelContainer" id="button_cancelled">Cancelled</button>
+        </div>
+        <div class="upcomingContainer" *ngIf="forUpcomingContainer">
+            <div class="loadingContainer" *ngIf="isLoadingUpcomingData">
+                <img src="../../assets/loading.gif" />
+            </div>
+            <p *ngIf="upcomingBookingsArray.length==0 && !isLoadingUpcomingData">No upcoming bookings!!</p>
+            <table *ngIf="upcomingBookingsArray.length>0 && !isLoadingUpcomingData">
+                <thead>
+                    <tr>
+                        <th style="width:20px;">Booking Id</th>
+                        <th>Date of Booking</th>
+                        <th>Venue</th>
+                        <th class="hideTableData">Area</th>
+                        <th class="hideTableData" style="width:180px;">Booking Period</th>
+                        <th class="hideTableData">Booking Amount</th>
+                        <th class="hideTableData">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="getUpcomingBookingDetailId(booking,'upcoming')" *ngFor=" let booking of upcomingBookingsArray">
+                        <td>{{booking.bookingId}}</td>
+                        <td>{{booking.bookedTime}}</td>
+                        <td>{{booking.title}},{{booking.locationName}}</td>
+                        <td class="hideTableData">{{booking.address}},{{booking.cityName}}</td>
+                        <td class="hideTableData">{{booking.bookedFrom}} to {{booking.bookedTo}}</td>
+                        <td class="hideTableData">{{booking.totalPrice}}</td>
+                        <td class="hideTableData"><button class="confirmButton">{{booking.status}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination *ngIf="totalPaginationTabsUpcoming>0" [totalPaginationTabs]="totalPaginationTabsUpcoming" (displayPage_Output)="facilityByPaginationUpcoming($event)" [currentPage]="currentPageUpcoming"></pagination>
+        </div>
+        <div class="historyContainer" *ngIf="forHistoryContainer">
+            <p *ngIf="bookingHistoryArray.length==0">No bookings history.</p>
+            <p *ngIf="errorMsz!=''">{{errorMsz}}</p>
+            <table *ngIf="bookingHistoryArray.length>0">
+                <thead>
+                    <tr>
+                        <th style="width:20px;">Booking Id</th>
+                        <th>Date of Booking</th>
+                        <th>Venue</th>
+                        <th class="hideTableData">Area</th>
+                        <th class="hideTableData" style="width:180px;">Booking Period</th>
+                        <th class="hideTableData">Booking Amount</th>
+                        <th class="hideTableData">Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="getUpcomingBookingDetailId(bookinghistory,'history')" *ngFor=" let bookinghistory of bookingHistoryArray">
+                        <td>{{bookinghistory.bookingId}}</td>
+                        <td>{{bookinghistory.bookedTime}}</td>
+                        <td>{{bookinghistory.title}},{{bookinghistory.locationName}}</td>
+                        <td class="hideTableData">{{bookinghistory.address}},{{bookinghistory.landmark}}</td>
+                        <td class="hideTableData">{{bookinghistory.bookedFrom}} to {{bookinghistory.bookedTo}}</td>
+                        <td class="hideTableData">{{bookinghistory.totalPrice}}</td>
+                        <td class="hideTableData"><i class="fa fa-comments-o chat" aria-hidden="true"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination *ngIf="totalPaginationTabsHistory>0" [totalPaginationTabs]="totalPaginationTabsHistory" (displayPage_Output)="facilityByPaginationHistory($event)" [currentPage]="currentPageHistory"></pagination>
+        </div>
+        <div class="canceldataContainer" *ngIf="forCancelContainer">
+            <p *ngIf="cancelledBookingsArray.length==0">No cancelled bookings.</p>
+            <table *ngIf="cancelledBookingsArray.length>0">
+                <thead>
+                    <tr>
+                        <th style="width:20px;">Booking Id</th>
+                        <th>Date of Booking</th>
+                        <th>Venue</th>
+                        <th class="hideTableData">Area</th>
+                        <th class="hideTableData" style="width:180px;">Booking Period</th>
+                        <th class="hideTableData">Booking Amount</th>
+                        <th class="hideTableData">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="getUpcomingBookingDetailId(canceldetail,'cancellation')" *ngFor="let canceldetail of cancelledBookingsArray">
+                        <td>{{canceldetail.bookingId}}</td>
+                        <td>{{canceldetail.bookedTime}}</td>
+                        <td>{{canceldetail.title}},{{canceldetail.locationName}}</td>
+                        <td class="hideTableData">{{canceldetail.localityName}}, {{canceldetail.cityName}}</td>
+                        <td class="hideTableData">{{canceldetail.bookedFrom}} to {{canceldetail.bookedTo}}</td>
+                        <td class="hideTableData">{{canceldetail.totalPrice}}</td>
+                        <td class="hideTableData"><button class="refund">{{canceldetail.status}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination *ngIf="totalPaginationTabsCancelled>0" [totalPaginationTabs]="totalPaginationTabsCancelled" (displayPage_Output)="facilityByPaginationCancelled($event)" [currentPage]="currentPageCancelled"></pagination>
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" (click)="closePopup(0)">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>

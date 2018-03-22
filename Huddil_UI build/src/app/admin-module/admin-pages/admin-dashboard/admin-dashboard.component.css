@@ -1,0 +1,167 @@
+/* admin page common css */
+
+.adminBodyMainContainer {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+.leftColumnContainer {
+    width: 200px;
+    height: 100%;
+}
+
+.rightColumnContainer {
+    width: calc(100% - 200px);
+    height: 100%;
+    background: #fff;
+}
+
+
+/* end common css */
+
+.adminBreadCrum {
+    padding-left: 30px;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.homeBreadCrum {
+    cursor: pointer;
+}
+
+
+/* PAYMENT STATUS START */
+
+.loadingBarContainer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer {
+    padding: 15px;
+    height: 100%;
+}
+
+.headingContianer {
+    width: 100%;
+    height: 40px;
+    background-color: #484848;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading {
+    padding-left: 20px;
+}
+
+.sectionsContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between
+}
+
+.sectionContainer {
+    width: 325px;
+    height: min-content;
+    background-color: white;
+    border: 1px solid darkgray;
+}
+
+.paymentStatusSectionHeaderContainer {
+    background-color: #311B92;
+    width: 100%;
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemContainer {
+    width: 100%;
+    height: 40px;
+    color: darkgray;
+    display: flex;
+    align-items: center;
+}
+
+.itemContainer:not(:last-child) {
+    border-bottom: 1px dotted darkgray;
+}
+
+.paymentStatusMonthYearContainer {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.searchFields {
+    width: 110px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.searchFields:not(:last-child) {
+    margin-right: 10px;
+}
+
+.itemLeftSpan {
+    width: 70%;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.itemRightSpan {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.itemIcon {
+    /* All the icons don't have the same width. So, we have to give it. */
+    width: 15px;
+    margin-right: 10px;
+}
+
+.itemLeftSpan img {
+    padding-right: 10px;
+    width: 25px;
+}
+
+.rupeeIcon {
+    width: 15px!important;
+}
+
+
+/* PAYMENT STATUS END */

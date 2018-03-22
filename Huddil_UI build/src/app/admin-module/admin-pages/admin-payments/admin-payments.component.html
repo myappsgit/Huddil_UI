@@ -1,0 +1,210 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Payments</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+            <div class="searchBoxContainer adminBoxShadow">
+                <form [formGroup]="form">
+                    <select class="month" formControlName="month" id="select_month">
+                        <option [disabled]="true" [selected]="true" value="">Select Month *</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select class="year" formControlName="year" id="select_year">
+                        <option [disabled]="true" [selected]="true" value="">Select Year *</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+
+                    </select>
+                    <select class="location" formControlName="locationName" id="select_city">
+                        <!-- <option [disabled]="true" value="">Select City</option> -->
+                        <option [selected]="true" value="0">All Cities</option>
+                        <option *ngFor="let city of cityArray" value="{{city.name}}">{{city.name}}</option>
+                    </select>
+
+                    <input type="text" id="input_spName" placeholder="Service Provider" class="spInputField" formControlName="serviceProviderSearchText" />
+
+                    <button class="searchButton adminButton" (click)="searchSpPaymentDetails()" id="button_search">
+                        <i class="fa fa-search searchField" aria-hidden="true"></i>
+                   
+                    </button>
+                    <div class="paymentErrorContainer" *ngIf="showPaymentErrorMessage">
+                        {{errorMessage}}
+                    </div>
+                </form>
+            </div>
+
+            <div class="noDataMessageContainer" *ngIf="showNoDataMessageContainer">
+                No data for the search.
+            </div>
+
+
+            <div class="adminStatusContainers adminBoxShadow" *ngIf="showPaymentStatus">
+                <div class="contentContainer">
+
+                    <div class="headingContianer">
+                        <label class="heading">Payment Status</label>
+
+                    </div>
+                    <div class="sectionsContainer">
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Payment
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/online payment.svg" />Online Payment</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.online}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/offline payment.svg" />Offline Payment</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.offline}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/offline payment.svg" />Cancellation Charge</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.onlineCancelCharge}}</span>
+                            </div>
+                        </div>
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Refund
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/online refund.svg" />Online Refund</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.onlineRefund}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/offline cancelled.svg" />Offline Cancellation</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.offlineRefund}}</span>
+                            </div>
+                        </div>
+                        <div class="sectionContainer">
+                            <div class="paymentStatusSectionHeaderContainer">
+                                Charges
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/huddil commission.svg" />Huddil Commission</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.commission}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img src="assets/icons/admin-icons/transaction charge.svg" />Transaction Charges</span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.transcationCharge}}</span>
+                            </div>
+                            <div class="itemContainer">
+                                <span class="itemLeftSpan">
+                                    <img class="rupeeIcon" src="assets/icons/admin-icons/settlement.svg" />Settlement
+                                    <label class="smallText">(SP)</label>
+                                </span>
+                                <span class="itemRightSpan">{{paymentStatusDetails.settlement}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="paymentInTableForm" *ngIf="showSPListTable">
+                <table>
+                    <tr>
+                        <th rowspan="2">SP Name</th>
+                        <th colspan="3" class="online">Online</th>
+                        <th colspan="2" class="offline">Offline</th>
+                        <th rowspan="2">Transaction Charges</th>
+                        <th rowspan="2">Huddil Commission</th>
+                        <th rowspan="2">Settlement Amount</th>
+                    </tr>
+                    <tr>
+                        <th class="common">Payment</th>
+                        <th class="common">Refund</th>
+                        <th class="common">Penality</th>
+                        <th class="common">Payment</th>
+                        <th class="common">Cancelled</th>
+                    </tr>
+
+
+                    <tr class="spNameDetails" *ngFor="let spPaymentDetails of paymentDetailsForAllSPsMathcingSearchText" (click)="getSPDetails(spPaymentDetails.userId, spPaymentDetails.dName)">
+                        <td>{{spPaymentDetails.dName}}</td>
+                        <td>{{spPaymentDetails.online}}</td>
+                        <td>{{spPaymentDetails.onlineRefund}}</td>
+                        <td>{{spPaymentDetails.onlineCancelCharge}}</td>
+                        <td>{{spPaymentDetails.offline}}</td>
+                        <td>{{spPaymentDetails.offlineRefund}}</td>
+                        <td>{{spPaymentDetails.transcationCharge}}</td>
+                        <td>{{spPaymentDetails.commission}}</td>
+                        <td>{{spPaymentDetails.settlement}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="spPaymentDetailsTitleAndTable" *ngIf="showSPDetailsTable">
+                <div class="serviceProviderPaymentDetailsTableTitle">
+                    <p>{{tableHeadingText}}</p>
+                    <button class="backButton adminButton" (click)="goToPreviousPage()" id="button_back">Back</button>
+                </div>
+
+                <div class="paymentDetailsTableForm">
+                    <table>
+                        <tr>
+                            <th rowspan="2">Building Name</th>
+                            <th rowspan="2">Facility Name</th>
+                            <th colspan="3" class="online">Online </th>
+                            <th colspan="2" class="offline">Offline </th>
+                            <th rowspan="2">Transcation Charges(%)</th>
+                            <th rowspan="2">Huddil Commission</th>
+                            <th rowspan="2">Settlement Amount</th>
+
+                        </tr>
+                        <tr>
+                            <th class="common">Payment</th>
+                            <th class="common">Refund</th>
+                            <th class="common">Penality</th>
+                            <th class="common">Payment</th>
+                            <th class="common">Cancelled</th>
+                        </tr>
+
+
+                        <tr *ngFor="let spPaymentDetails of paymentDetailsForOneSP">
+                            <td>{{spPaymentDetails.lName}}</td>
+                            <td>{{spPaymentDetails.fName}}</td>
+                            <td>{{spPaymentDetails.online}}</td>
+                            <td>{{spPaymentDetails.onlineRefund}}</td>
+                            <td>{{spPaymentDetails.onlineCancelCharge}}</td>
+                            <td>{{spPaymentDetails.offline}}</td>
+                            <td>{{spPaymentDetails.offlineRefund}}</td>
+                            <td>{{spPaymentDetails.transcationCharge}}</td>
+                            <td>{{spPaymentDetails.commission}}</td>
+                            <td>{{spPaymentDetails.settlement}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<admin-footer></admin-footer>
+<admin-popup-component></admin-popup-component>

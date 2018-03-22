@@ -1,0 +1,55 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.pageCount.active {
+    background: #6A96FF;
+    border: 1px solid #6A96FF;
+    color: #fff
+}
+
+.pageCount {
+    background: #eee;
+    height: 30px;
+    width: 30px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationContainer .material-icons {
+    color: #aaa;
+    font-size: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationContainer .material-icons.disabled {
+    color: #eaeaea;
+    cursor: no-drop;
+}
+
+.rightIcon {
+    font-size: 43px;
+    color: #eeeeee;
+    padding-left: 10px;
+}
+
+.leftIcon {
+    font-size: 43px;
+    color: #eeeeee;
+    padding-right: 10px;
+}
+
+.pageCount:hover {
+    background-color: lightblue;
+}

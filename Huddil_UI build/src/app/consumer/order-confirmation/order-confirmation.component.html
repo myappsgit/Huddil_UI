@@ -1,0 +1,80 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+
+        <li [routerLink]="['']">Home</li>
+        <span>&rarr;</span>
+        <li (click)="goToFacilityDetailsPage();">Facility Details</li>
+        <span>&rarr;</span>
+
+        <li>Confirmation</li>
+    </ul>
+</div>
+<div class="bookingSummaryContainer">
+    <div class="bookingSummaryTitleContainer">
+        <p>Booking Confirmation</p>
+    </div>
+    <div class="circle-content">
+        <div class="individualCircleContainer">
+            <button class="activeCircle" id="button_step1">1</button>
+            <p></p>
+            <button class="activeCircle" id="button_step2">2</button>
+            <p></p>
+            <button class="activeCircle" id="button_step3">3</button>
+        </div>
+        <div class="circleHeadingContainer">
+            <p class="step">SUMMARY</p>
+            <p class="step1">PAYMENT</p>
+            <p class="step3">CONFIRM</p>
+        </div>
+    </div>
+    <div class="orderConfirmation" *ngIf="bookingDetails!=null">
+        <img src="assets/icons/booking.svg">
+        <p class="confirmationTitleContainer">Your {{bookingDetails.typeName}} has been booked</p>
+        <p class="paymentTitleContainer">Booking Id:{{bookingDetails.bookingId}}</p>
+        <p class="recievedPaymentTitleContainer"><span *ngIf="paymentMethod=='online'">We recieved your payment and </span>For view & more details <a routerLink="/consumer/my-bookings">My Booking</a> link</p>
+        <div class="addDetailsButtonContainer"><i class="material-icons">people_outline</i><button class="buttonAddMeetingRoom" (click)="showMeetingDetailsContainer()">Add Meeting Details</button></div>
+    </div>
+    <div class="addMeetingRoomContainer" *ngIf="isShowMeetingDetailsContainer">
+        <div class="titleMeetingRoomDetailsContainer">Meeting Details</div>
+        <form class="meetingRoomDetailsContainer" [formGroup]="form" (ngSubmit)="createMeeting();">
+            <input formControlName="title" class="inputFields" id="input_meetingAgenda" type="text" placeholder="Meeting Title/Agenda*">
+            <textarea formControlName="description" id="textArea_description" type="text" class="descriptionFields" placeholder="Meeting Description"></textarea>
+            <input disbaled [value]="bookingDetails.name+', '+bookingDetails.address" formControlName="location" class="inputFields" type="text" placeholder="Meeting Location" id="input_location">
+            <select class="selectField" formControlName="team" id="select_team">
+                  <option [selected]="true" disabled = "true">Select a team*</option>
+                  <option value="{{team.id}}" *ngFor="let team of teamArray">{{team.name}}</option>
+                  </select>
+            <div class="buttonContainer" *ngIf="isErrorInCreateMeeting">
+                <p class="hintError">Enter required field </p>
+            </div>
+            <!--<div class="addTeamLink">
+                <a style="font-size:12px;" routerLink="/consumer/add-team"> Add Team
+                </a>
+    </div>-->
+            <div class="buttonContainer">
+                <button type="button" class="cancelButton" (click)="showMeetingDetailsContainer()" id="button_cancel">Cancel</button>
+                <span></span>
+                <button [hidden]="meetingCreateprocessStart" class="savebutton" type="submit" id="button_save">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup(0)" id="button_ok_sessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" id="button_ok_sessionExpired" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

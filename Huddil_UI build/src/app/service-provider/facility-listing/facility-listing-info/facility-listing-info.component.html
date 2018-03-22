@@ -1,0 +1,90 @@
+<div class="facilityThumbnail" (click)="showFacilityDetail()">
+    <img class="imgMeetingRoom" src="data:image/png;base64,{{facilityInfo.thumbnail}}">
+    <div class="iconOnThumbnmail">
+        <span>{{facilityStatus}}</span>
+        <!--<img *ngIf="facilityInfo.status==8 || facilityInfo.status==10 || facilityInfo.status==12 || facilityInfo.status==14" src="assets/certified.svg">-->
+        <img *ngIf="facilityInfo.status==7" src="assets/icons/facility-icons/approve1.svg">
+        <img *ngIf="facilityInfo.status==8" src="assets/icons/facility-icons/approve.svg">
+        <img *ngIf="facilityInfo.status==5" src="assets/icons/facility-icons/request.svg">
+        <img *ngIf="facilityInfo.status==3 || facilityInfo.status==4 || facilityInfo.status==6" src="assets/icons/facility-icons/rejected.svg">
+        <img *ngIf="facilityInfo.status==1 || facilityInfo.status==2" style="height: 18px;" src="assets/icons/facility-icons/pending.svg">
+        <img *ngIf="facilityInfo.status==9 || facilityInfo.status==10" src="assets/icons/facility-icons/stopped.svg">
+        <img *ngIf="facilityInfo.status==11 ||facilityInfo.status==12 || facilityInfo.status==13 || facilityInfo.status==14" src="assets/icons/facility-icons/blocked.svg">
+    </div>
+    <div class="facilityTitleContainer">
+        <span class="titleHeading">{{facilityInfo.title}}</span>
+        <span class="titleHeading">{{facilityInfo.typeName}}</span>
+    </div>
+</div>
+
+<div class="secondChildDivision">
+    <div class="facilityLocationContainer">
+        <div class="facilityLocationHeadingContainer">
+            <h3>{{ (facilityInfo.locationName.length>20)? (facilityInfo.locationName | slice:0:20)+'..':(facilityInfo.locationName)}}</h3>
+
+        </div>
+        <div class="ratingContainer">
+            <span><i class="fa fa-map-marker" style="padding-right: 5px;"></i>{{facilityInfo.locality}}, {{facilityInfo.city}}</span>
+            <rating [ratingValue]="facilityInfo.averageRating"></rating>
+        </div>
+        <!--<div class="headingStausContainer">
+            <i *ngIf="this.facilityInfo.status==7" class="fa fa-check-circle-o facilityApprovedColor"></i>
+            <i *ngIf="this.facilityInfo.status==11" class="fa fa-ban facilityNotApprovedColor"></i>
+
+        </div>-->
+    </div>
+    <div class="headingPerMonthDivision">
+        <p><select (change)="changeFacilityPrice($event)" id="select_price">
+            <option [value]="facilityInfo.costPerHour" *ngIf="facilityInfo.costPerHour>0 && facilityInfo.typeName!='Co-Working Space'">Per Hour</option>
+          <option [value]="facilityInfo.costPerDay" *ngIf="facilityInfo.costPerDay>0">Per Day</option>
+          <option [value]="facilityInfo.costPerMonth" *ngIf="facilityInfo.costPerMonth>0">Per Month</option>
+            </select></p>
+        <p><i class="fa fa-inr" aria-hidden="true"></i>{{priceText}}</p>
+
+    </div>
+    <div class="headingCapacityDivision">
+        <p (click)="showCalendar();" class="dateCalendar handCursor">
+            <i class="fa fa-calendar" aria-hidden="true"></i> Scheduler
+        </p>
+        <p class="dateCalendar"><img src="../../assets/icons/seat.svg">{{facilityInfo.capacity}} seats</p>
+        <p class="dateCalendar"><img src="../../assets/icons/area.svg">{{facilityInfo.size}} Sq ft</p>
+
+    </div>
+    <!--<div class="facilityIconsContainer">
+        <img src="../../assets/icons/amenties/{{amenity}}.svg" *ngFor="let amenity of listOfAmenities" />
+        <p class="textMore" (click)="showTooltip()"> + 1 more</p>
+    </div>
+    <div class="tooltip" [hidden]="!istoolTip">
+        <div class="facilityIconsContainer">
+            <img src="../../assets/icons/amenties/{{amenity}}.svg" *ngFor="let amenity of listOfAmenities" />
+
+        </div>
+    </div>-->
+    <!--<div class="facilityIconsContainer">
+
+        <img title="{{amenity.name}}" src="../../assets/icons/amenties/{{amenity.id}}.svg" *ngFor="let amenity of listOfAmenitiesWithdesc | slice:0:4; let item=item;" />
+
+        <p *ngIf="listOfAmenities.length>5" class="textMore" (click)="showTooltip()"> + 1 more</p>
+    </div>
+    <div class="tooltip" [hidden]="!istoolTip">
+        <div class="facilityIconsContainer">
+            <img title="{{amenity.name}}" src="../../assets/icons/amenties/{{amenity.id}}.svg" *ngFor="let amenity of listOfAmenitiesWithdesc | slice:5:10; let item=item;" />
+
+        </div>
+    </div>-->
+    <div class="facilityIconsContainer">
+        <div class="svgImg" [innerHtml]=amenity.icon *ngFor="let amenity of listOfAmenitiesWithdesc | slice:0:4; let item=item;"></div>
+        <!--<img title="{{amenity.name}}" src="../../assets/icons/amenties/{{amenity.id}}.svg" *ngFor="let amenity of listOfAmenitiesWithdesc | slice:0:4; let item=item;" />-->
+
+        <p *ngIf="listOfAmenities.length>5" class="textMore" (click)="showTooltip()">more</p>
+    </div>
+    <div class="tooltip" [hidden]="!istoolTip">
+        <div class="facilityIconsContainer">
+            <div class="svgImg" [innerHtml]=amenity.icon *ngFor="let amenity of listOfAmenitiesWithdesc | slice:4:20; let item=item;"></div>
+
+            <!--<img title="{{amenity.name}}" src="../../assets/icons/amenties/{{amenity.id}}.svg" *ngFor="let amenity of listOfAmenitiesWithdesc | slice:5:10; let item=item;" />-->
+
+        </div>
+    </div>
+
+</div>

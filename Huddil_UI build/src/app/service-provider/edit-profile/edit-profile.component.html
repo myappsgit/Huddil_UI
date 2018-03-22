@@ -1,0 +1,98 @@
+<service-provider-header></service-provider-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <sidebar></sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+            <ul>
+                <li [routerLink]="['']">Home</li>
+                <span>&rarr;</span>
+                <li>Edit Profile</li>
+            </ul>
+            <!--<a (click)="showAddIpBox();">Add Endpoints</a>-->
+        </div>
+        <div class="editProfileMainPage">
+
+            <div class="editProfileContainer" *ngIf="isUserDetailsReady">
+                <form [formGroup]="editProfileForm" (ngSubmit)="updateUserProfile()">
+                    <div class="editProfileHeadingContainer">
+                        <p>Edit Profile</p>
+                    </div>
+                    <p class="heading">Please make sure all account details are accurate and complete. They will appear on booking workspace from your puchases. Fraudulent accounts will be closed down.</p>
+                    <div class="editProfileFieldContainer">
+                        <!--Owner Name-->
+                        <div class="inputFieldcontainer">
+                            <div style="position:relative;">
+                                <input minlength="3" maxlength="45" type="text" id="name" formControlName="name" placeholder="Name">
+                                <p class="hintError" *ngIf="nameErrorMsg!=''">{{nameErrorMsg}}</p>
+                                <div *ngIf="editProfileForm.controls.name.errors">
+                                    <p class="hintError" *ngIf="editProfileForm.controls.name.errors.pattern">Only alphabets and space are allowed</p>
+                                    <p class="hintError" *ngIf="editProfileForm.controls.name.errors.maxlength && !editProfileForm.controls.name.errors.pattern">Name must be maximum 45 characters long</p>
+                                    <p class="hintError" *ngIf="editProfileForm.controls.name.errors.minlength && !editProfileForm.controls.name.errors.pattern">Name must be minimum 3 characters long</p>
+
+                                </div>
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <button id="button_update" class="consumerModuleButtons editProfileButtons" type="button" (click)="updateUserProfile()">Update</button>
+                        </div>
+                        <!--Email Id-->
+                        <div class="inputFieldcontainer">
+                            <div style="position:relative;">
+                                <input type="text" placeholder="E-mail" disabled="disabled" formControlName="email" id="input_email">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <button id="button_change" class="consumerModuleButtons editProfileButtons" type="button" (click)="showchangeEmailPopUp()">Change</button>
+                        </div>
+                        <!--Mobile Number-->
+                        <div class="inputFieldcontainer">
+                            <div style="position:relative;">
+                                <input maxlength="10" (keypress)="onlyNumberKey($event)" type="text" id="mobile" formControlName="mobileNumber" placeholder="Mobile">
+                                <p class="hintError" *ngIf="mobileErrorMsz!=''">{{mobileErrorMsz}}</p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                            </div>
+                            <input style="width: 100px;margin-left: 10px;" *ngIf="isOTPFieldContainer" maxlength="6" (keypress)="onlyNumberKey($event)" type="text" id="mobileOtp" placeholder="OTP">
+                            <button id="button_submit" [disabled]="updatingMobileNumber" *ngIf="isOTPFieldContainer" class="consumerModuleButtons editProfileButtons" type="button" (click)="verifyMobileNumberThroughOTP()">Submit</button>
+                            <button id="button_verify" [disabled]="isLoading" *ngIf="(!isMobileVerfied || mobileNumberChanged)&& !isOTPFieldContainer" class="consumerModuleButtons editProfileButtons" type="button" (click)="sendOTP()">Verify</button>
+                        </div>
+                        <p class="hintError" *ngIf="errorMsg!=''">{{errorMsg}}</p>
+                    </div>
+                </form>
+            </div>
+            <div class="confirmAlert" *ngIf="isChangeEmailPopup">
+                <div class="mszbox">
+                    <div class="closeIconDiv">
+                        <img class="closeIcon" src="assets/icons/close.svg" (click)="closePopUp()">
+                        <!-- <i id="close" class="fa fa-times" aria-hidden="true" (click)="closePopUp()"></i> -->
+                    </div>
+                    <h2>How do I change my Email ID?</h2>
+                    <p>Email ID can only be changed by support. If you wish to change your email id, please contact support and state the reason why you want to change your email id, your current email id and your first name and last name. Please also include
+                        three choices for a new email id, listing your highest preference first.</p>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+            <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup" style="padding:0px;">
+                <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+                    <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+                    <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+                </div>
+                <div class="popup-body">
+                    {{this.meetupService.popupMessage}}
+                </div>
+                <div class="popup-footer">
+                    <button class="consumerModuleButtons" id="button_ok_sessionNotExpired" (click)="closePopup(0)">OK</button>
+                    <button class="consumerModuleButtons" id="button_ok_sessionExpired" *ngIf="isSessionExpired" (click)="closePopup(1)">OK</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<service-provider-footer></service-provider-footer>

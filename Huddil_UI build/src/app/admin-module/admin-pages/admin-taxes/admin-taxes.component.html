@@ -1,0 +1,31 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span>
+                <li>Taxes</li>
+            </ul>
+        </div>
+        <div class="adminPageContainer">
+            <div class="updateGstContainer adminBoxShadow">
+                <div class="taxTitleConatiner">
+                    <p>
+                        <strong>Update GST</strong>
+                    </p>
+                </div>
+                <div class="taxFieldsContainer">
+                    <form class="taxFieldsContainerForm">
+                        <input type="text" placeholder="CGST" class="cGstField">
+                        <input type="text" placeholder="SGST" class="sGstField">
+                        <input type="text" placeholder="IGST" class="iGstField">
+                        <button class="adminButton updateTaxButton" (click)="updateGST()">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<admin-footer></admin-footer>

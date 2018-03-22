@@ -1,0 +1,183 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+            <ul>
+
+                <li>Booking Details Dashboard</li>
+            </ul>
+        </div>
+        <div class="service-provider-page booking-history-container">
+            <div class="serviceProviderHeadingContainer">
+                <div>
+                    <p class="heading">Bookings</p>
+                </div>
+                <div class="seachFilterContainer">
+                    <form class="searchBox" [formGroup]="searchBookingIdForm" (ngSubmit)="searchFacilitiesByFilters(1)">
+                        <i class="fa fa-search searchIcon" aria-hidden="true"></i>
+                        <input type="text" id="search_input" placeholder="Enter consumer e-mailId" formControlName="searchTitle">
+                        <button type="button" class="filterFindButton  advisorModuleButtons" id="fliter_button" [class.activeColor]="isShowFilterBox" (click)="showExtraFilterBox()">
+                             <img src="../../assets/icons/filter_icon.svg"></button>
+
+                        <button class="filterFindButton  advisorModuleButtons" id="search_button" type="submit">
+                            <i class="material-icons">search</i></button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="spDetailsFilterContainer extraFilterBox" [class.openFilterHeight]="isShowFilterBox">
+                <form [formGroup]="form">
+                    <!--<div class="indvidualFilterContainer">
+                        <i class="material-icons iconDsegin">supervisor_account</i>
+
+                        <select formControlName="selectFacility" id="select_facilityType">
+                            
+                         <option selected = "true" disabled = "true"  value="">Facilty Type</option>
+                         <option value="0">All</option>
+                         <option [value]="facilityName.id" *ngFor="let facilityName of this.meetupService.listOfFacilityType">{{facilityName.name}}</option>
+                     </select>
+                    </div>
+                    <div class="indvidualFilterContainer">
+                        <i _ngcontent-c10="" class="material-icons iconContainer iconDsegin">location_city</i>
+
+                        <select formControlName="selectCity" id="select_city" (change)="getlocalityDataBasedOnSelectedCity()">
+                            <option selected = "true" disabled = "true"  value = "">City</option>
+                            <option *ngFor="let cityName of this.meetupService.listOfCities" value={{cityName.id}}>{{cityName.name}}</option>
+                        </select>
+                    </div>
+                    <div class="indvidualFilterContainer">
+                        <i class="fa fa-map-marker iconDsegin"></i>
+                        <select formControlName="selectLocality" id="select_Locality">
+                           <option selected = "true" disabled = "true"  value = "">Locality</option>
+                           <option [value]="localitiesName.id" *ngFor="let localitiesName of listOfLocalities">{{localitiesName.name}}</option>
+                        </select>
+                    </div>
+-->
+                    <huddil-dropdown-component id="select_facilityType" [huddilDropdownData]="this.meetupService.listOfFacilityType" formControlName="selectFacility" [huddilDropdownOptions]="huddilDropdownOptionsForFacilityType" [(ngModel)]="selectFacility"></huddil-dropdown-component>
+                    <huddil-dropdown-component id="select_city" [huddilDropdownData]="this.meetupService.listOfCities" formControlName="selectCity" [huddilDropdownOptions]="huddilDropdownOptionsForCity" [(ngModel)]="selectCity"></huddil-dropdown-component>
+                    <huddil-dropdown-component id="select_locality" [huddilDropdownData]="listOfLocalities" formControlName="selectLocality" [huddilDropdownOptions]="huddilDropdownOptionsForLocality" [(ngModel)]="selectLocality"></huddil-dropdown-component>
+                    <!--<div class="indvidualFilterContainer">
+                        <i class="fa fa-book iconDsegin"></i>
+                        <select formControlName="month" id="select_month">
+                        <option selected = "true" disabled = "true"  value="">Month</option>
+                        <option value="1"> January</option>
+                        <option value="2" >February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">june</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    </div>-->
+                    <!--<div class="indvidualFilterContainer">
+                        <i class="material-icons iconDsegin">description</i>
+                        <select formControlName="status" id="select_bookingStatus">
+                            
+                        <option selected = "true" disabled = "true"  value = "">Booking Status</option>
+                        <option value="0">All</option>
+                        <option [value]="1">Pending</option>
+                        <option [value]="2">Cancelled</option>
+                        <option [value]="3">Confirmed</option>
+                         <option [value]="4">Denied</option>
+                            <option [value]="5">Completed</option>
+                    </select>
+                    </div>-->
+                    <huddil-dropdown-component id="select_bookingStatus" [huddilDropdownData]="statusOptions" formControlName="status" [huddilDropdownOptions]="huddilDropdownOptionsForStatusOptions" [(ngModel)]="status"></huddil-dropdown-component>
+                </form>
+            </div>
+            <div class="noRecordFoundContainer" *ngIf="isNoRecordFound">
+                <h4>No record found</h4>
+            </div>
+            <div class="noRecordFoundContainer" *ngIf="errorMessage !=''">
+                <h4>{{errorMessage}}</h4>
+            </div>
+            <div class="loader loadingContainer" *ngIf="showLoader">
+                <img src="././assets/loading.gif">
+            </div>
+            <div class="tableDiv" *ngIf="isBookingDetails">
+                <table>
+                    <thead>
+                        <tr class="tableTitle">
+                            <th>Booking Id </th>
+                            <th>Facility Name</th>
+                            <th>Building Name </th>
+                            <!--<th>Consumer Name</th>-->
+                            <th>Date of booking </th>
+                            <th>Duration </th>
+                            <th>Amount</th>
+                            <th>Payment Mode </th>
+                            <th>Booked Status </th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngIf="ifCancelledBookings">
+                        <tr *ngFor="let facility of facilitiesList" (click)="showBookingDetails(facility.bookingId,2)">
+                            <td class="bookingIdSection">{{facility.bookingId}}</td>
+                            <td class="bookingTitleSection">{{facility.title}}</td>
+                            <td class="bookingNameSection">{{facility.name}}</td>
+                            <!--<td>{{facility.displayName}}</td>-->
+                            <td class="bookingTimeSection">{{facility.bookedTime | date:'dd/MM/yy HH:mm'}}</td>
+                            <td class="bookingDurationSection">{{facility.bookedFrom | date:'dd/MM/yy HH:mm'}} - {{facility.bookedTo | date:'dd/MM/yy HH:mm'}}</td>
+                            <td class="bookingTotalPriceSection">{{facility.totalPrice}}</td>
+                            <td class="bookingPaymentMethodSection">{{facility.paymentMethod}}</td>
+                            <td class="bookingStatusSection" *ngIf="!ifCancelledBookings">{{displayStatus(facility.status)}}</td>
+                            <td *ngIf="ifCancelledBookings">Cancelled</td>
+
+                            <!--<td><i class="fa fa-eye"></i></td>-->
+                        </tr>
+
+
+                    </tbody>
+                    <tbody *ngIf="!ifCancelledBookings">
+                        <tr *ngFor="let facility of facilitiesList" (click)="showBookingDetails(facility.bookingId,facility.status)">
+                            <td class="bookingIdSection">{{facility.bookingId}}</td>
+                            <td class="bookingTitleSection">{{facility.title}}</td>
+                            <td class="bookingNameSection">{{facility.name}}</td>
+                            <!--<td>{{booking.displayName}}</td>-->
+                            <td class="bookingTimeSection">{{facility.bookedTime | date:'dd/MM/yy HH:mm'}}</td>
+                            <td class="bookingDurationSection">{{facility.bookedFrom | date:'dd/MM/yy HH:mm'}} - {{facility.bookedTo | date:'dd/MM/yy HH:mm'}}</td>
+                            <td class="bookingTotalPriceSection">{{facility.totalPrice}}</td>
+                            <td class="bookingPaymentMethodSection">{{facility.paymentMethod}}</td>
+                            <td class="bookingStatusSection" *ngIf="!ifCancelledBookings">{{displayStatus(facility.status)}}</td>
+                            <td *ngIf="ifCancelledBookings">Cancelled</td>
+
+                            <!--<td><i class="fa fa-eye"></i></td>-->
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <pagination class="pagination-component" *ngIf="totalPaginationTabs>0" [totalPaginationTabs]="totalPaginationTabs" (displayPage_Output)="facilityByPagination($event)" [currentPage]="currentPage"></pagination>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" id="button_ok_sessionNotExpired" (click)="closePopup(0)">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" id="button_ok_sessionExpired" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

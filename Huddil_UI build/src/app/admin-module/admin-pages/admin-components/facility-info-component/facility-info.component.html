@@ -1,0 +1,87 @@
+<div class="parentContainer">
+    <div class="facilityThumbnail" (click)="showFacilityDetail(facilityTypeData.id)">
+        <img class="imgMeetingRoom" src="data:image/png;base64,{{facilityTypeData.thumbnail}}">
+        <!--<div class="iconOnThumbnmail">
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+        </div>-->
+        <!--<div class="iconOnThumbnmail">
+            <span>{{facilityTypeData.typeName}}</span>
+           <button class="booknowbtn">Book Now</button>
+            <img class="certifiedIcon" src="../../assets/certified.svg" *ngIf="forCertifiedIcon" />
+        </div>-->
+        <div class="iconOnThumbnmail">
+            <span>{{facilityStatus}}</span>
+            <!--<img *ngIf="facilityInfo.status==8 || facilityInfo.status==10 || facilityInfo.status==12 || facilityInfo.status==14" src="assets/certified.svg">-->
+            <img *ngIf="facilityTypeData.status==7" src="assets/icons/facility-icons/approve1.svg">
+            <img *ngIf="facilityTypeData.status==8" src="assets/icons/facility-icons/approve.svg">
+            <img *ngIf="facilityTypeData.status==5" src="assets/icons/facility-icons/request.svg">
+            <img *ngIf="facilityTypeData.status==3 || facilityTypeData.status==4 || facilityTypeData.status==6" src="assets/icons/facility-icons/rejected.svg">
+            <img *ngIf="facilityTypeData.status==1 || facilityTypeData.status==2" style="height: 18px;" src="assets/icons/facility-icons/pending.svg">
+            <img *ngIf="facilityTypeData.status==9 || facilityTypeData.status==10" src="assets/icons/facility-icons/stopped.svg">
+            <img *ngIf="facilityTypeData.status==11 ||facilityTypeData.status==12 || facilityTypeData.status==13 || facilityTypeData.status==14" src="assets/icons/facility-icons/blocked.svg">
+        </div>
+        <div class="facilityTitleContainer">
+            <span class="titleHeading">{{facilityTypeData.title}}</span>
+            <span class="titleHeading">{{facilityTypeData.typeName}}</span>
+        </div>
+    </div>
+    <div class="facilityDetailsContainer">
+        <div class="facilityLocationContainer">
+            <div class="facilityLocationHeadingContainer">
+                <h3>{{ (facilityTypeData.locationName.length>20)? (facilityTypeData.locationName | slice:0:20)+'..':(facilityTypeData.locationName)}}</h3>
+
+
+            </div>
+            <div class="ratingContainer">
+                <span>
+                    <i class="fa fa-map-marker" style = "padding-right: 5px;"></i>{{facilityTypeData.locality}},{{facilityTypeData.city}}</span>
+                <rating-component [ratingValue]="facilityTypeData.averageRating"></rating-component>
+            </div>
+        </div>
+        <div class="facilityPriceContainer">
+            <p>
+                <select (change)="changeFacilityPrice($event)" id="select_cost">
+                    <option [value]="facilityTypeData.costPerHour" *ngIf="facilityTypeData.costPerHour>0 && facilityTypeData.typeName!='Co-Working Space'">Per Hour</option>
+                    <option [value]="facilityTypeData.costPerDay" *ngIf="facilityTypeData.costPerDay>0">Per Day</option>
+                    <option [value]="facilityTypeData.costPerMonth" *ngIf="facilityTypeData.costPerMonth>0">Per Month</option>
+                </select>
+            </p>
+            <p>
+                <i class="fa fa-inr" aria-hidden="true"></i>{{priceText}}</p>
+
+        </div>
+        <div class="facilityCapacityDivision">
+            <p class="dateCalendar cursorPointer" (click)="showCalendar()">
+                <i class="fa fa-calendar" aria-hidden="true"></i>Available Date</p>
+            <p class="dateCalendar"><img src="../../assets/icons/seat.svg">{{facilityTypeData.capacity}} seats</p>
+            <p class="dateCalendar"><img class="areaIcon" src="../../assets/icons/area.svg">{{facilityTypeData.size}} Sq ft</p>
+            <!--        
+            <p class="dateCalendar">
+                <img src="../../assets/icons/seat.svg">{{facilityTypeData.size}} seats</p>-->
+        </div>
+
+
+
+        <!--<div class="facilityCapacityDivision">
+        <p>Capacity Size - {{facilityDetailsInfo.size}} Sqt</p>
+        <p>Guest - {{facilityDetailsInfo.capacity}} seats</p>
+    </div>-->
+        <div class="facilityIconsContainer">
+
+            <!-- <img src="../../assets/icons/amenities/{{amenity}}.svg" *ngFor="let amenity of listOfAmenities | slice:0:4; let item=item;"
+            /> -->
+            <div class="svgImg" [innerHtml]=amenity.icon *ngFor="let amenity of listOfAmenitiesWithdesc | slice:0:4; let item=item;"></div>
+
+            <p *ngIf="listOfAmenities.length>5" class="textMore" (click)="showTooltip()"> + 1 more</p>
+        </div>
+        <div class="tooltip" [hidden]="!istoolTip">
+            <div class="facilityIconsContainer">
+                <!-- <img src="../../assets/icons/amenities/{{amenity}}.svg" *ngFor="let amenity of listOfAmenities | slice:4:10; let item=item;"
+                /> -->
+                <div class="svgImg" [innerHtml]=amenity.icon *ngFor="let amenity of listOfAmenitiesWithdesc | slice:4:20; let item=item;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

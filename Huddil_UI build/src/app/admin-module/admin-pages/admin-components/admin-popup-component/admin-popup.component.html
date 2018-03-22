@@ -1,0 +1,16 @@
+<div *ngIf="this.adminService.isShowPopup" class="confirmAlert">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.adminService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.adminService.isWarningPopup" [class.errorPopup]="this.adminService.isErrorPopup">
+            <h3 *ngIf="this.adminService.isWarningPopup">Alert</h3>
+            <h3 *ngIf="this.adminService.isErrorPopup">Error</h3>
+            <h3 *ngIf="this.adminService.isSuccessPopup">Success</h3>
+        </div>
+        <div class="popup-body">
+            {{this.adminService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!this.adminService.isInvalisSessionPopup" (click)="closePopup()">OK</button>
+            <button class="consumerModuleButtons" *ngIf="this.adminService.isInvalisSessionPopup" (click)="closeSessionInvalidPopup()">OK</button>
+        </div>
+    </div>
+</div>

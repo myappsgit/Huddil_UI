@@ -1,0 +1,122 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']">Home</li>
+        <span>&rarr;</span>
+        <li [routerLink]="['/consumer/attendees-list']">Attendees List</li>
+        <span>&rarr;</span>
+        <li>Add Team</li>
+
+    </ul>
+</div>
+<div class="attendeesListContainer">
+
+    <div class="attendessListHeader">
+        <p>
+        </p>
+    </div>
+
+
+
+    <!-- Adding New Team Container Start -->
+    <div class="listOfAttendeesContainer">
+
+        <div class="attendeesListHeadingContainer">
+            <p>Add New Team</p>
+        </div>
+
+        <div class="attendeesListFieldsContainer">
+
+            <form [formGroup]="attendeesForm">
+                <div class="nameFieldContainer">
+                    <input class="inputField" type="text" placeholder="Team Name*" formControlName="teamName" id="input_teamName">
+                    <div *ngIf="attendeesForm.controls.teamName.touched && attendeesForm.controls.teamName.errors">
+                        <div class="hintError customError" *ngIf="attendeesForm.controls.teamName.errors.maxlength && !attendeesForm.controls.teamName.errors.pattern">Team Name must be maximum 45 characters long</div>
+                        <div class="hintError customError" *ngIf="attendeesForm.controls.teamName.errors.minlength && !attendeesForm.controls.teamName.errors.pattern">Team Name must be minimum 3 characters long</div>
+                        <div class="hintError customError" *ngIf="attendeesForm.controls.teamName.errors.pattern">Only alphabets and numbers and space are allowed</div>
+                        <div class="hintError customError" *ngIf="attendeesForm.controls.teamName.errors.required">Enter Team Name </div>
+                    </div>
+                </div>
+
+                <div class="attendeesListSubFieldsContainer">
+                    <div>
+                        <input maxlength="45" class="attendeesListInputFields" type="text" placeholder="Name*" formControlName="name1" id="input_name1">
+                    </div>
+                    <div>
+                        <input maxlength="10" (keypress)="onlyNumberKey($event)" class="attendeesListInputFields" type="text" placeholder="Mobile" id="input_mobileNo1" formControlName="mobile1">
+
+                    </div>
+                    <div>
+                        <input class="attendeesListInputFields" type="text" placeholder="E-mail" formControlName="email1" id="id_email1">
+                    </div>
+                </div>
+
+
+
+                <div class="attendeesListSubFieldsContainer" *ngFor="let number of numbersArray;">
+
+                    <div>
+                        <input class="attendeesListInputFields" type="text" placeholder="Name*" formControlName="name{{number}}" id="input_name">
+                    </div>
+
+                    <div>
+                        <input maxlength="10" (keypress)="onlyNumberKey($event)" class="attendeesListInputFields" type="text" placeholder="Mobile" id="input_mobileNo" formControlName="mobile{{number}}">
+                    </div>
+
+                    <div>
+                        <input class="attendeesListInputFields" type="text" placeholder="E-mail" formControlName="email{{number}}" id="id_email">
+                    </div>
+
+                    <i class="fa fa-times removeItems" aria-hidden="true" (click)=" removeAttendeesRow(number)"></i>
+                </div>
+                <div class="errorMsg">
+                </div>
+                <div class="addNewAttendeesContainer">
+                    <a (click)="addAttendeesList()">Add New Attendee</a>
+                </div>
+
+                <div class="hintError" *ngIf="showRequiredFiled"><strong>Please fill required fields</strong>
+                </div>
+                <div class="hintError" *ngIf="emailError"><strong>Enter valid email id</strong>
+                </div>
+                <div class="hintError" *ngIf="nameError"><strong>Enter valid name</strong>
+                </div>
+                <div class="hintError" *ngIf="mobileError"><strong>Enter valid mobile number</strong>
+                </div>
+                <p *ngIf="errorMsz!=''">{{errorMsz}}</p>
+                <div class="saveAttendeesButtonsContainer">
+                    <button class="cancelButton" (click)="cancelAttendeesDetails()" id="button_cancel">Cancel</button>
+                    <span></span>
+                    <button class="saveButton" (click)="saveAttendeesDetails()" id="button_save">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="loaderDivision"><img src="././assets/loading.gif" *ngIf="showLoader">
+        </div>
+
+    </div>
+
+
+
+</div>
+<app-footer></app-footer>
+
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" (click)="closePopup(0)" id="button_ok_sessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)" id="button_ok_sessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,268 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #004db7;
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.isTransparent {
+    width: 200px!important;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-between;
+    /*width: 265px;*/
+}
+
+.header-right div {
+    margin-left: 15px;
+}
+
+.fa-user-circle-o {
+    font-size: 17px;
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+.fa-bell {
+    color: #fff;
+}
+
+.loggedInHeader div {
+    border-right: 1px solid #fff;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.loggedInHeader div:last-child {
+    border: none;
+}
+
+.header-right div a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.topMenuRound {
+    border: 1px solid #fff;
+    padding: 3px 18px;
+    cursor: pointer;
+}
+
+.topMenuRound:hover {
+    background: #fff;
+    color: #004DB7!important;
+}
+
+.transparent {
+    background: transparent!important;
+}
+
+.loggedInHeader a {
+    cursor: pointer;
+}
+
+
+/*user Menu starts*/
+
+.userMenuContainer {
+    width: 198px;
+    height: auto;
+    z-index: 99999;
+    position: absolute;
+    right: 3px;
+    top: 70px;
+    border-radius: 17px;
+    background-color: white;
+    border: 1px solid #E1E1E1;
+}
+
+.userMenuFieldsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.userMenuSubFieldsContainer {
+    display: flex;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #e0e0e0;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #959595;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.userMenuFieldsContainer div:last-child {
+    border-bottom-style: none;
+}
+
+.userMenuSubFieldsContainer i {
+    padding-right: 20px;
+}
+
+.userMenuFieldsContainer .userMenuSubFieldsContainer:last-child:hover {
+    background-color: #90caf9;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #ffffff;
+}
+
+.userMenuSubFieldsContainer:hover {
+    background-color: #90caf9;
+    color: #ffffff;
+}
+
+.userMenuFieldsContainer .userMenuSubFieldsContainer:first-child:hover {
+    background-color: #90caf9;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #ffffff;
+}
+
+.userMenuContainer:after,
+.userMenuContainer:before {
+    bottom: 100%;
+    right: 17%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.userMenuContainer:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: white;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    header {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+    .header-right {
+        flex-direction: column;
+    }
+    .loggedInHeader {
+        flex-direction: column-reverse;
+    }
+    .loggedInHeader div,
+    .header-right div {
+        margin-bottom: 10px;
+        border-right: none;
+    }
+    .loggedInHeader div a,
+    .header-right div a {
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .topMenuRound {
+        padding: 3px 8px;
+    }
+    .landingPageSearchBox h2 {
+        font-size: 20px;
+    }
+    .loggedInHeader div {
+        border-right: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .userMenuContainer:after,
+    .userMenuContainer:before {
+        right: 8%;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    header {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+    .header-right {
+        flex-direction: column;
+    }
+    .loggedInHeader {
+        flex-direction: column-reverse;
+    }
+    .loggedInHeader div,
+    .header-right div {
+        margin-bottom: 10px;
+        border-right: none;
+    }
+    .loggedInHeader div a,
+    .header-right div a {
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .topMenuRound {
+        padding: 3px 8px;
+    }
+    .landingPageSearchBox h2 {
+        font-size: 20px;
+    }
+    .huddil-logo {
+        width: 200px
+    }
+    .userMenuContainer:after,
+    .userMenuContainer:before {
+        right: 8%;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:800px) {
+    header {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+    .header-right {
+        flex-direction: column;
+    }
+    .loggedInHeader {
+        flex-direction: column-reverse;
+    }
+    .loggedInHeader div,
+    .header-right div {
+        margin-bottom: 10px;
+        border-right: none;
+    }
+    .loggedInHeader div a,
+    .header-right div a {
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .topMenuRound {
+        padding: 3px 8px;
+    }
+    .landingPageSearchBox h2 {
+        font-size: 20px;
+    }
+    .huddil-logo {
+        width: 245px;
+    }
+    .userMenuContainer:after,
+    .userMenuContainer:before {
+        right: 8%;
+    }
+}

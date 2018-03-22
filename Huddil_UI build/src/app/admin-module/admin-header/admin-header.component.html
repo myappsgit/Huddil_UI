@@ -1,0 +1,32 @@
+<header>
+    <div class="adminHeaderMainCointainer">
+        <img src="./assets/huddil-logo.svg" class="huddilLogo">
+        <div class="headerRightContainer">
+            <!-- <div class="bellIcon"><i class="fa fa-bell-o" aria-hidden="true"></i></div> -->
+            <div class="loadingBarContainer" *ngIf="this.adminService.isLoading">
+                <i class="fa fa-spinner fa-spin fa-3x"></i>
+            </div>
+            <div><a class="userName">Huddil Admin</a></div>
+            <div class="profileIcon" (click)="showMenu()"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+        </div>
+
+
+
+        <div class="userMenuContainer" *ngIf="menuPopUp">
+            <div class="userMenuFieldsContainer">
+                <div [routerLink]="['/admin/change-password']" class="userMenuSubFieldsContainer" (click)="changePassword()"><i class="fa fa-key" aria-hidden="true"></i>
+                    <p>Change Password</p>
+                </div>
+                <div (click)="logout()" class="userMenuSubFieldsContainer"><i class="fa fa-power-off" aria-hidden="true"></i>
+                    <p>Logout</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="adminBodyContainer">
+
+    </div>
+</header>

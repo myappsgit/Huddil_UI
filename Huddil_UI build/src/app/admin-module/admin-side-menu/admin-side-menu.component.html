@@ -1,0 +1,60 @@
+<div class="adminSideMenuMainContainer">
+
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-dashboard']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-dashboard']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </div>
+        <p>Dashboard</p>
+    </div>
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-payments']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-payments']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i class="material-icons materialIcons">payment</i>
+        </div>
+        <p>Payments</p>
+    </div>
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-users']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-users']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i aria-hidden="true" class="fa fa-user-circle"></i>
+        </div>
+        <p>Users</p>
+    </div>
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-facilities']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-facilities']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i aria-hidden="true" class="fa fa-building"></i>
+        </div>
+        <p>Facilities</p>
+    </div>
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-terms']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-terms']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i aria-hidden="true" class="fa fa-file-text"></i>
+        </div>
+        <p>Terms</p>
+    </div>
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-amenities']" routerLinkActive="active-link">
+        <!--<div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-amenities']}}]" routerLinkActive="active-link">-->
+        <div class="sidebarIcon">
+            <i class="material-icons materialIcons">dashboard</i>
+        </div>
+        <p>Amenities</p>
+    </div>
+
+    <div class="sideMenuItem" [routerLink]="['/admin/admin-locations']" routerLinkActive="active-link">
+        <div class="sidebarIcon">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </div>
+        <p>Locations</p>
+    </div>
+
+    <!-- <div class="sideMenuItem" [routerLink]="['/admin', {outlets: {'admin': ['admin-taxes']}}]" routerLinkActive="active-link">
+        <div class="sidebarIcon">
+            <i class="material-icons">note_add</i>
+        </div>
+        <p>Taxes</p>
+    </div> -->
+
+</div>

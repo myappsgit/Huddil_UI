@@ -1,0 +1,25 @@
+.privacyHeading {
+    color: #004DB7;
+    text-align: center;
+    font-size: 24px;
+}
+
+.privacyAbout {
+    color: #004DB7;
+    text-align: justify;
+    font-size: 28px;
+}
+
+.paragaphContnet {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.privacyContainer {
+    background-color: white;
+    padding: 25px;
+    font-size: 14px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 24px;
+}

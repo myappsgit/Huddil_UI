@@ -1,0 +1,68 @@
+<div class="adminStatusContainers adminBoxShadow">
+    <div class="contentContainer">
+        <div class="headingContianer">
+            <label class="heading">Facility Status</label>
+        </div>
+        <div class="sectionsContainer">
+            <div class="sectionContainer">
+                <div class="facilityStatusSectionHeaderContainer">
+                    Active
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i class="material-icons">done</i>Approved Facilities</span>
+                    <span class="itemRightSpan">{{approvedFacilities}}</span>
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i aria-hidden="true" class="fa fa-hourglass-half itemIcon"></i>Pending For Approval</span>
+                    <span class="itemRightSpan">{{pendingForApproval}}</span>
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i class="material-icons">clear</i>Denied Facilities</span>
+                    <span class="itemRightSpan">{{deniedFacilities}}</span>
+                </div>
+            </div>
+            <div class="sectionContainer">
+                <div class="facilityStatusSectionHeaderContainer">
+                    Certified
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i aria-hidden="true" class="fa fa-certificate itemIcon"></i>Huddil Verified</span>
+                    <span class="itemRightSpan">{{huddilVerified}}</span>
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i aria-hidden="true" class="fa fa-hourglass-half itemIcon"></i>Pending Verification</span>
+                    <span class="itemRightSpan">{{pendingVerification}}</span>
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i aria-hidden="true" class="fa fa-certificate itemIcon"></i>Rejected Verification</span>
+                    <span class="itemRightSpan">{{rejectedVerification}}</span>
+                </div>
+            </div>
+            <div class="sectionContainer">
+                <div class="facilityStatusSectionHeaderContainer">
+                    Not Active
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i class="material-icons">done</i>Blocked
+                            <label class="smallText">(Admin/Advisor)</label>
+                        </span>
+                    <span class="itemRightSpan">{{blocked}}</span>
+                </div>
+                <div class="itemContainer">
+                    <span class="itemLeftSpan">
+                            <i class="material-icons">clear</i>Deactivated
+                            <label class="smallText">(Service Provider)</label>
+                        </span>
+                    <span class="itemRightSpan">{{deactivated}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

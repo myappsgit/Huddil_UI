@@ -1,0 +1,91 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Users</li>
+            </ul>
+        </div>
+        <div class="adminPageContainer">
+
+            <admin-user-status-component></admin-user-status-component>
+
+            <div class="grayLine"></div>
+
+            <div class="searchBoxContainer">
+                <form [formGroup]="userInfoSearchForm" class="searchContainer">
+                    <div class="nameInputFieldContainer">
+                        <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                        <i class="material-icons adminUsersIcon">search</i>
+                        <input type="text" formControlName="searchInputField" placeholder="Name\Mail-Id *" class="searchTextInputField" id="input_nameOrEmailId">
+                    </div>
+                    <div class="userTypeSelectContianer">
+                        <i class="material-icons adminUsersIcon">person</i>
+                        <select class="userTypeSelect" formControlName="selectUserType" id="select_userType">
+                            <option [disabled]="true" value="">User Type *</option>
+                            <option value="advisor">Advisor</option>
+                            <option value="service provider">Service Provider</option>
+                            <option value="consumer">Consumer</option>
+                        </select>
+                    </div>
+                    <button class="findButton adminButton" (click)="findUsers()" id="button_find">
+                        <i class="material-icons adminUsersIcon searchIcon">search</i>
+                        Find
+                    </button>
+                    <div class="addAmenityButtonContainer">
+                        <button class="addNewAdvisorButton adminButton" (click)="showAddNewAdvisorContainer()" id="button_addNewAdvisor">+ New Advisor</button>
+                    </div>
+                    <div class="addAdvisorErrorContainer" *ngIf="showErrorMessageContainer">
+                        {{findErrorMessage}}
+                    </div>
+                </form>
+                <div class="failureMessageContainer" *ngIf="showErrorMessage">
+                    {{errorMessage}}
+                </div>
+            </div>
+
+            <div class="addNewAdvisorOuterContainer adminBoxShadow" *ngIf="showAddNewAdvisorContainerBoolean">
+                <div>
+                    <form [formGroup]="addAdvisorForm" class="addNewAdvisorInnerContainer">
+                        <input minlength="3" maxlength="45" type="text" placeholder="Name *" class="addNewAdvisorInputField" formControlName="name" id="input_name">
+                        <div>
+                            <input type="text" placeholder="E-mail *" class="addNewAdvisorInputField" formControlName="email" id="input_emailId">
+                            <div class="duplicateEmailId" *ngIf="showEmailErrorMessage">
+                                {{emailErrorMessage}}
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" maxlength="10" (keypress)="onlyNumberKey($event)" placeholder="Mobile" class="addNewAdvisorInputField" formControlName="mobileNumber" id="input_mobileNumber">
+                            <div class="duplicateMobileNumber" *ngIf="showMobileNumberExistsMessage">
+                                {{mobileNumberErrorMessage}}
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="password" placeholder="Password *" class="addNewAdvisorInputField" formControlName="password" id="input_password" autocomplete="new-password">
+                            <div class="passwordError" *ngIf="showPasswordErrorMessage">
+                                {{passwordErrorMessage}}
+                            </div>
+                        </div>
+
+                        <button class="adminButton addNewAdvisorCancelSaveButton" type="button" (click)="cancel()" id="button_cancel">Cancel</button>
+                        <button [class.noClick]="disableSaveButton" class="adminButton addNewAdvisorCancelSaveButton" type="submit" (click)="onSave()" id="button_save">Save</button>
+                        <div class="addAdvisorErrorContainer" *ngIf="showAddAdvisorErrorMessage">
+                            {{errorMessage}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="userInfoComponentsContainer" *ngIf="showUserInfoContainer">
+                <user-info-component [userInfoObject_Input]="userInfoObject" [spCommissionObject_Input]="spCommissionArray" (activateOrBlockUser_Output)="activateOrBlockUser($event)" (updateSpCommission_Output)="updateSpCommission($event)" *ngFor="let userInfoObject of userInfoDetailsArray"></user-info-component>
+            </div>
+
+        </div>
+    </div>
+</div>
+<admin-footer></admin-footer>
+<admin-popup-component></admin-popup-component>

@@ -1,0 +1,225 @@
+/* admin page common css */
+
+.adminBodyMainContainer {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+.leftColumnContainer {
+    width: 200px;
+    height: 100%;
+}
+
+.rightColumnContainer {
+    width: calc(100% - 200px);
+    height: 100%;
+    background: #fff;
+}
+
+
+/* end common css */
+
+
+/* BREAD CURM START */
+
+.adminBreadCrum {
+    padding-left: 30px;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.homeBreadCrum {
+    cursor: pointer;
+}
+
+
+/* BREAD CRUM END */
+
+
+/* AMINITIES TABLE START */
+
+.listMainContainer {
+    background: #F2F2F2;
+    height: auto;
+}
+
+.listTableContainer {
+    padding: 15px;
+    min-height: auto;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid darkgray;
+}
+
+.tbody-color {
+    background-color: #ffffff;
+}
+
+.table-th {
+    background: #2e2e2e;
+    color: #ffffff;
+}
+
+td,
+th {
+    border-right: 1px solid darkgray;
+    padding: 5px;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px dashed darkgray;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+/* table tr:hover:not(:first-child) {
+    background: #bbdefb!important;
+    cursor: pointer;
+    color: black;
+} */
+
+
+/* table tr:active:not(:first-child) {
+    background: #651FFF!important;
+    cursor: pointer;
+    color: white;
+} */
+
+.cityRow:hover {
+    background: #bbdefb!important;
+    cursor: pointer;
+    color: black;
+}
+
+.cityRow:active {
+    background: #651FFF!important;
+    cursor: pointer;
+    color: white;
+}
+
+.activeRow {
+    background: #651FFF!important;
+    color: white;
+}
+
+.addButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.addButton {
+    height: 40px;
+    border: none;
+    color: #ffffff;
+}
+
+.addOutterContainer {
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    position: relative;
+}
+
+.addOutterContainer::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    margin-left: 0em;
+    right: 3%;
+    top: 0;
+    box-sizing: border-box;
+    border: .5em solid black;
+    border-color: transparent transparent #f2f2f2 #f2f2f2;
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+    box-shadow: -1px 1px 0px 0 #ccc;
+}
+
+.addContainer {
+    height: auto;
+    width: 600px;
+    background: #F2F2F2;
+}
+
+.addInnterContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.addLocationErrorContainer {
+    color: red;
+    font-size: 10px;
+    padding-left: 10px;
+    margin-top: -10px;
+}
+
+.nameInputField {
+    height: 35px;
+    width: 344px;
+    padding-left: 8px;
+}
+
+.cancelSaveButtons {
+    height: 40px;
+    width: 80px;
+    border: none;
+    color: #ffffff;
+}
+
+
+/* ADD AMINITY END */
+
+
+/* AMINITIES TABLE END */
+
+
+/* ADD AMINITY START*/
+
+
+/* ADD AMINITY END */
+
+.localityDivision {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noLocalityFoundMessage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}

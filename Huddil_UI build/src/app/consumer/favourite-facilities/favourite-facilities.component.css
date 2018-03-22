@@ -1,0 +1,69 @@
+/*breadcrumbs starts*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*breadcrumbs ends*/
+
+.facilityDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: #fff;
+}
+
+.facilityItems {
+    width: 300px;
+    margin-top: 14px;
+    margin-right: 7px;
+}
+
+.headingFavouriteList {
+    font-size: 18px;
+    color: #565656;
+    margin: 0px;
+}
+
+.slider {
+    /*height: 5px;*/
+    width: 100%;
+    background-color: #EEEEEE;
+    margin-top: 10px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #D7D7D7;
+}
+
+.facilityItemContainer {
+    display: flex;
+    justify-content: flex-start;
+    /*margin-top: 25px;*/
+    flex-flow: wrap;
+}
+
+.clickableItem {
+    cursor: pointer;
+}

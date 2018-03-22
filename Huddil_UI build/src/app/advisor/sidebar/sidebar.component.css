@@ -1,0 +1,43 @@
+.sp-sideBar {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    align-items: center;
+    padding-left: 25px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.service-provider-sidebar {
+    width: 200px;
+    height: 100%;
+    background: #eee;
+    float: left;
+}
+
+.sidebarIcon {
+    padding-right: 10px;
+    min-width: 28px;
+}
+
+.sidebarItems p {
+    min-width: 100px;
+    font-size: 16px;
+}
+
+.activeSection {
+    color: #E89144;
+}
+
+div:focus {
+    outline: none;
+}

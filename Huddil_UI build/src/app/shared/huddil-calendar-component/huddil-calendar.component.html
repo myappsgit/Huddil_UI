@@ -1,0 +1,54 @@
+<!-- <div class="huddilCalendarMainContainer" [hidden]="isCalendarDetailsLoading"> -->
+<!-- If the previous line is added, dayview is not displayed properly. -->
+
+<div class="huddilCalendarLoadingContainer" *ngIf="isCalendarDetailsLoading">
+    <img src="assets/loading.gif" />
+
+</div>
+
+<div class="huddilCalendarMainContainer">
+    <div class="huddilCalendarContainer">
+        <div id="huddilFullCalendar"></div>
+    </div>
+
+    <!-- <button (click)="addEvent()">Add Event</button> -->
+    <!-- <button (click)="getCalendarDateRange()">Get Calendar Date Range</button> -->
+
+    <div class="openingHoursContainer" *ngIf="isItDayView">
+        <span class="openingHourTextSpan">{{sundayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{mondayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{tuesdayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{wednesdayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{thursdayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{fridayOpeningHours}}</span>
+        <span class="openingHourTextSpan">{{saturdayOpeningHours}}</span>
+    </div>
+
+    <div class="descriptionContainer">
+        <div class="descriptionTextContainer">{{descriptionText}}</div>
+        <!-- Without &nbsp; - red color bg (caused by padding) is visible -->
+        <div class="bookedBySpTextContainer">{{bookedBySpText}}</div>
+        <div class="descriptionText">{{facilityName}}</div>
+        <div class="descriptionText" *ngIf="isItCoWorkingSpace">Total seats: {{totalSeatsInCoWorkingSpace}}</div>
+    </div>
+    <!-- <button (click)="normalSpace()">Normal Space</button>
+    <button (click)="coWorkingSpace()">Co Working Space</button> -->
+
+</div>
+
+
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()" id="button_okPopup">OK</button>
+        </div>
+
+    </div>
+</div>

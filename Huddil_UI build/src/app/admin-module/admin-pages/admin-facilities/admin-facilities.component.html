@@ -1,0 +1,71 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Facilities</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+
+            <admin-facility-status-component></admin-facility-status-component>
+
+            <div class="searchboxContainers">
+
+                <form [formGroup]="facilitySearchForm" class="searchBoxes">
+
+                    <input type="text" id="input_localityCitySp" placeholder="Search *" formControlName="searchField" />
+
+                    <select class="searchFor" formControlName="searchFor" id="select_localityCitySP">
+                        <option [disabled]="true" value="">Search For *</option>
+                        <option value="locality">Locality </option>
+                        <option value="city">City</option>
+                        <option value="service provider">Service Provider</option>
+                    </select>
+
+                    <div>
+                        <select formControlName="searchType" id="select_facilityType">
+                            <option [disabled]="true" [selected]="true" value="">Facility Types *</option>
+                            <option *ngFor="let facilityType of facilityTypes" [value]="facilityType.id">{{facilityType.name}}</option>
+                        </select>
+                    </div>
+
+                    <button class="searchButton adminButton" (click)="searchFacilities()" id="button_search">
+                        <i class="fa fa-search searchIcon" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="facilitiesErrorContainer" *ngIf="showFacilityErrorMessage">
+                        {{errorMessage}}
+                    </div>
+
+                </form>
+
+                <div class="failureErrorMessage" *ngIf="ForfailureMessage">
+                    {{errorMessage}}
+                </div>
+
+            </div>
+
+            <div class="facilityContainer" *ngIf="forFacilityInfo">
+                <div class="facility" *ngFor="let facilities of adminFacilityList">
+                    <facility-info-component [facilityTypeData]="facilities"></facility-info-component>
+                </div>
+            </div>
+
+            <pagination *ngIf="totalPaginationTabs>0" [totalPaginationTabs]="totalPaginationTabs" (displayPage_Output)="facilityByPagination($event)" [currentPage]="currentPage"></pagination>
+
+        </div>
+
+        <admin-popup-component></admin-popup-component>
+
+        <div *ngIf="isLoading" class="loaderIcon">
+            <i class="fa fa-spinner fa-spin fa-3x"></i>
+        </div>
+
+    </div>
+</div>
+<admin-footer></admin-footer>

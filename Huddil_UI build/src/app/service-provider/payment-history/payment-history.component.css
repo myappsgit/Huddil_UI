@@ -1,0 +1,550 @@
+/*default page css */
+
+.service-provider-rightSide {
+    width: calc(100% - 200px);
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+    padding-right: 0px;
+}
+
+
+/*end default css */
+
+.selectContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: #D7D7D7;
+    padding-bottom: 13px;
+    border-bottom-width: 1px;
+}
+
+.itemContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #8F8F8F;
+}
+
+.calendar {
+    font-size: 16px !important;
+}
+
+.itemContainer i {
+    position: absolute;
+    padding-left: 24px;
+    font-size: 18px;
+    color: #8F8F8F;
+}
+
+.itemContainer select {
+    padding-left: 30px;
+    width: 199px;
+    height: 50px;
+    color: #8F8F8F;
+}
+
+.itemButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .heading {
+    font-weight: 500;
+    font-size: 18px;
+    color: #565656;
+} */
+
+
+/* .StatusTypeContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    padding-left: 22px;
+    padding-right: 12px;
+} */
+
+
+/* .statusHeadingContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+    font-size: 15px;
+    color: gray;
+}
+
+.statusHeadingContainer p,
+.headingExportContainer p {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.headingExportContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100% - 130px);
+    font-size: 14px;
+    font-weight: 700;
+} */
+
+
+/* .tableDiv {
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    margin-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    font-size: 14px;
+    color: #717171;
+    text-align: center;
+}
+
+table tr {
+    height: 45px;
+    font-size: 14px;
+    color: #717171;
+}
+
+table tbody tr:hover {
+    background-color: #bbdefb !important;
+}
+
+.tableTitle {
+    border-bottom: 1px solid #bdbdbd;
+}
+
+table tr:nth-child(even) {
+    background: #dae5f4;
+}
+
+.tableDiv {
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    margin-top: 10px;
+} */
+
+
+/* .activeLink {
+    color: #6F9BFE !important;
+} */
+
+.filterSection form {
+    display: flex;
+}
+
+.filterSection .selectContainer {
+    margin-left: 16px;
+    font-size: 12px;
+    color: #8F8F8F;
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+.filterFindButton {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .pdfCSVContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #717171;
+} */
+
+
+/* new code */
+
+
+/* shiv */
+
+.selectMonth,
+.selectYear {
+    margin-right: 5px;
+    height: 30px;
+}
+
+
+/* PAYMENT STATUS START */
+
+.paymentStatusMainContainer {
+    background-color: #E8E8E8;
+    height: auto;
+    padding: 20px;
+}
+
+.paymentStatusTitle {
+    background-color: #484848;
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.paymentStatusContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.paymentContainer,
+.refundContainer {
+    width: 310px;
+    background-color: white;
+    height: 142px;
+    border: 1px solid grey;
+}
+
+.paymentContainer div:last-child {
+    border-bottom: none;
+}
+
+.refundContainer div:last-child {
+    border-bottom: none;
+}
+
+.notActiveContainer div:last-child {
+    border-bottom: none;
+}
+
+.notActiveContainer {
+    width: 335px;
+    background-color: white;
+    border: 1px solid grey;
+}
+
+.paymentTitle,
+.refundTitle,
+.notActiveTitle {
+    padding: 10px;
+    text-align: center;
+    background-color: #311B92;
+    color: white;
+}
+
+.onlinePayment,
+.onlineRefund,
+.huddilCommission,
+.offlinePayment,
+.offlineRefund,
+.transaction,
+.settlementCharges {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+    border-bottom: 1px dotted grey;
+    align-items: center;
+}
+
+
+/* PAYMENT STATUS END */
+
+.paymentInTableForm {
+    background-color: #E8E8E8;
+    margin-top: 30px;
+    height: auto;
+    padding: 5px;
+    box-shadow: 0px 1px 6px 1px grey;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.paymentDetailsTableForm {
+    /* background-color: #E8E8E8; */
+    margin-top: 15px;
+    height: 355px;
+    overflow-y: auto;
+    padding: 5px;
+    /* box-shadow: 0px 1px 6px 1px grey; */
+}
+
+table {
+    width: 100%;
+    /* margin: 25px; */
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 8px;
+    border-color: grey;
+}
+
+th {
+    background-color: #4A4A4A;
+    color: white;
+    font-weight: normal;
+}
+
+td {
+    background-color: white;
+}
+
+.online {
+    background: #a5d6a7;
+}
+
+.offline {
+    background: #ef9a9a;
+}
+
+.serviceProviderPaymentDetailsTableTitle {
+    /* border-bottom: 1px solid grey; */
+    box-shadow: 0px 1px 0px 0px #c1c1c1;
+    margin-top: 30px;
+}
+
+.iconAndPaymentMethod i {
+    padding-right: 10px;
+}
+
+.serviceProviderPaymentDetailsTableTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.childHeaderDivision {
+    width: 85%;
+    height: 40px;
+    background: #311B92;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+.arrow {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.home {
+    padding-left: 20px;
+}
+
+
+/* PAYMENT STATUS START */
+
+.contentContainer {
+    /* padding: 15px; */
+    height: 100%;
+}
+
+.headingContianer {
+    width: 100%;
+    height: 45px;
+    /* background-color: #484848; */
+    padding-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+
+/* 
+.heading {
+    padding-left: 20px;
+} */
+
+.sectionsContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between
+}
+
+.sectionContainer {
+    width: 325px;
+    height: min-content;
+    background-color: white;
+    border: 1px solid darkgray;
+}
+
+.paymentStatusSectionHeaderContainer {
+    background-color: #4A4A4A;
+    width: 100%;
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #c1c1c1;
+    font-size: 14px;
+}
+
+.itemContainer {
+    width: 100%;
+    height: 40px;
+    color: darkgray;
+    display: flex;
+    align-items: center;
+}
+
+
+/* .itemContainer:not(:last-child) {
+    border-bottom: 1px dotted darkgray;
+} */
+
+.paymentStatusMonthYearContainer {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.searchFields {
+    width: 100px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.searchFields:not(:last-child) {
+    margin-right: 10px;
+}
+
+.itemLeftSpan {
+    width: 70%;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #717171;
+}
+
+.itemRightSpan {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.itemIcon {
+    /* All the icons don't have the same width. So, we have to give it. */
+    width: 15px;
+    margin-right: 10px;
+}
+
+.itemLeftSpan img {
+    padding-right: 10px;
+    width: 20px;
+}
+
+.rupeeIcon {
+    width: 11px!important;
+    padding-left: 6px;
+}
+
+
+/* PAYMENT STATUS END */
+
+
+/* **** */
+
+.paymentErrorContainer {
+    color: red;
+    font-size: 10px;
+    padding-left: 3px;
+    /* margin-top: 0px; */
+}
+
+.failureMessageContainer {
+    text-align: center;
+}
+
+.loaderIcon {
+    text-align: center;
+}
+
+.spNameDetails {
+    cursor: pointer;
+}
+
+.paymentHeading,
+.spPaymentDetail {
+    font-size: 18px;
+    color: #565656;
+}
+
+table {
+    font-size: 14px;
+    color: #717171;
+}
+
+.paymentsTitle {
+    color: #FFF;
+}
+
+.adminBoxShadow {
+    box-shadow: 0 0 0 0!important;
+}
+
+.adminStatusContainers {
+    width: 100%;
+    height: auto;
+    background-color: white!important;
+    margin-bottom: 0px!important;
+    font-size: 14px;
+}

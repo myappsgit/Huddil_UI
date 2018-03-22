@@ -1,0 +1,65 @@
+<admin-header></admin-header>
+<div class="adminBodyMainContainer">
+    <admin-side-menu></admin-side-menu>
+    <div class="rightColumnContainer">
+        <div class="adminBreadCrumContainer">
+            <ul class="adminBreadCrum">
+                <!-- <li class="homeBreadCrum">Home</li>
+                <span>&rarr;</span> -->
+                <li>Amenities</li>
+            </ul>
+        </div>
+
+        <div class="adminPageContainer">
+
+            <div class="amenitiesListMainContainer adminBoxShadow">
+                <div class="amenitiesListTableContainer">
+                    <table>
+                        <tbody class="tbody-color">
+                            <tr class="table-th">
+                                <th>ID</th>
+                                <th> Name</th>
+                                <th>Icon</th>
+                            </tr>
+                            <tr *ngFor="let aminitiesData of amenitiesDetailsArray">
+                                <td>{{aminitiesData.id}}</td>
+                                <td>{{aminitiesData.name}}</td>
+                                <td>
+                                    <div [innerHtml]=aminitiesData.icon> </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="addAmenityButtonContainer">
+                <button class="addAmenityButton adminButton" (click)="showAddAmenitiesContainer()" id="buton_addAmenity">+ Add Amenity</button>
+            </div>
+
+            <div class="addAmenitiesOuterContainer" *ngIf="showAddAmenityContainerBoolean">
+                <form [formGroup]="addAmenityForm" (ngSubmit)="onSave()">
+                    <div class="addAmenitiesContainer adminBoxShadow">
+                        <div class="addAmenitiesInnterContainer">
+
+                            <textarea class="textAreaClass" id="input_SVGTextAea" formControlName="svgDataTextArea" placeholder="Paste svg text here." rows="30" cols="120">                             
+                            </textarea>
+
+                            <input type="text" class="nameInputField" placeholder="Name" formControlName="amenityNameInput" id="input_amenityName">
+                            <button class="cancelSaveButtons adminButton" type="button" (click)="cancel()" id="button_cancel">Cancel</button>
+                            <button class="cancelSaveButtons adminButton" type="submit" id="button_save">Save</button>
+                        </div>
+                        <div class="addAmenitiesErrorContainer" *ngIf="showAddAmenityErrorMessage">
+                            {{addAmenitiesErrorMessage}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<admin-footer></admin-footer>
+<admin-popup-component></admin-popup-component>

@@ -1,0 +1,376 @@
+/*default page css */
+
+.service-provider-rightSide {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+.noRecordFoundContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.loader,
+.noRecordFoundContainer {
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    width: 142px !important;
+    height: 149px !important;
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #FF9D3F;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+}
+
+.advisorDashBoardUppercontainer {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    align-items: center;
+}
+
+.dashBoardLeftPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 265px;
+    width: 265px;
+}
+
+.dashBoardRightPart {
+    display: flex;
+}
+
+.dashboardInfoContainer {
+    height: 115px;
+    background-color: #18B9A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 130px;
+    padding-left: 10px;
+    margin-right: 15px;
+    padding-right: 10px;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.newRequestContainerColor {
+    background-color: #90caf9;
+}
+
+.approvedContainerColor {
+    background-color: #a5d6a7;
+}
+
+.deniedContainerColor {
+    background-color: #ef9a9a;
+}
+
+.requestVerifyContainerColor {
+    background-color: #9ACD32;
+}
+
+.stoppedOrBlockedContainerColor {
+    background: #9b9b9b !important;
+}
+
+.number {
+    font-size: 45px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.textStyle {
+    font-size: 18px;
+}
+
+.distanceBetweenTwoDivision {
+    margin-top: 20px;
+}
+
+.txtApproved {
+    padding-right: 42px;
+}
+
+.txtDenied {
+    padding-right: 75px;
+}
+
+.txtHuddilVerifyRequestContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.textVerifyRequest {
+    margin-top: -20px;
+}
+
+.progressSlider {
+    height: 2px;
+    box-shadow: 0px 2px 5px 0px #D7D7D7;
+}
+
+.heading {
+    font-size: 18px;
+    color: #565656;
+    margin: 0px;
+}
+
+.newRequestContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 17px;
+}
+
+.facilityItemsContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.facilitySingleItemContainer {
+    width: 325px;
+    margin-bottom: 15px;
+    margin-right: 17px;
+    margin-left: 5px;
+    border: 1px solid #c1c1c1;
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+.textContainer {
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.textContainer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.textContainer p:last-child {
+    margin-top: -17px;
+}
+
+.facilitySingleItemContainer:hover {
+    box-shadow: 0px 0px 7px 0px #c1c1c1;
+}
+
+
+/*sp dashBoard*/
+
+.facilityDashboardTitle {
+    width: 100%;
+    height: 40px;
+    color: #565656;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.booking {
+    border-right: 1px solid #c1c1c1;
+    font-size: 18px;
+    padding-right: 15px;
+    color: #565656;
+}
+
+.view {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.dashboardTitle {
+    padding-left: 12px;
+    font-size: 18px;
+}
+
+.dashboardViewAllTitle {
+    padding-right: 12px;
+}
+
+.viewall {
+    text-decoration: none;
+    color: #507Cff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.facilityCount {
+    font-size: 45px;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+.facilitydashboardGraph {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    margin-top: 6px;
+    align-items: center;
+}
+
+.blockedGraph {
+    background-color: #9b9b9b !important;
+}
+
+.graphBlock {
+    height: 115px;
+    background-color: #18B9A7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 130px;
+    /* margin-bottom: 10px; */
+    padding-left: 10px;
+    margin-right: 15px;
+    padding-right: 10px;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.graphBlock:last-child {
+    margin-bottom: 0px;
+}
+
+.approvedDiv,
+.pendingDiv,
+.denieDiv {
+    display: flex;
+    align-items: center;
+}
+
+.approvedDiv img,
+.pendingDiv img,
+.denieDiv img {
+    width: 75px;
+    margin-left: 5px;
+}
+
+.approvedDiv h1,
+.pendingDiv h1,
+.denieDiv h1 {
+    margin-left: 20px;
+}
+
+.approveText,
+.pendingText,
+.denieText {
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+canvas {
+    width: 255px !important;
+    height: 130px !important;
+}
+
+.dashboard-right {
+    display: flex;
+    width: 680px;
+    /*flex-flow: row wrap;*/
+}
+
+.approvalGraph {
+    background: #a5d6a7;
+}
+
+.pendingGraph {
+    background: #90caf9;
+}
+
+.deniedGraph {
+    background: #ef9a9a;
+}
+
+.dashboard-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.dashboard-left p {
+    color: #000;
+}
+
+.textContainer {
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.textContainer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.textContainer p:last-child {
+    margin-top: -17px;
+}

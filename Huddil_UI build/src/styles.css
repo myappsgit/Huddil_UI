@@ -1,0 +1,583 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url("/assets/fonts/Roboto-Regular.ttf");
+}
+
+body {
+    font-family: Roboto-Regular;
+    background-color: #E6E6E6;
+    margin: 0px;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.breadcrumbsSection ul li {
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #b3b5b7;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #b3b5b7;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #b3b5b7;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #b3b5b7;
+}
+
+
+/* Buttons Design for SP Start*/
+
+.consumerModuleButtons {
+    border: none;
+    background: #8a8a8a;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consumerModuleButtons:hover {
+    background: #6a96ff;
+}
+
+.consumerModuleButtons:active {
+    background: #004DB7;
+}
+
+.consumerModuleButtons i {
+    color: white;
+}
+
+.consumerModuleButtons.activeColor {
+    background: #6a96ff;
+}
+
+
+/* Buttons Design for SP End */
+
+
+/* Buttons Design for SP Start*/
+
+.spModuleButtons {
+    border: none;
+    background: #8a8a8a;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.spModuleButtons:hover {
+    background: #6a96ff;
+}
+
+.spModuleButtons:active {
+    background: #004DB7;
+}
+
+.spModuleButtons i {
+    color: white;
+    font-size: 25px;
+}
+
+.spModuleButtons.activeColor {
+    background: #6a96ff;
+}
+
+
+/* Buttons Design for SP End */
+
+
+/* Buttons Design for advisor Start*/
+
+.advisorModuleButtons {
+    border: none;
+    background: #8a8a8a;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.advisorModuleButtons:hover {
+    background: #FF9D3F;
+}
+
+.advisorModuleButtons:active {
+    background: #EF6C00;
+}
+
+.advisorModuleButtons i {
+    color: white;
+    font-size: 25px;
+}
+
+.advisorModuleButtons.activeColor {
+    background: #FF9D3F;
+}
+
+
+/* Buttons Design for advisor End */
+
+
+/* logo */
+
+.huddil-logo {
+    width: 160px;
+}
+
+.clickableItem {
+    cursor: pointer;
+}
+
+.primaryBackground {
+    background-color: #004DB7;
+}
+
+.primaryColor {
+    background-color: #004DB7;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active-link {
+    cursor: default!important;
+}
+
+
+/*to change svg color (svg fetched from database and fetched in innerhtml) */
+
+g {
+    fill: #7C7C7C !important;
+}
+
+svg {
+    fill: #7c7c7c!important;
+}
+
+.loadingContainer img {
+    width: 75px;
+    height: 75px;
+}
+
+.service-provider-page {
+    background: #fff;
+    padding: 25px!important;
+    min-height: 100vh;
+}
+
+.disabledColor {
+    background: #8A8A8A!important;
+}
+
+.filterContainer {
+    box-shadow: none!important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15)!important;
+}
+
+table tr:nth-child(2n) {
+    background: rgba(74, 74, 74, 0.10)!important;
+}
+
+.myclass {
+    width: 313px;
+}
+
+.selected-list .c-btn {
+    width: auto!important;
+    font-size: 12px!important;
+    color: gray!important;
+}
+
+
+/*slider*/
+
+.left-arrow {
+    background: #EEEEEE;
+    height: 50px;
+    width: 50px;
+    top: 45%;
+    position: absolute;
+    z-index: 99;
+}
+
+.right-arrow {
+    background: #EEEEEE;
+    height: 50px;
+    width: 50px;
+    top: 45%;
+    position: absolute;
+    z-index: 99;
+    right: 0px;
+}
+
+
+/*popup box start */
+
+
+/*pagination css start */
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.pageCount.active {
+    background: #6A96FF;
+    border: 1px solid #6A96FF;
+    color: #fff
+}
+
+.pageCount {
+    background: #eee;
+    height: 30px;
+    width: 30px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationContainer .material-icons {
+    color: #aaa;
+    font-size: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*pagination css end */
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.zoomIn {
+    animation-duration: 0.5s;
+    animation-name: zoomIn;
+}
+
+.zoomOut {
+    animation-name: zoomOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.confirmAlert {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    justify-content: center;
+}
+
+.mszbox {
+    background: #fff none repeat scroll 0 0;
+    height: auto;
+    margin: 20px auto;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out 0s;
+    position: relative;
+}
+
+.calendarMszbox {
+    background: #fff none repeat scroll 0 0;
+    height: auto;
+    width: 920px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out 0s;
+    position: relative;
+}
+
+.popup-header {
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.43px;
+    padding: 15px;
+    background: green;
+    color: #fff;
+}
+
+.popup-header.warning {
+    background: orange!important
+}
+
+.popup-body {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 15px;
+    position: relative;
+    min-height: 70px;
+}
+
+.popup-header h3 {
+    margin: 0px;
+}
+
+.popup-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.popup-footer button {
+    padding: 8px 25px;
+    text-transform: uppercase;
+}
+
+
+/*popup box end  */
+
+
+/* admin start */
+
+.adminPageContainer {
+    margin: 30px;
+}
+
+.adminBreadCrumContainer {
+    width: 100%;
+    height: 40px;
+    background-color: #311B92;
+    display: flex;
+    align-items: center;
+}
+
+.adminStatusContainers {
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+    margin-bottom: 25px;
+}
+
+.adminBoxShadow {
+    /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -webkit-box-shadow: 0px 1px 6px 3px #ccc;
+    /* Firefox 3.5 - 3.6 */
+    -moz-box-shadow: 0px 1px 6px 3px #ccc;
+    /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    box-shadow: 0px 1px 6px 3px #ccc;
+}
+
+
+/* Adding this globally doesn't seem to work */
+
+
+/* .adminBreadCrum {
+    padding-left: 30px;
+} */
+
+.adminButton {
+    border: none;
+    background: #8a8a8a;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.adminButton:hover {
+    background-color: #311B92
+}
+
+.adminButton:active {
+    background-color: #651FFF;
+}
+
+.adminButton:focus {
+    outline: none;
+}
+
+.adminButtonIcon {
+    padding-right: 10px;
+}
+
+
+/* admin end  */
+
+
+/*@media screen and (min-width: 320px) and (max-width: 360px) {
+    .container {
+        max-width: 360px;
+        width: auto;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) and (min-width: 360px) {
+    .container {
+        max-width: 480px;
+        width: auto;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .container {
+        max-width: 768px;
+        width: auto;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        max-width: 1024px;
+        width: auto;
+        padding: 5px;
+    }
+}*/
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*.pagination li {
+    background: #eee;
+    margin-right: 5px;
+    padding: 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}*/
+
+.pagination li a {
+    text-decoration: none;
+    font-size: 12px;
+    /*background: #eee;*/
+    color: #aaa;
+    height: 30px;
+    width: 30px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid #aaa!important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination i {
+    font-size: 43px;
+    color: #7c7c7c;
+}
+
+.prev a,
+.first a,
+.next a,
+.last a {
+    border: none !important;
+}
+
+.pagination .active a {
+    background: #7c7c7c!important;
+    border: 1px solid #7c7c7c!important;
+    color: #fff!important;
+}
+
+.pagination .disabled a,
+.pagination .disabled i {
+    /*color: #eee!important;*/
+    cursor: no-drop;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .container {
+        width: 100%;
+        max-width: 480px;
+    }
+    .pagination {
+        justify-content: flex-start;
+        flex-flow: row wrap;
+    }
+    .page-item {
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    .container {
+        width: 100%;
+        max-width: 640px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:800px) {
+    .container {
+        width: 100%;
+        max-width: 800px;
+    }
+}
+
+@media screen and (min-width:801px) and (max-width:1024px) {
+    .container {
+        width: 100%;
+        max-width: 1024px;
+    }
+}

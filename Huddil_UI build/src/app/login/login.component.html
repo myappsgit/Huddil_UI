@@ -1,0 +1,331 @@
+<login-header></login-header>
+<div class="login-page">
+    <!--Login Form -->
+    <div class="login-form" *ngIf="isLoginFormDisplay">
+        <div class="login-form-buttonsContainer">
+            <div class="login-form-buttons active">
+                <a>Signin</a>
+            </div>
+            <div class="login-form-buttons" (click)="showBusinessSignup()">
+                <a>Business Partner</a>
+            </div>
+        </div>
+        <div class="formContainer">
+            <h3>Hey ! it's good to see you again</h3>
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="form-group">
+                    <input type="text" id="username" formControlName="username" placeholder="Enter Email ID">
+                    <div class="hintError" *ngIf="form.controls.username.touched && !form.controls.username.valid"><strong>Enter Email ID</strong>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" formControlName="password" placeholder="Enter Password">
+                    <div *ngIf="form.controls.password.touched && form.controls.password.errors">
+                        <div class="hintError" *ngIf="form.controls.password.errors.required"><strong>Enter Password</strong> </div>
+                        <div class="hintError" *ngIf="form.controls.password.errors.invalidStatus"><strong>{{form.controls.password.errors.invalidStatus}}</strong> </div>
+                    </div>
+                </div>
+                <div class="submitButtonContainer">
+                    <p *ngIf="showLoading">Processing...</p>
+                    <button type="submit" [hidden]="showLoading" class="consumerModuleButtons submitButton">Submit</button>
+                </div>
+                <div class="rememberMeAndForgotPasswordContainer">
+                    <div>
+                        <input type="checkbox">Remember Me
+                    </div>
+                    <div>
+                        <i class="fa fa-unlock-alt"></i>
+                        <span>Forgot Password?</span>
+                    </div>
+                </div>
+                <div class="seperatorLineContainer">
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                    <div class="seperatorText">
+                        <p>or Sign with</p>
+                    </div>
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="loginWithSocialContainer">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-google-plus"></i>
+                </div>
+
+                <!--<div class="form-group" style="text-align:center;">
+
+                    <button type="button" *ngIf="!this.meetupService.isUserLoggedInWithGoogle" (click)="googleLogin()">Sing in With Google</button>
+                    <button *ngIf="!this.meetupService.isUserLoggedInWithFacebook" type="button" (click)="facebooklogin()">Login with facebook</button>
+                    <button type="button" (click)="facebooklogout()" *ngIf="this.meetupService.isUserLoggedInWithFacebook">Logout from Facebook</button>
+                    <button type="button" (click)="googlelogout()" *ngIf="this.meetupService.isUserLoggedInWithGoogle">Logout from Google</button>
+
+                </div>-->
+            </form>
+        </div>
+        <div class="signupLinkContainer">
+            <div>
+                <span>Not a Member?</span>
+                <a (click)="showSignupForm()">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <!--Signup Form -->
+    <div class="login-form" *ngIf="isSignUpFormDisplay">
+        <div class="login-form-buttonsContainer">
+            <div class="login-form-buttons active" (click)="showLoginForm()">
+                <a>Signin</a>
+            </div>
+            <div class="login-form-buttons" (click)="showBusinessSignup()">
+                <a>Business Partner</a>
+            </div>
+        </div>
+        <div class="formContainer">
+            <h3>Hey ! Welcome to Huddil</h3>
+            <form [formGroup]="consumerSignupForm" (ngSubmit)="signup()">
+                <div class="form-group">
+                    <input minlength="6" maxlength="15" type="text" id="name" formControlName="name" placeholder="Consumer Name">
+                    <div *ngIf="consumerSignupForm.controls.name.touched && consumerSignupForm.controls.name.errors">
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.name.errors.maxlength && !consumerSignupForm.controls.name.errors.pattern">Name must be maximum 15 letters</div>
+                        <div class="hintError " *ngIf="consumerSignupForm.controls.name.errors.minlength && !consumerSignupForm.controls.name.errors.pattern">Name must be 6 characters long</div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.name.errors.pattern">Only alphabets and space are allowed</div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.name.errors.invalidStatus">{{signupForm.controls.name.errors.invalidStatus}}</div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.name.errors.required"><strong>Enter Name</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" formControlName="email" placeholder="Enter Email">
+                    <div class="hintError" *ngIf="consumerSignupForm.controls.email.touched && consumerSignupForm.controls.email.errors">
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.email.errors.pattern">Enter Valid Email ID</div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.email.errors.required"><strong>Enter email ID</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input maxlength="10" (keypress)="onlyNumberKey($event)" type="text" id="mobile" formControlName="mobile" placeholder="Enter Mobile">
+                    <div class="hintError" *ngIf="consumerSignupForm.controls.mobile.touched && consumerSignupForm.controls.mobile.errors">
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.mobile.errors.pattern">Enter Valid 10 Digits Mobile Number</div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.mobile.errors.required"><strong>Enter Mobile Number</strong> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" formControlName="password" placeholder="Enter Password">
+                    <div *ngIf="consumerSignupForm.controls.password.errors">
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.password.touched && consumerSignupForm.controls.password.errors.required"><strong>Enter Password</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="cpassword" formControlName="cpassword" placeholder="Enter Confirm Password">
+
+                    <div *ngIf="consumerSignupForm.controls.cpassword.errors">
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.cpassword.errors.MatchPassword"><strong>Password Entries Do Not Match.</strong> </div>
+                        <div class="hintError" *ngIf="consumerSignupForm.controls.cpassword.touched && consumerSignupForm.controls.cpassword.errors.required"><strong>Enter Confirm Password</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="rememberMeAndForgotPasswordContainer">
+                    <div>
+                        <input type="checkbox" formControlName="terms" value="yes"><span class="termsText">
+                            <span>I agree to the <a id="terms_signup_a" (click)="showTermsBox()" class="termsacceptlink">terms & conditions</a></span></span>
+                    </div>
+
+                </div>
+                <div class="submitButtonContainer" *ngIf="formError">
+                    <p class="hintError">Fill All Fields.</p>
+                </div>
+                <div class="submitButtonContainer" *ngIf="isAlreadyExist">
+                    <p class="hintError">{{dataAlreadyExistMsg}}</p>
+                </div>
+                <div class="submitButtonContainer">
+                    <p *ngIf="consumerSignupProcessStart">Processing...</p>
+                    <button [hidden]="consumerSignupProcessStart" type="button" class="consumerModuleButtons submitButton" (click)="signup()">Submit</button>
+                </div>
+
+                <div class="seperatorLineContainer">
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                    <div class="seperatorText">
+                        <p>or Signup with</p>
+                    </div>
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="loginWithSocialContainer">
+                    <i class="fa fa-facebook" (click)="googleLogin()"></i>
+                    <i class="fa fa-google-plus" (click)="facebooklogin()"></i>
+                </div>
+
+            </form>
+        </div>
+        <div class="signupLinkContainer">
+            <div>
+                <span>Already Registered?</span>
+                <a (click)="showLoginForm()">Sign In</a>
+            </div>
+        </div>
+    </div>
+    <!--Business Signup Form -->
+    <div class="login-form" *ngIf="isBusinessSignUpFormDisplay">
+        <div class="login-form-buttonsContainer">
+            <div class="login-form-buttons active" (click)="showLoginForm()">
+                <a>Signin</a>
+            </div>
+            <div class="login-form-buttons">
+                <a>Business Partner</a>
+            </div>
+        </div>
+        <div class="formContainer">
+            <h3>Service Provider Signup</h3>
+            <form [formGroup]="serviceProviderForm" (ngSubmit)="serviceProviderSignup()">
+                <div class="form-group">
+                    <input minlength="6" maxlength="15" type="text" id="name" formControlName="ownerName" placeholder="Owner Name">
+                    <div *ngIf="serviceProviderForm.controls.ownerName.touched && serviceProviderForm.controls.ownerName.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.ownerName.errors.maxlength && !serviceProviderForm.controls.ownerName.errors.pattern">Name must be maximum 15 letters</div>
+                        <div class="hintError " *ngIf="serviceProviderForm.controls.ownerName.errors.minlength && !serviceProviderForm.controls.ownerName.errors.pattern">Name must be 6 characters long</div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.ownerName.errors.pattern">Only alphabets and space are allowed</div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.ownerName.errors.invalidStatus">{{signupForm.controls.name.errors.invalidStatus}}</div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.ownerName.errors.required"><strong>Enter Name</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" formControlName="serviceProviderEmailId" placeholder="Enter Email">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProviderEmailId.touched && serviceProviderForm.controls.serviceProviderEmailId.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProviderEmailId.errors.pattern">Enter Valid Email ID</div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProviderEmailId.errors.required"><strong>Enter email ID</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input maxlength="10" (keypress)="onlyNumberKey($event)" type="text" id="mobile" formControlName="serviceProvidermobile" placeholder="Enter Mobile">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProvidermobile.touched && serviceProviderForm.controls.serviceProvidermobile.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProvidermobile.errors.pattern">Enter Valid 10 Digits Mobile Number</div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.serviceProvidermobile.errors.required"><strong>Enter Mobile Number</strong> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="website" formControlName="website" placeholder="Enter Website">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.website.touched && serviceProviderForm.controls.website.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.website.errors.required"><strong>Enter Website</strong> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="address" formControlName="address" placeholder="Enter Address">
+
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.address.touched && serviceProviderForm.controls.address.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.address.errors.required"><strong>Enter Address</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <select id="state" formControlName="state">
+                        <option *ngFor = "let statesdata of statesData">{{statesdata.name}}</option>
+                    </select>
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.state.touched && serviceProviderForm.controls.state.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.state.errors.required"><strong>Enter State</strong> </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="city" formControlName="city" placeholder="Enter City">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.city.touched && serviceProviderForm.controls.city.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.city.errors.required"><strong>Enter City Name</strong> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" maxlength="6" (keypress)="onlyNumberKey($event)" id="pincode" formControlName="pincode" placeholder="Enter Pincode">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.pincode.touched && serviceProviderForm.controls.pincode.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.pincode.errors.required"><strong>Enter Pincode</strong> </div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.pincode.errors.minlength && serviceProviderForm.controls.pincode.errors.pattern">Pincode must be 6 characters long</div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="country" formControlName="country" placeholder="Enter Country">
+                    <div class="hintError" *ngIf="serviceProviderForm.controls.country.touched && serviceProviderForm.controls.country.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.country.errors.required"><strong>Enter Country Name</strong> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" formControlName="password" placeholder="Enter Password">
+                    <div *ngIf="serviceProviderForm.controls.password.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.password.touched && serviceProviderForm.controls.password.errors.required"><strong>Enter Password</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="cpassword" formControlName="cpassword" placeholder="Enter Confirm Password">
+
+                    <div *ngIf="serviceProviderForm.controls.cpassword.errors">
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.cpassword.errors.MatchPassword"><strong>Password Entries Do Not Match.</strong> </div>
+                        <div class="hintError" *ngIf="serviceProviderForm.controls.cpassword.touched && serviceProviderForm.controls.cpassword.errors.required"><strong>Enter Confirm Password</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="rememberMeAndForgotPasswordContainer">
+                    <div>
+                        <input type="checkbox" formControlName="terms" value="yes"><span class="termsText">
+                            <span>I agree to the <a id="terms_signup_a" (click)="showTermsBox()" class="termsacceptlink">terms & conditions</a></span></span>
+                    </div>
+
+                </div>
+                <div class="submitButtonContainer" *ngIf="formError">
+                    <p class="hintError">Fill All Fields.</p>
+                </div>
+                <div class="submitButtonContainer" *ngIf="isAlreadyExist">
+                    <p class="hintError">{{dataAlreadyExistMsg}}</p>
+                </div>
+                <div class="submitButtonContainer">
+                    <p *ngIf="consumerSignupProcessStart">Processing...</p>
+                    <button type="button" class="submitButton buttons" (click)="serviceProviderSignup()">Submit</button>
+                </div>
+
+                <div class="seperatorLineContainer">
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                    <div class="seperatorText">
+                        <p>or Signup with</p>
+                    </div>
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="loginWithSocialContainer">
+                    <i class="fa fa-facebook" (click)="googleLogin()"></i>
+                    <i class="fa fa-google-plus" (click)="facebooklogin()"></i>
+                </div>
+
+            </form>
+        </div>
+        <div class="signupLinkContainer">
+            <div>
+                <span>Already Registered?</span>
+                <a (click)="showLoginForm()">Sign In</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()">OK</button>
+        </div>
+
+    </div>
+</div>
+<login-footer></login-footer>

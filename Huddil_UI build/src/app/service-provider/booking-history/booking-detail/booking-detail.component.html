@@ -1,0 +1,211 @@
+<service-provider-header></service-provider-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <sidebar></sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+
+            <ul>
+                <li [routerLink]="['/service-provider/dashboard']">Dashboard</li>
+                <span>&rarr;</span>
+                <li [routerLink]="['/service-provider/booking-history']">Booking</li>
+                <span>&rarr;</span>
+                <li>Booking Details</li>
+
+            </ul>
+
+        </div>
+        <div class="loadingContainer" *ngIf="isLoadingData">
+            <img src="../../../assets/loading.gif" />
+        </div>
+        <div class="loadingContainer" *ngIf="errorMsz!=''">
+            <p> {{errorMsz}}</p>
+        </div>
+        <div class="service-provider-page booking-history-container" *ngIf="!isLoadingData && errorMsz==''">
+            <div class="editDetailsParentContainer" *ngIf="showEditSection">
+                <div class="headingContainer">
+                    <p class="heading">Booking Details</p>
+                    <p class="slider"></p>
+                </div>
+                <div class="bookingDetailsContainer">
+                    <div class="facilitybookingDetailsContainer">
+                        <div class="leftDetailsUpperContainer">
+                            <div>
+                                <p class="detailsHeading">Booking Id</p>
+                                <p class="details">{{bookingData.id}}</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Venue Name & Address</p>
+                                <p class="details">Incubex Coworking Space</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booked By Name</p>
+                                <p class="details">Farhan Shariff</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Date Of Booking</p>
+                                <p class="details">Dec 17, 2017</p>
+                            </div>
+
+                        </div>
+                        <div class="leftDetailsBottomContainer">
+                            <div>
+                                <p class="detailsHeading">Payment Mode</p>
+                                <p class="details">online</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Facility Type</p>
+                                <p class="details">Meeting Room</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Address</p>
+                                <p class="details">Bannerghatta Road</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Contact Number</p>
+                                <p class="details">9999999999</p>
+                            </div>
+                            <div>
+                                <p>Email Id</p>
+                                <p class="details">abc@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="detailsHeading">Booking Amount</p>
+                                <p class="details">$ 12000</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="bookingStatusDetailsContainer">
+                        <p class="detailsHeading">Booking Status</p>
+                        <select class="details" id="select_details">
+                <option>Confirmation</option>
+            </select>
+                    </div>
+                </div>
+                <div class="ratingContainer">
+                    <div class="detailsHeading starRating">
+                        <p>Farhan Name</p>
+                        <rating [ratingValue]="4"></rating>
+                    </div>
+                    <div class="paragraphContainer">
+                        <p>Booking.com is a travel fare aggregator website and travel metasearch engine for lodging reservations of Dutch origin. Since 2005, it has been owned and operated by United States-based The Priceline Group.</p>
+                    </div>
+                    <div class="replyIcon">
+                        <i class="fa fa-reply" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="bottomContainer">
+                    <button (click)="showViewSectionContainer()" class="rectangleButtons cancelbtn">Cancel</button>
+                    <button class="rectangleButtons savebtn">Save</button>
+                </div>
+            </div>
+            <!--view option -->
+            <div class="editDetailsParentContainer" *ngIf="showViewSection">
+                <div class="headingContainer">
+                    <div class="viewHeader">
+                        <p class="heading">Booking Details</p>
+                        <div class="msgPleaseWait" *ngIf="bookingData.status==1">
+                            <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(1,1)" id="button_confirm">Confirm</button>
+                            <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(0,0)" id="button_cancelBooking1"><i style="font-size: 20px;padding-right: 9px;" class="material-icons">date_range</i>Cancel Booking</button>
+                            <p *ngIf="isProcessStart">Please wait..</p>
+                        </div>
+                        <div class="msgPleaseWait" *ngIf="bookingData.status==3">
+                            <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(0,0)" id="button_cancelBooking3"><i style="font-size: 20px;padding-right: 9px;" class="material-icons">date_range</i>Cancel Booking</button>
+                            <p *ngIf="isProcessStart">Please wait..</p>
+                        </div>
+
+                        <div class="msgPleaseWait" *ngIf="bookingData.status==2">
+                            <p>Cancelled</p>
+                            <p *ngIf="isProcessStart">Please wait..</p>
+                        </div>
+                        <div class="msgPleaseWait" *ngIf="bookingData.status==4">
+                            <p>Denied</p>
+                            <p *ngIf="isProcessStart">Please wait..</p>
+                        </div>
+
+                    </div>
+                    <p class="slider"></p>
+                </div>
+                <div class="bookingDetailsContainer">
+                    <div class="facilitybookingDetailsContainer">
+                        <div class="leftDetailsUpperContainer">
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading" [hidden]="bookingData.status==2">Booking Id</p>
+                                <p class="detailsHeading" *ngIf="bookingData.status==2">Cancelled Id</p>
+                                <p class="details">{{bookingData.id}}</p>
+                            </div>
+                            <div class="bookingAddressTitle">
+                                <p class="detailsHeading">Venue Name & Address</p>
+                                <p class="details">{{bookingData.name}}, {{bookingData.address}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Booked By Name</p>
+                                <p class="details">{{bookingData.displayName}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Date Of Booking</p>
+                                <p class="details">{{bookingData.bookedTime}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Payment Mode</p>
+                                <p class="details">{{bookingData.paymentMethod}}</p>
+                            </div>
+
+                        </div>
+                        <div class="leftDetailsBottomContainer">
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Booking Amount</p>
+                                <p class="details">{{bookingData.totalPrice}}</p>
+                            </div>
+                            <div class="bookingAddressTitle">
+                                <p class="detailsHeading">Facility Type</p>
+                                <p class="details">{{bookingData.typeName}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Address</p>
+                                <p class="details">{{bookingData.address}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Contact Number</p>
+                                <p class="details">{{bookingData.mobileNo}}</p>
+                            </div>
+                            <div class="bookingDetailsTableData">
+                                <p class="detailsHeading">Email Id</p>
+                                <p class="details">{{bookingData.emailId}}</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="updateBookingStatus(0,1)" id="button_yes">Yes</button>
+            <span></span>
+            <button class="consumerModuleButtons" (click)="closePopup()" id="button_no">No</button>
+        </div>
+
+    </div>
+</div>
+<service-provider-footer></service-provider-footer>

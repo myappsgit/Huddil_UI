@@ -1,0 +1,95 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+            <ul>
+                <li>Dashboard</li>
+            </ul>
+        </div>
+        <div class="service-provider-page dashboard-container">
+            <div class="facilityDashboardParentContainer">
+                <div class="facilitydashboardGraph">
+                    <div class="dashboard-left">
+                        <div class="textContainer">
+                            <p>{{totalFacilityStatusCount}}</p>
+                            <p>Total</p>
+                        </div>
+                        <div class="loadingContainer" *ngIf="isLoadingData">
+                            <img src="../../assets/loading.gif" />
+                        </div>
+                        <img *ngIf="facilityCountEmpty" style="width:134px;" src="assets/norecord.svg" />
+
+                        <p *ngIf="errorMsz!=''">{{errorMsz}}</p>
+
+                        <canvas [hidden]="!showPirChart" id="facilityDashboardGraph1"></canvas>
+
+                    </div>
+                    <div class="dashBoardRightPart">
+                        <div class="dashboardInfoContainer newRequestContainerColor" (click)="showfacilityListBaseUponStatus(newRequestStatus)">
+                            <p class="number">{{facilityNewRequestCount}}</p>
+                            <div class="textStyle">New Request</div>
+                        </div>
+                        <div class="dashboardInfoContainer approvedContainerColor" (click)="showfacilityListBaseUponStatus(ApprovedStatus)">
+                            <p class="number">{{facilityApprovedCount}}</p>
+                            <div class="textStyle">Approved</div>
+                        </div>
+                        <div class="dashboardInfoContainer deniedContainerColor" (click)="showfacilityListBaseUponStatus(DeniedStatus)">
+                            <p class="number">{{facilityDeniedCount}}</p>
+                            <div class="textStyle">Denied</div>
+                        </div>
+                        <div class="dashboardInfoContainer stoppedOrBlockedContainerColor" (click)="showfacilityListBaseUponStatus(stoppedOrBlockedStatus)">
+                            <p class="number">{{facilityStoppedOrBlockedCount}}</p>
+
+                            <div class="textStyle">Blocked</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newRequestContainer">
+                <p class="heading">Latest Facility - New Request</p>
+            </div>
+            <div class="loader loadingContainer" *ngIf="showLoader">
+                <img src="././assets/loading.gif">
+            </div>
+            <div class="noRecordFoundContainer" *ngIf="isNoRecordFound">
+                <h4>No record found</h4>
+            </div>
+            <div *ngIf="errorMessage !=''" class="noRecordFoundContainer">
+                <h4>{{errorMessage}}</h4>
+            </div>
+            <div class="facilityItemsContainer" *ngIf="showFacilityData">
+                <div *ngFor="let facility of this.lastThreeFacility; let i = index">
+                    <div class="facilitySingleItemContainer ">
+                        <facility-listing-info [facilityInfo]="facility"></facility-listing-info>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" (click)="closePopup(0)" id="button_ok_SessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)" id="button_ok_SessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

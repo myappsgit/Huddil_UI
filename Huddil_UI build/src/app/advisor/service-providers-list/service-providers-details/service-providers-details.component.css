@@ -1,0 +1,213 @@
+.blockUnblockContainer {
+    width: 1100px;
+    height: 500px;
+    margin: auto;
+    color: #898989;
+    padding-left: 40px;
+    padding-right: 14px;
+}
+
+.blockUnblockDiv {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    box-shadow: 1px 1px 1px 1px #E3E3E3;
+    border-bottom: 4px solid #E3E3E3;
+    color: #898989;
+}
+
+.blockUnblockBtnDiv {
+    width: 180px;
+    height: 45px;
+    background-color: #5B5B5B;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.unblockBtn {
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: #5B5B5B;
+    outline: none;
+    cursor: pointer;
+}
+
+.blockBtn {
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: #5B5B5B;
+    outline: none;
+    cursor: pointer;
+}
+
+.textAreaDiv {
+    margin-top: 30px;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.textArea {
+    padding-left: 15px;
+    padding-top: 15px;
+    resize: none;
+}
+
+.updateCancelDiv {
+    display: flex;
+    width: 150px;
+    height: 35px;
+    border-radius: 30px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.cancel {
+    border-radius: 30px;
+    border: none;
+    height: 25px;
+    color: white;
+    background-color: #5B5B5B;
+    cursor: pointer;
+}
+
+.update {
+    border-radius: 30px;
+    border: none;
+    height: 25px;
+    color: white;
+    background-color: #FF9D3F;
+    cursor: pointer;
+}
+
+.spDetailsStatusDiv {
+    height: auto;
+    border: 1px solid #E1E1E1;
+    margin-top: 25px;
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+}
+
+.StatusTitle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #A4A4A4;
+    border-bottom: 4px solid #E1E1E1;
+    box-shadow: 1px 1px 1px 1px #E3E3E3
+}
+
+.StatusData {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #A4A4A4;
+}
+
+
+/*default page css */
+
+.service-provider-rightSide {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #FF9D3F;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.service-provider-page[_ngcontent-c1] {
+    padding: 25px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+}
+
+.filterFilterButton i {
+    padding-right: 9px;
+    font-size: 25px;
+}
+
+
+/*end default css */
+
+.blockButtonColor {
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: #FE6A00;
+    color: white;
+    outline: none;
+}
+
+.unBlockButtonColor {
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: #FE6A00;
+    outline: none;
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+.hintError {
+    color: red;
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+}

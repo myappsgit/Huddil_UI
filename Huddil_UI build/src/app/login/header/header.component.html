@@ -1,0 +1,38 @@
+<header>
+    <div class="headerContainer">
+        <div class="header-left"></div>
+        <div class="header-right">
+            <a>How it works</a>
+        </div>
+    </div>
+</header>
+<!--breadcrumbs-->
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']">Home</li>
+        <span>&rarr;</span>
+        <li>Sign In</li>
+    </ul>
+    <!--<a (click)="showAddIpBox();">Add Endpoints</a>-->
+</div>
+<div class="confirmAlert" *ngIf="IsShowAddIpBox">
+    <div class="mszbox zoomIn" style="padding:0px;">
+        <div class="popup-header">
+            <h2>Add API Endpoints</h2>
+        </div>
+        <div class="popup-body">
+            <form [formGroup]="form" class="endpoints">
+                <input type="text" placeholder="Enter Wrapper Endpoint" formControlName="wrapper">
+                <input type="text" placeholder="Enter Huddil Endpoint" formControlName="huddil">
+
+            </form>
+
+        </div>
+
+        <div class="popup-footer">
+            <button (click)="addAPI()" class="rectangleButtons">Add</button>
+            <button (click)="closeAddIpBox()" class="rectangleButtons">Cancel</button>
+
+        </div>
+    </div>
+</div>
