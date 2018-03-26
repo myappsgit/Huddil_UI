@@ -1,0 +1,290 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']">Home</li>
+        <span>&rarr;</span>
+        <li [routerLink]="['/consumer/my-bookings']">My Bookings</li>
+        <span>&rarr;</span>
+        <li>Booking Details</li>
+    </ul>
+</div>
+<div class="clearfix"></div>
+<div id="mybookingsViewContainer">
+    <!--for myBookingDetails-->
+
+    <div class="myBookingDetailsContainer" *ngIf="bookingStatus=='upcoming'">
+        <div class="bookingsTitle">
+            <p>My Booking Details</p>
+        </div>
+        <div class="bookingDetailsData">
+            <div class="bookingsDetalsTableContainer">
+                <div class="bookingDetailsFirstRow">
+                    <p>
+                        <span class="headding">Booking Id</span>
+                        <span class="data">{{upComingBookings.bookingId}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Venue</span>
+                        <span class="data">{{upComingBookings.title}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period Start Date</span>
+                        <span class="data">{{upComingBookings.bookedFrom}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Facility Type</span>
+                        <span class="data">{{upComingBookings.typeName}}</span>
+                    </p>
+                    <p *ngIf="upComingBookings.typeName=='Co-Working Space'">
+                        <span class="headding">Booked Seats</span>
+                        <span class="data">{{upComingBookings.seats}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Booking Amount</span>
+                        <span class="data"><i class="fa fa-inr" aria-hidden="true"></i> {{upComingBookings.totalPrice}}</span>
+                    </p>
+                </div>
+                <div class="bookingDetailsSecondRow">
+                    <p>
+                        <span class="headding">Date Of Booking</span>
+                        <span class="data">{{upComingBookings.bookedTime}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Area</span>
+                        <span class="data">{{upComingBookings.address}},{{upComingBookings.cityName}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period End Date</span>
+                        <span class="data">{{upComingBookings.bookedTo}}</span>
+                    </p>
+
+                    <p>
+                        <span class="headding">Status</span>
+                        <span class="data">{{upComingBookings.status}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Payment Mode</span>
+                        <span class="data">{{upComingBookings.paymentMethod}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bookingsThumbnail" *ngIf="facilityData!=null">
+                <img src="data:image/png;base64,{{facilityData.thumbnail}}" class="thumbnail" />
+            </div>
+        </div>
+        <div class="cancellationDetailsContainer">
+            <div class="cancellationPolicyContainer" *ngIf="facilityData!=null">
+                <p><strong><small>Cancellation Policy *</small></strong></p>
+                <div class="cancelPolicy">
+                    <p *ngIf="facilityData.facilityCancellationCharges.duration1!=0">
+                        <span>Before {{facilityData.facilityCancellationCharges.duration1}} days</span>
+                        <span>{{facilityData.facilityCancellationCharges.percentage1}} %</span>
+                    </p>
+                    <p *ngIf="facilityData.facilityCancellationCharges.duration2!=0">
+                        <span>Before {{facilityData.facilityCancellationCharges.duration2}} days</span>
+                        <span>{{facilityData.facilityCancellationCharges.percentage2}} %</span>
+                    </p>
+                    <p *ngIf="facilityData.facilityCancellationCharges.duration3!=0">
+                        <span>Before {{facilityData.facilityCancellationCharges.duration3}} days</span>
+                        <span>{{facilityData.facilityCancellationCharges.percentage3}} %</span>
+                    </p>
+
+                    <button id="button_cancelBooking" class="cancelButton consumerModuleButtons" (click)="showCancelPopup(upComingBookings.bookingId)">Cancel Booking</button>
+                </div>
+            </div>
+            <div class="cancelPopup" *ngIf="forCancelPopUp">
+                <div class="cancelledPriceContainer" *ngIf="!proceedToCancel && cancellationDetails!=null">
+                    <p>Refund Amount : {{cancellationDetails.refundAmt}}</p>
+                    <p>Cancellation Amount: {{cancellationDetails.cancellationAmt}}</p>
+                    <p>Total Amount:{{cancellationDetails.totalAmt}}</p>
+                    <div class="buttonContainer "><button class="proceedButton consumerModuleButtons" (click)="proceedToCancellation(upComingBookings.bookingId)">Proceed</button></div>
+                </div>
+                <div *ngIf="showCancelSuccessMsg">
+                    <p><strong>cancellation Successful!</strong></p>
+                    <span>We Confirm your Cancellation</span>
+                    <span>Refund Initiated...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--for myHistoryDetails-->
+
+    <div class="myHistoryDetailsContainer" *ngIf="bookingStatus=='history'">
+        <div class="historyTitle">
+            <p>My History Details</p>
+        </div>
+        <div class="historyDetailsData">
+            <div class="historyDetalsTableContainer">
+                <div class="historyDetailsFirstRow">
+                    <p>
+                        <span class="headding">Booking Id</span>
+                        <span class="data">{{upComingBookings.bookingId}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Venue</span>
+                        <span class="data">{{upComingBookings.title}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period Start Date</span>
+                        <span class="data">{{upComingBookings.bookedFrom}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Facility Type</span>
+                        <span class="data">{{upComingBookings.typeName}}</span>
+                    </p>
+                    <p *ngIf="upComingBookings.typeName=='Co-Working Space'">
+                        <span class="headding">Booked Seats</span>
+                        <span class="data">{{upComingBookings.seats}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Booking Amount</span>
+                        <span class="data">{{upComingBookings.totalPrice}}</span>
+                    </p>
+                </div>
+                <div class="historyDetailsSecondRow">
+                    <p>
+                        <span class="headding">Date Of Booking</span>
+                        <span class="data">{{upComingBookings.bookedTime}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Area</span>
+                        <span class="data">{{upComingBookings.localityName}},{{upComingBookings.cityName}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period End Date</span>
+                        <span class="data">{{upComingBookings.bookedTo}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Status</span>
+                        <span class="data">{{upComingBookings.status}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Payment Mode</span>
+                        <span class="data">{{upComingBookings.paymentMethod}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bookingsThumbnail" *ngIf="facilityData!=null">
+                <img src="data:image/png;base64,{{facilityData.thumbnail}}" class="thumbnail" />
+            </div>
+        </div>
+
+
+        <div *ngIf="showComments">
+            <p *ngFor="let reviewComment of reviewDetails">
+                <rating [ratingValue]="reviewComment.rating"></rating>
+                <span>{{reviewComment.comments}}</span>
+            </p>
+        </div>
+        <div *ngIf="showReviewBox">
+            <div>
+                <div class="ratingContainer">
+                    <i class="fa fa-star" aria-hidden="true" (click)="showRating(1)" [class.gold]="ratingValue >= 1"></i>
+                    <i class="fa fa-star" aria-hidden="true" (click)="showRating(2)" [class.gold]="ratingValue >= 2"></i>
+                    <i class="fa fa-star" aria-hidden="true" (click)="showRating(3)" [class.gold]="ratingValue >= 3"></i>
+                    <i class="fa fa-star" aria-hidden="true" (click)="showRating(4)" [class.gold]="ratingValue >= 4"></i>
+                    <i class="fa fa-star" aria-hidden="true" (click)="showRating(5)" [class.gold]="ratingValue >= 5"></i>
+                </div>
+                <form [formGroup]="reviewForm">
+                    <div class="commentBox">
+                        <textarea class="textArea" placeholder="Comments" id="textArea_comments" formControlName="commnentBox"></textarea>
+                    </div>
+                </form>
+                <div class="actionButtons">
+                    <button [routerLink]="['/consumer/my-bookings']" class="cancelBtn" id="button_cancel">Cancel</button>
+                    <button class="submitButton" (click)="submitReview(upComingBookings.facilityId)" id="button_submit">Submit</button>
+                </div>
+                <p class="hintError" *ngIf="submitreviewError">Enter comments</p>
+                <div>
+                    <div class="reviewPopup" *ngIf="forReviewPopUp">
+                        <p><strong>Thank You for taking your time for the review</strong></p>
+                    </div>
+                </div>
+
+            </div>
+            <!--for myCancellationDetails-->
+        </div>
+    </div>
+    <div class="myCancelDetailsContainer" *ngIf="bookingStatus=='cancellation'">
+        <div class="cancellationTitle">
+            <p>My Cancellation Details</p>
+        </div>
+        <div class="cancellationDetailsData">
+            <div class="cancellationDetalsTableContainer">
+                <div class="cancellationDetailsFirstRow">
+                    <p>
+                        <span class="headding">Booking Id</span>
+                        <span class="data">{{upComingBookings.bookingId}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Venue</span>
+                        <span class="data">{{upComingBookings.title}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period Start Date</span>
+                        <span class="data">{{upComingBookings.bookedFrom}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Facility Type</span>
+                        <span class="data">{{upComingBookings.typeName}}</span>
+                    </p>
+                    <p *ngIf="upComingBookings.typeName=='Co-Working Space'">
+                        <span class="headding">Booked Seats</span>
+                        <span class="data">{{upComingBookings.seats}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Booking Amount</span>
+                        <span class="data">{{upComingBookings.totalPrice}}</span>
+                    </p>
+                </div>
+                <div class="cancellationDetailsSecondRow">
+                    <p>
+                        <span class="headding">Date Of Booking</span>
+                        <span class="data">{{upComingBookings.bookedTime}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Area</span>
+                        <span class="data">{{upComingBookings.localityName}},{{upComingBookings.cityName}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Period End Date</span>
+                        <span class="data">{{upComingBookings.bookedTo}}</span>
+                    </p>
+
+                    <p>
+                        <span class="headding">Status</span>
+                        <span class="data">{{upComingBookings.status}}</span>
+                    </p>
+                    <p>
+                        <span class="headding">Payment Mode</span>
+                        <span class="data">{{upComingBookings.paymentMethod}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="bookingsThumbnail" *ngIf="facilityData!=null">
+                <img src="data:image/png;base64,{{facilityData.thumbnail}}" class="thumbnail" />
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header">
+            <h3>Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()" class="button_ok">OK</button>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

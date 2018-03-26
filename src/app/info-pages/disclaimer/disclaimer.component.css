@@ -1,0 +1,21 @@
+.disclaimerHeading {
+    color: #004DB7;
+    text-align: center;
+    font-size: 28px;
+}
+
+.disclaimerAbout {
+    color: #004DB7;
+    text-align: justify;
+    font-size: 28px;
+}
+
+.paragaphContnet {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.disclaimerContainer {
+    background-color: white;
+    padding: 25px;
+}

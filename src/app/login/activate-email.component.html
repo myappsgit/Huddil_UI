@@ -1,0 +1,48 @@
+<!--<div class="activate-email">
+    <p *ngIf="showProcessing">Please Wait...Do not refresh the page!!</p>
+
+    <p *ngIf="activateSuccessfully" style="color:green;">Congratulations!!! Your Huddil Account Activated Succesfully. You will be redirect to login page in 5 seconds.</p>
+    <p *ngIf="deactivateSuccessfully" style="color:red;">Your accout deleted successfully. You will be redirect to login page in 5 seconds.</p>
+</div>
+<div class="clearfix"></div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()">OK</button>
+        </div>
+
+    </div>
+</div>-->
+<div class="main">
+    <div class="likeIcon" *ngIf="activateSuccessfully">
+
+        <i class="material-icons thumbsUpIcon">thumb_up</i>
+        <!--<i class="far fa-thumbs-up thumbsUpIcon"></i>-->
+        <span class="likeText"><b>Awesome!</b></span>
+        <span class="likeText">You are ready to proceed using Huddil</span>
+        <span class="redirectText">(You will be redirect to login page in 5 sec.)</span>
+    </div>
+    <p *ngIf="deactivateSuccessfully">Your accout deleted successfully. You will be redirect to login page in 5 seconds.</p>
+
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()">OK</button>
+        </div>
+
+    </div>

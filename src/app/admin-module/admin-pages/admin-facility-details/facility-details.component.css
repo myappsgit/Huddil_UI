@@ -1,0 +1,730 @@
+/* admin page common css */
+
+.adminBodyMainContainer {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+.leftColumnContainer {
+    width: 200px;
+    height: 100%;
+}
+
+.rightColumnContainer {
+    width: calc(100% - 200px);
+    height: 100%;
+    background: #fff;
+}
+
+
+/* end common css */
+
+.adminBreadCrum {
+    padding-left: 30px;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.homeBreadCrum {
+    cursor: pointer;
+}
+
+.adminDetailpageContainer {
+    width: 1080px;
+    height: 880px;
+    display: flex;
+    overflow-y: auto;
+    justify-content: space-between;
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+.activeDeactiveButtonContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.activeDeactiveButtonContainer button {
+    align-self: flex-end;
+    background-color: #31B426;
+}
+
+.deactiveButton {
+    background-color: red!important;
+}
+
+.activeDeactiveButtonContainer span {
+    height: 15px;
+    text-align: center;
+    color: darkgray;
+    font-size: 12px;
+}
+
+.roomDetailContainer {
+    width: 59%;
+    height: auto;
+    margin-left: 20px;
+}
+
+.priceAndFecilityContainer {
+    width: 34%;
+    height: auto;
+    margin-right: 15px;
+    /* color: #ACACAC; */
+}
+
+.offersContainer,
+.nearByRestorents {
+    border: 1px solid grey;
+    margin-top: 25px;
+}
+
+.roomTitleContainer,
+.approvedContainer {
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roomTitle {
+    color: #4D4D4D;
+}
+
+
+/*.socialIcons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
+    color: #ACACAC;
+}*/
+
+.mapContainer {
+    margin-top: 35px;
+}
+
+
+/* .mapiconAndPlace {
+        display: flex;
+        margin-top: -10px;
+} */
+
+.mapIconAndPlace i {
+    color: #6A96FF;
+}
+
+.mapIconAndPlace sub {
+    color: #ACACAC;
+    /* margin-left: 5px; */
+}
+
+.thumbnail img {
+    width: 626px;
+    height: 352px;
+    object-fit: cover;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.descriptionTitleContainer {
+    color: #ACACAC;
+    border-bottom: 1px solid;
+    height: 45px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.descriptionTitle {
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.descriptionTitle p {
+    cursor: pointer;
+}
+
+.review {
+    /* margin-right: 15px; */
+    font-weight: bold;
+}
+
+.gold {
+    color: #FF8500!important;
+}
+
+.rating i {
+    color: #BBBBBB;
+}
+
+.overviewDescription p,
+.reviewDescription p,
+.whatsArounddescription {
+    color: #ACACAC;
+    font-size: 15px;
+}
+
+.reviewDescription {
+    height: 390px;
+    max-height: 390px;
+    overflow-y: scroll;
+}
+
+.addImg {
+    width: 50%;
+}
+
+.address {
+    width: 50%;
+    font-size: 15px;
+}
+
+.address p {
+    margin: 0px;
+}
+
+.hapyTohelp {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.anyHelp {
+    margin: 0px;
+    color: #3C3C3C!important;
+}
+
+.addImg img {
+    width: 230px;
+    height: 129px;
+    object-fit: cover;
+}
+
+.add {
+    padding-top: 15px;
+}
+
+.addressInnerDiv {
+    display: flex;
+    color: #ACACAC;
+    box-shadow: 1px 5px 10px 0px #ACACAC;
+    margin-top: 40px;
+    border: 1px solid #ACACAC;
+    padding: 15px;
+}
+
+.cancelPolicy {
+    color: #ACACAC;
+    margin-top: 35px;
+}
+
+.cancelPolicy p {
+    /*border-bottom: 1px solid;*/
+    padding-bottom: 10px;
+}
+
+.cancelPolicy span {
+    font-size: 15px;
+}
+
+.editBtn {
+    width: 120px;
+    height: 45px;
+    color: white;
+    background-color: #FF3900;
+    border: none;
+    font-size: 18px;
+}
+
+input {
+    height: 35px;
+    width: 155px;
+    margin: 13px;
+    padding-left: 15px;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+
+/*.price {
+    width: 80%;
+    border: 1px solid #ACACAC;
+    height: 125px;
+    box-shadow: 2px 3px 8px 2px #ACACAC;
+    font-weight: bold;
+}*/
+
+table {
+    width: 100%;
+    color: #404040;
+}
+
+
+/*.price tr {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ACACAC;
+}*/
+
+.openingHourDateContainer {
+    height: auto;
+    margin-top: 25px;
+    border: 1px solid #ACACAC;
+    color: #ACACAC;
+    font-size: 15px;
+}
+
+.amenitiesMainContainer {
+    height: 250px;
+    margin-top: 25px;
+    border: 1px solid #ACACAC;
+    color: #ACACAC;
+    font-size: 15px;
+    overflow-y: auto;
+}
+
+.amenitiesTitle,
+.openingDateTitle {
+    height: 45px;
+    background-color: #767676;
+    color: white;
+}
+
+.amenitiesTitle p,
+.openingDateTitle p {
+    padding: 15px;
+    /* margin-left: 15px; */
+    margin: 0px;
+}
+
+.aminities img {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+}
+
+.powerbackupContainer,
+.serverDiv,
+.projectorDiv,
+.wifiDiv {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    padding-left: 10px;
+}
+
+
+/* .powerbackupContainer span,
+.serverDiv span,
+.projectorDiv span,
+.wifiDiv span {
+    margin-left: 6px;
+} */
+
+.powerContainer,
+.serverContainer,
+.projectorContainer,
+.wifiContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.openingDateTimeTable tr {
+    display: flex;
+    padding: 6px;
+    border-bottom: 1px solid #ACACAC;
+    padding-left: 25px;
+}
+
+.close {
+    color: red;
+}
+
+.day {
+    width: 125px;
+}
+
+.fromTime {
+    width: 60px;
+}
+
+.offersTitle,
+.nearByRestaurantsTitle {
+    color: white;
+    border: 1px solid #ACACAC;
+    background-color: #767676;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.offersList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 15px; */
+    /* padding-bottom: 10px; */
+}
+
+.restaurantList {
+    display: flex;
+    border-bottom: 1px solid #ACACAC;
+}
+
+
+/* .restaurantTwo {
+    display: flex; */
+
+
+/* margin-top: 15px;
+    padding-bottom: 5px;
+} */
+
+
+/*.offerTwo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}*/
+
+
+/*.restaurantImg img {
+    width: 80px;
+    height: 70px;
+    object-fit: cover;
+}*/
+
+
+/* .offerDescription {
+    margin-left: 10px;
+} */
+
+.offerDescription p,
+.restaurantDescription p {
+    margin: 0px;
+}
+
+.offerDescription {
+    display: flex;
+    align-items: center;
+}
+
+.offerImg {
+    width: 100px;
+}
+
+.offerImg img {
+    width: 100px;
+}
+
+.offerIconText {
+    display: flex;
+    align-items: center;
+}
+
+.offerIconText i {
+    color: rgb(130, 130, 130);
+    padding: 2px;
+}
+
+.offerText {
+    font-size: 12px;
+    color: darkgray;
+}
+
+.offerPercentageContainer {
+    width: 80px;
+    height: 70px;
+    background-color: #6A96FF;
+    border: none;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offerPercentageContainer sub {
+    font-size: 15px;
+}
+
+.restaurantDescription {
+    /* margin-top: 5px; */
+    /* margin-left: 10px; */
+    padding: 10px;
+}
+
+.nearbyLocDiv {
+    width: 1280px;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.nearbyLocTitleDiv {
+    color: #5C5C5C;
+    border-bottom: 1px solid #ACACAC;
+}
+
+.reusableCodeDiv {
+    width: 1280px;
+    display: flex;
+}
+
+.overViewWhatsAroundPoliciesTabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.termsAndConditionsContainer {
+    width: 180px;
+}
+
+.selectedTab {
+    color: #3472C6!important;
+}
+
+.selected {
+    background-color: red!important;
+}
+
+.selectedUpdate {
+    background-color: #661EFE!important;
+}
+
+.approveImgContainer {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: #ACACAC;
+    align-items: center;
+}
+
+.approveImgContainer i {
+    color: #31B426;
+    margin-bottom: 6px;
+}
+
+.cancelUpdateButtonContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.activeDeactiveButtonParent {
+    background-color: #5B5B5B;
+    width: 170px;
+    height: 40px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cancelUpdateButtonParent {
+    background-color: #5B5B5B;
+    width: 160px;
+    height: 40px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.deactiveBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 80px;
+}
+
+.updateBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 70px;
+}
+
+.aciveBtn,
+.cancelBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 80px;
+}
+
+.textArea {
+    width: 89%;
+    padding: 20px;
+    resize: none;
+}
+
+.priceCataloguesContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.costPerHour,
+.costPerDay,
+.costPerMonth {
+    width: 110px;
+    height: 85px;
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*table tr:last-child {
+    border-bottom: none;
+}*/
+
+
+/*
+table tr:nth-last-child(6) {
+    background-color: red;
+}*/
+
+.statusButton {
+    width: 100px;
+    height: 40px;
+    /* color: white; */
+    border: none;
+    /* background-color: #5B5B5B; */
+}
+
+.map {
+    width: 625px;
+    height: 400px;
+}
+
+.nearByMap {
+    width: 360px;
+    height: 300px;
+}
+
+.nearByMapSelectButton {
+    height: 35px;
+}
+
+.reviewsbox {
+    margin-bottom: 15px;
+}
+
+.openingDateTimeTable table tr:last-child {
+    border: none;
+}
+
+table tr:nth-child(2n) {
+    background: none!important;
+}
+
+
+/*offerContainer start */
+
+.offersContainer {
+    height: 70px;
+    background: #651FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.offersContainer h3 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.offersContainer i {
+    font-size: 50px;
+    flex-grow: 1;
+}
+
+.offerData label {
+    font-size: 12px;
+}
+
+.offerData {
+    flex-grow: 6;
+}
+
+.offerPercentage {
+    height: 50px;
+    width: 70px;
+    background: #fff;
+    color: #651FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.offerPercentage strong {
+    font-size: 36px;
+}
+
+.offerPercentage sub {
+    margin-top: 7px;
+    font-size: 24px;
+}
+
+
+/*offerContainer end */

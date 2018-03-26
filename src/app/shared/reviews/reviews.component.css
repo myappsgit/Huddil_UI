@@ -1,0 +1,46 @@
+.reviewsContainer {
+    margin-top: 20px;
+}
+
+.reviewsItem {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.reviewsItem div {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.userInformation i {
+    background: #eee;
+    color: #7c7c7c;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50%;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.userInformation span {
+    color: #7c7c7c;
+    font-size: 14px;
+}
+
+.reviewInformation span {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.dateInformation {
+    color: #7c7c7c;
+    font-size: 14px;
+}

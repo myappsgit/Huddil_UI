@@ -1,0 +1,126 @@
+header {
+    background: #004DB7;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header-right a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.header-left {
+    width: 50%;
+    float: left;
+}
+
+.header-right {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.breadcrumbsSection a {
+    color: #fff;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.confirmAlert {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.mszbox {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 5px;
+    height: auto;
+    margin: 20px auto;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out 0s;
+    position: relative;
+}
+
+.popup-header {
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.43px;
+    padding: 15px;
+    background: #EFEFEF;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.popup-body {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 15px;
+    position: relative;
+}
+
+.popup-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.endpoints {
+    display: flex;
+    flex-direction: column;
+}
+
+.endpoints input {
+    padding: 10px;
+    border: 1px solid #bdbdbd;
+    margin-bottom: 10px;
+}
+
+.popup-header h2 {
+    padding: 0px;
+    margin: 0px;
+}

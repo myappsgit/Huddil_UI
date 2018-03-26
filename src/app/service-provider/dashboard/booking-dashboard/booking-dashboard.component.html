@@ -1,0 +1,75 @@
+<div class="facilityDashboardParentContainer">
+    <div class="facilityDashboardTitle">
+        <span class="booking">Booking Dashboard</span>
+        <span class="view"><a [routerLink]="['/service-provider/booking-history']" class="viewall">View All</a></span>
+    </div>
+    <div class="facilitydashboardGraph">
+        <div class="dashboard-left">
+            <div class="textContainer">
+                <p>{{bookingTotalCount}}</p>
+                <p>Total</p>
+            </div>
+            <div class="loadingContainer" *ngIf="isLoadingData">
+                <img src="../../assets/loading.gif" />
+            </div>
+            <img *ngIf="noCountForBookings" style="width:134px;" src="assets/norecord.svg" />
+            <p *ngIf="errorMsz!=''">{{errorMsz}}</p>
+            <canvas *ngIf="!noCountForBookings" id="myChart"></canvas>
+        </div>
+        <div class="dashboard-right">
+            <div class="graphBlock approvalGraph" (click)="showBookingHistoryPage(3);">
+
+                <div>
+                    <h1 class="facilityCount">{{confirmedBookingCount}}</h1>
+                </div>
+
+                <div class="approveText">Confirmed</div>
+            </div>
+            <div class="graphBlock pendingGraph" (click)="showBookingHistoryPage(1);">
+
+
+                <div>
+                    <h1 class="facilityCount">{{pendingBookingCount}}</h1>
+                </div>
+
+                <div class="pendingText">Pending</div>
+            </div>
+            <div class="graphBlock blockedGraph" (click)="showBookingHistoryPage(2);">
+
+
+                <div>
+                    <h1 class="facilityCount">{{cancelledBookingCount}}</h1>
+                </div>
+
+                <div class="denieText">Cancelled</div>
+
+            </div>
+            <div class="graphBlock deniedGraph" (click)="showBookingHistoryPage(4);">
+
+
+                <div>
+                    <h1 class="facilityCount">{{deniedBookingCount}}</h1>
+                </div>
+
+                <div class="denieText">Denied</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!this.meetupService.isInvalidSessionPopupDisplayed" (click)="closePopup(0)" id="button_ok_sessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="this.meetupService.isInvalidSessionPopupDisplayed" (click)="closePopup(1)" id="button_ok_sessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>

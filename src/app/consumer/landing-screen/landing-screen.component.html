@@ -1,0 +1,87 @@
+<div class="consumerLandingScreen">
+    <!--<img class="landingPageBgImage" src='../../../assets/landingBackground.jpg' />-->
+    <div id="slideshow">
+        <div>
+            <img class="landingPageBgImage" src='../../../assets/home-banner1.jpg'>
+        </div>
+        <div>
+            <img class="landingPageBgImage" src='../../../assets/home-banner2.jpg'>
+        </div>
+        <div>
+            <img class="landingPageBgImage" src='../../../assets/home-banner3.jpg'>
+        </div>
+    </div>
+
+    <div class="consumerLandingOverlay">
+
+        <consumer-header [isTransparent]="true"></consumer-header>
+        <div class="landingPageSearchBox">
+
+            <h2>Find your ideal workspace</h2>
+
+            <form class="landingSearchForm" [formGroup]="searchForm">
+
+                <huddil-dropdown-component id="select_city" #huddilCustomDropDownCity [huddilDropdownData]="this.meetupService.listOfCities" formControlName="city" [huddilDropdownOptions]="huddilDropdownOptionsForCity" [(ngModel)]="city"></huddil-dropdown-component>
+
+                <!--<div class="form-group spaceField">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <select (change)="getLocalities()" formControlName="city">
+                       <option value="0">Select City</option>
+                    <option value="{{city.id}}" *ngFor="let city of this.meetupService.listOfCities; let item = item;">{{city.name}}</option>
+                   
+                </select>
+
+                </div>-->
+                <huddil-dropdown-component id="select_locality" #huddilCustomDropDownLocality [huddilDropdownData]="listOfLocalities" formControlName="locality" [huddilDropdownOptions]="huddilDropdownOptionsForLocality" [(ngModel)]="locality"></huddil-dropdown-component>
+
+                <!--<div class="form-group spaceField">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <select formControlName="locality">
+                          <option value="0">Select Locality</option>
+                    <option [value]="localitiesName.id" *ngFor="let localitiesName of listOfLocalities">{{localitiesName.name}}</option>
+                </select>
+
+                </div>-->
+
+                <huddil-dropdown-component id="select_facilityType" #huddilCustomDropDownFacilityType [huddilDropdownData]="this.meetupService.listOfFacilityType" formControlName="facilityType" [huddilDropdownOptions]="huddilDropdownOptionsForFacilityType" [(ngModel)]="facilityType"></huddil-dropdown-component>
+
+
+                <!--<div class="form-group spaceField">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    <select formControlName="facilityType">
+                         <option value="0">Select facility Type</option>
+                     <option [value]="facilityName.id" *ngFor="let facilityName of  this.meetupService.listOfFacilityType">{{facilityName.name}}</option>
+                  
+                </select>
+
+                </div>-->
+                <div class="form-group">
+                    <button (click)="goToListingPage()" id="button_search"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+            <!--<img src="../../assets/icons/down-arrow.svg" />-->
+        </div>
+        <div class="scrollDownOutterContainer">
+            <div class="scrollDownContainer">
+                <i class="fa fa-arrow-circle-o-down" aria-hidden="true" (click)="onScroll()"></i>
+                <p (click)="onScroll()">scroll down
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" id="button_ok" (click)="closePopup()">OK</button>
+        </div>
+
+    </div>
+</div>

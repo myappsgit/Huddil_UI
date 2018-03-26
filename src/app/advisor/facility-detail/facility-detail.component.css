@@ -1,0 +1,820 @@
+.advisordetailpageContainer {
+    width: 1100px;
+    margin: auto;
+    margin-top: 25px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.roomDetailDiv {
+    width: 581px;
+    height: auto;
+}
+
+.priceAndFecilityDiv {
+    width: 427px;
+    height: auto;
+}
+
+.roomTitleDiv,
+.approvedDiv {
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.roomTitle {
+    color: #4D4D4D;
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+
+/*.socialIcons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
+    color: #ACACAC;
+}*/
+
+.mapDiv {
+    margin-top: 35px;
+}
+
+.mapiconAndPlace {
+    display: flex;
+    /*margin-top: -10px;*/
+}
+
+.mapiconAndPlace i {
+    color: #6A96FF;
+}
+
+.mapiconAndPlace sub {
+    color: #ACACAC;
+    margin-left: 5px;
+}
+
+
+/*.thumbnail img {
+    width: 580px;
+    height: 327px;
+    object-fit: cover;
+}*/
+
+.thumbnail {
+    position: relative;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.descTitleDiv {
+    border-bottom: 1px solid;
+    height: 45px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.termsAndConditionsContainer {
+    width: 180px !important;
+}
+
+.descTitle {
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.descTitle p {
+    cursor: pointer;
+}
+
+.review {
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.gold {
+    color: gold;
+}
+
+.add {
+    color: #424242;
+    font-size: 14px;
+    height: auto;
+    line-height: 22px;
+}
+
+.overviewdescription p,
+.whatsArounddescription,
+.policiesdescription {
+    color: #424242;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.addImg {
+    width: 50%;
+}
+
+.address {
+    width: 50%;
+    font-size: 15px;
+}
+
+.add span {
+    font-weight: bold;
+}
+
+.addressDiv {
+    margin-bottom: 37px;
+}
+
+.address p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.hapyTohelp {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.anyHelp {
+    margin: 0px;
+    color: #3C3C3C!important;
+}
+
+.addImg img {
+    width: 230px;
+    height: 129px;
+    object-fit: cover;
+}
+
+.add {
+    padding-top: 4px;
+}
+
+.cancelPolicy {
+    color: #ACACAC;
+    margin-top: 35px;
+}
+
+.cancelPolicy p:first-child {
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+.cancelPolicy p {
+    /*border-bottom: 1px solid;*/
+    padding-bottom: 10px;
+}
+
+.cancelPolicy span {
+    font-size: 15px;
+}
+
+.editBtn {
+    width: 120px;
+    height: 45px;
+    color: white;
+    background-color: #FF3900;
+    border: none;
+    font-size: 18px;
+}
+
+.priceTableDiv[_ngcontent-c3] {
+    border: 1px solid #ACACAC;
+    background-color: #EEEEEE;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.textFields {
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.textFields input[type="text"] {
+    color: #BBBBBB;
+}
+
+.seatsSizeInformation {
+    height: 35px;
+    width: 181px;
+    margin: 13px;
+    padding: 10px 26px;
+    background: #fff;
+    font-size: 12px;
+    color: #878787;
+    border: 1px solid gray;
+}
+
+input {
+    height: 35px;
+    width: 155px;
+    margin: 13px;
+    padding-left: 15px;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.price {
+    width: 86%;
+    border: 1px solid #ACACAC;
+    height: auto;
+    box-shadow: 2px 3px 8px 2px #ACACAC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+table {
+    width: 100%;
+    color: #4a4a4a;
+}
+
+.price tr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.price tr:last-child {
+    border-bottom: none;
+}
+
+.openingHourDateDiv {
+    height: auto;
+    margin-top: 25px;
+    border: 1px solid #ACACAC;
+    color: #ACACAC;
+    font-size: 15px;
+}
+
+.amenitiesDiv {
+    height: auto;
+    margin-top: 25px;
+    border: 1px solid #ACACAC;
+    color: #4a4a4a;
+    font-size: 15px;
+}
+
+.amenitiesTitle,
+.openingDateTitle {
+    height: 40px;
+    background-color: #3C3C3C;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.amenitiesTitle p,
+.openingDateTitle p {
+    padding-left: 15px;
+    margin: 0px;
+}
+
+.aminities {
+    flex-flow: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.aminities img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    padding: 3px;
+}
+
+.powerbackupDiv {
+    display: flex;
+    align-items: center;
+    justify-content: safe;
+    margin-bottom: 20px;
+    width: 115px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 12px;
+}
+
+.powerContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    flex-flow: wrap;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.openingDateTimeTable tr {
+    display: flex;
+    padding-left: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #c1c1c1;
+    font-size: 14px;
+}
+
+table tbody tr {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #c1c1c1;
+}
+
+table tr:nth-child(2n) {
+    background: none!important;
+}
+
+table tbody tr:last-child {
+    border-bottom-style: none;
+}
+
+.close {
+    color: red;
+}
+
+.day {
+    width: 140px;
+    /*flex-grow: 1;*/
+}
+
+.fromTime {
+    width: 56px;
+    /*flex-grow: 1;*/
+}
+
+.offersTitle,
+.NearByRestaurantsTitle {
+    color: #fff;
+    border-bottom: 1px solid #ACACAC;
+    margin-top: 25px;
+    background: #3C3C3C;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 9px;
+}
+
+.timingSeperator {
+    /*flex-grow: 3;*/
+}
+
+.toTime {
+    /*flex-grow: 1;*/
+}
+
+.offerOne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    border-bottom: 1px solid #ACACAC;
+    padding-bottom: 10px;
+}
+
+.restaurantOne {
+    display: flex;
+    margin-top: 15px;
+    border-bottom: 1px solid #ACACAC;
+    padding-bottom: 5px;
+}
+
+.restaurantTwo {
+    display: flex;
+    margin-top: 15px;
+    padding-bottom: 5px;
+}
+
+.offerTwo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+.offerImg img,
+.restaurantImg img {
+    width: 80px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.offerDesc p,
+.restaurantDesc p {
+    margin: 0px;
+}
+
+.offerBtn {
+    width: 80px;
+    height: 70px;
+    background-color: #6A96FF;
+    border: none;
+    margin-right: 30px;
+}
+
+.offerBtn span {
+    color: white;
+    font-size: 25px;
+}
+
+.restaurantDesc {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.nearbyLocDiv {
+    width: 1280px;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.nearbyLocTitleDiv {
+    color: #5C5C5C;
+    border-bottom: 1px solid #ACACAC;
+}
+
+.reusableCodeDiv {
+    width: 1280px;
+    display: flex;
+}
+
+.overViewWhatsAroundPoliciesTabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectedTab {
+    color: #3472C6!important;
+}
+
+.approveImgDiv {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: #ACACAC;
+    align-items: center;
+}
+
+.approveImgDiv i {
+    color: #31B426;
+    margin-bottom: 6px;
+}
+
+.approveDeneyButtonDiv {
+    height: auto;
+    width: auto;
+}
+
+.approveDeneyButtonParent {
+    /*background-color: #5B5B5B;*/
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.approveDeneyButtonParent button {
+    margin-right: 4px;
+    /* padding: 10px 41px!important; */
+}
+
+.denieBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.approveBtn {
+    color: white;
+    background-color: #31B426;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 85px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+    outline: none;
+}
+
+
+/*default page css */
+
+.service-provider-rightSide {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #FF9D3F;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+    padding-right: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected {
+    background-color: red;
+}
+
+.textArea {
+    width: 91%;
+    padding: 20px;
+}
+
+.approveBtn,
+.cancelBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 70px;
+}
+
+.updateBtn {
+    color: white;
+    background-color: #FF9D3F;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 70px;
+}
+
+.deniedBtn {
+    color: white;
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    border: none;
+    height: 30px;
+    width: 85px;
+}
+
+.cancelUpdateBtnDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.deniedDivision {
+    margin-bottom: 17px;
+}
+
+.approve {
+    background-color: #31B426;
+    height: 30px;
+    width: 85px;
+    margin-right: 4px;
+    outline: none;
+}
+
+.denied {
+    background-color: #FE0000;
+    height: 30px;
+    width: 85px;
+    outline: none;
+}
+
+.deniedImgDiv {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: #ACACAC;
+    align-items: center;
+}
+
+.cancelPolicy p.policies {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.address {
+    width: 100%;
+    color: #4A4A4A;
+}
+
+.aminities .svgImg {
+    border: 1px solid #E8E8E8;
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    margin-right: 7px;
+}
+
+.deniedImgDiv i {
+    color: red;
+    font-size: 25px;
+}
+
+.verrifyButtonContainer button {
+    height: 46px;
+    width: 101px;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.filterFindButton {
+    width: 110px;
+    height: 40px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding: 25px!important;
+}
+
+.iconOnThumbnmail {
+    background-color: black;
+    opacity: 0.7;
+    position: absolute;
+    top: 1px;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    width: 563px;
+    padding-left: 11px;
+    padding-right: 6px;
+    z-index: 99999;
+}
+
+.iconOnThumbnmail span {
+    color: white;
+    font-size: 12px;
+}
+
+.iconOnThumbnmail img {
+    width: 20px!important;
+    height: 20px!important;
+}
+
+
+/*offerContainer start */
+
+.offersContainer {
+    height: 70px;
+    background: #EF6C00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 4px;
+}
+
+.offersContainer h3 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.offersContainer i {
+    font-size: 50px;
+    flex-grow: 1;
+}
+
+.offerData label {
+    font-size: 12px;
+}
+
+.offerData {
+    flex-grow: 6;
+}
+
+.offerPercentage {
+    height: 50px;
+    width: 70px;
+    background: #fff;
+    color: #EF6C00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.offerPercentage strong {
+    font-size: 36px;
+}
+
+.offerPercentage sub {
+    margin-top: 7px;
+    font-size: 24px;
+}
+
+
+/*offerContainer end */
+
+.cancellationPoliciy {
+    border-bottom: 1px solid #ACACAC;
+    font-size: 16px;
+    color: gray;
+}
+
+.nearBy,
+.landMark {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.review {
+    height: 463px;
+    max-height: 463px;
+    overflow-y: scroll;
+}
+
+.addressInnerDiv {
+    display: flex;
+    color: #ACACAC;
+    box-shadow: 1px 5px 10px 0px #ACACAC;
+    margin-top: 40px;
+    border: 1px solid #ACACAC;
+    padding: 15px;
+}

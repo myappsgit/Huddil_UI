@@ -1,0 +1,258 @@
+/*default page css */
+
+.service-provider-rightSide {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #FF9D3F;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+}
+
+.filterFilterButton i {
+    padding-right: 9px;
+    font-size: 25px;
+}
+
+
+/*end default css */
+
+.tableContainer {
+    box-shadow: 0px 1px 5px 0px #B2B2B2;
+    margin-top: 30px;
+}
+
+.tableContainer table {
+    padding-top: 32px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    color: #717171;
+    font-size: medium;
+}
+
+.iconDesign {
+    transform: rotate(90deg);
+    color: #E3E3E3 !important;
+}
+
+thead tr,
+tbody tr {
+    border-bottom-style: solid;
+    border-bottom-color: #B2B2B2;
+    border-bottom-width: 1px;
+    height: 50px;
+    font-size: 14px;
+    color: #919191;
+}
+
+table tbody td,
+table thead th {
+    text-align: center;
+}
+
+tbody tr:last-child {
+    border-bottom-style: none
+}
+
+.activeLink {
+    color: #6F9BFE;
+}
+
+.parentContainer {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.spDetailsFilterContainer {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 1px 5px 0px #B2B2B2;
+    margin-top: 41px;
+    margin-bottom: 25px;
+    padding: 20px;
+    color: #8F8F8F;
+}
+
+.indvidualFilterContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.indvidualFilterContainer i {
+    position: absolute;
+    font-size: 18px;
+    padding-left: 8px;
+}
+
+.indvidualFilterContainer select {
+    width: 185px;
+    height: 37px;
+    padding-left: 30px;
+    color: #8F8F8F;
+}
+
+.serviceProviderHeadingContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E7E7E7;
+    padding-bottom: 20px;
+}
+
+.heading {
+    font-size: 18px;
+    color: #565656;
+}
+
+.seachFilterContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filterButton i {
+    padding-right: 9px;
+    font-size: 25px;
+}
+
+.seachFilterContainer input[type="text"] {
+    height: 44px;
+    width: 600px;
+    padding-left: 37px;
+}
+
+.secondaryButton {
+    width: 100px;
+    border: none;
+    border-radius: 18px;
+    font-size: 16px;
+    background-color: #8A8A8A;
+    color: white;
+    height: 42px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filterButton {
+    width: 100px;
+    border: none;
+    border-radius: 18px;
+    font-size: 16px;
+    background-color: #FF9D3F;
+    color: white;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    outline: none;
+}
+
+.searchIcon {
+    position: absolute;
+    font-size: 19px;
+    padding-left: 7px;
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+.closeIcon {
+    position: absolute;
+    right: 212px;
+    top: 131px;
+    font-size: 30px;
+    background-color: white;
+    border: 1px solid #9F9F9F;
+    height: 26px;
+    width: 26px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+}
+
+.tableContainer thead tr {
+    background-color: #f2f2f2;
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+.fa-eye {
+    cursor: pointer;
+}
+
+.partnerForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+}
+
+.filterFindButton {
+    width: 50px;
+    height: 50px;
+}
+
+.noResultContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}

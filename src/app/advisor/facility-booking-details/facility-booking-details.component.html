@@ -1,0 +1,161 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+
+
+            <ul>
+                <li [routerLink]="['/service-provider/dashboard']">Dashboard</li>
+                <span>&rarr;</span>
+                <li [routerLink]="['/service-provider/facility-booking']">Booking Details</li>
+
+            </ul>
+
+        </div>
+        <div class="loadingContainer" *ngIf="isLoadingData">
+            <img src="../../../assets/loading.gif" />
+        </div>
+        <div class="loadingContainer" *ngIf="errorMsz!=''">
+            <p> {{errorMsz}}</p>
+        </div>
+        <div class="facilityBookingContainer" *ngIf="bookingData!=undefined">
+            <div class="bookingHeadingContainer">
+                <span>Booking ID - {{bookingId}}</span>
+                <div class="msgPleaseWait">
+                    <button class="filterSearchButton spModuleButtons" routerLink="/advisor/booking-history" id="button_back">Back</button>
+                </div>
+                <!-- <div class="msgPleaseWait" *ngIf="bookingStatus==1">
+                    <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(1,1)" id="button_confirm">Confirm</button>
+                    <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(0,0)" id="button_cancelBooking1"><i style="font-size: 20px;padding-right: 9px;" class="material-icons">date_range</i>Cancel Booking</button>
+                    <p *ngIf="isProcessStart">Please wait..</p>
+                </div>
+                <div class="msgPleaseWait" *ngIf="bookingStatus==3">
+                    <button class="filterSearchButton spModuleButtons" (click)="updateBookingStatus(0,0)" id="button_cancelBooking3"><i style="font-size: 20px;padding-right: 9px;" class="material-icons">date_range</i>Cancel Booking</button>
+                    <p *ngIf="isProcessStart">Please wait..</p>
+                </div> -->
+
+                <!--<div class="msgPleaseWait" *ngIf="bookingData.status==2">
+                    <p>Cancelled</p>
+                    <p *ngIf="isProcessStart">Please wait..</p>
+                </div>
+                <div class="msgPleaseWait" *ngIf="bookingData.status==4">
+                    <p>Denied</p>
+                    <p *ngIf="isProcessStart">Please wait..</p>
+                </div>-->
+            </div>
+
+            <div *ngIf="!isLoadingData && errorMsz==''">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Facility Name</th>
+                            <th>Building Name</th>
+                            <th>Facility Type</th>
+                            <th class="addressSection">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{bookingData.title}}</td>
+                            <td>{{bookingData.name}}</td>
+                            <td *ngIf="bookingData.typeName !='Co-Working Space'">{{bookingData.typeName}}</td>
+                            <td *ngIf="bookingData.typeName =='Co-Working Space'">{{bookingData.typeName}}
+                                <p class="seatHeading" *ngIf="bookingData.seats != 1">({{bookingData.seats}} seats)</p>
+                                <p class="seatHeading" *ngIf="bookingData.seats == 1">({{bookingData.seats}} seat)</p>
+                            </td>
+                            <td class="addressSection">{{bookingData.address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="!isLoadingData && errorMsz==''">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date Of Booking</th>
+                            <th>Payment Mode</th>
+                            <th>Amount</th>
+                            <th>Booking Duration</th>
+                            <th>Booking Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{bookingData.bookedTime | date:'dd/MM/yy HH:mm'}}</td>
+                            <td><span class="paymentModeStatusSection">{{bookingData.paymentMethod}}</span></td>
+                            <td>{{bookingData.totalPrice}}</td>
+                            <td>{{bookingData.bookedFrom | date:'dd/MM/yy HH:mm'}} - {{bookingData.bookedTo | date:'dd/MM/yy HH:mm'}}</td>
+                            <td *ngIf="!ifCancelledBookings">{{displayStatus(bookingStatus)}}</td>
+                            <td *ngIf="ifCancelledBookings">Cancelled</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="!isLoadingData && errorMsz==''">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Consumer Name</th>
+                            <th>Contact No.</th>
+                            <th>Email Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="consmerNameSection">{{bookingData.displayName}}</td>
+                            <td class="contactNumberSection">{{bookingData.mobileNo}}</td>
+                            <td class="emailIdSection">{{bookingData.emailId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="showCancellationDetails">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cancelled Date</th>
+                            <th>Refund Amount</th>
+                            <th>Refund Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="cancelDateSection">{{bookingData.cancelledDate | date:'dd/MM/yy HH:mm'}}</td>
+                            <td class="refundAmountSection">{{bookingData.refundAmount}}</td>
+                            <td class="refundStatusSection" *ngIf="bookingData.refundId == null">-</td>
+                            <td class="refundStatusSection" *ngIf="bookingData.refundId != null">{{bookingData.refundId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer" *ngIf="!isSessionExpired">
+            <button class="consumerModuleButtons" (click)="updateBookingStatus(0,1)" id="button_yes_sessionNotExpired">Yes</button>
+            <span></span>
+            <button class="consumerModuleButtons" (click)="closePopup(0)" id="button_no_sessionNotExpired">No</button>
+        </div>
+        <div class="popup-footer" *ngIf="isSessionExpired">
+
+            <button class="consumerModuleButtons" (click)="closePopup(1)" id="button_no_sessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

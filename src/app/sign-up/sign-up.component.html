@@ -1,0 +1,290 @@
+<div class="signUp-form">
+    <div class="signUpInfoContainer">
+        <div class="signUpHeading">
+            <p class="createHuddilAccountHeading">Create a Huddil account</p>
+            <span class="createHuddilAccountHeadingInfo">start benefiting from our fully equipped office space locations</span>
+        </div>
+        <div class="signupParentContainer">
+            <div class="signupChildContainerOne">
+                <img src="../assets/icons/signup-icons/login-page-register-icon.svg">
+            </div>
+            <div class="signupChildContainerTwo">
+                Register With Us.
+            </div>
+        </div>
+        <div class="signupParentContainer">
+            <div class="signupChildContainerOne">
+                <img src="../assets/icons/signup-icons/login-page-location-icon.svg">
+            </div>
+            <div class="signupChildContainerTwo">
+                Select Your Preffered Location & Workplace
+            </div>
+        </div>
+
+
+        <div class="signupParentContainer">
+            <div class="signupChildContainerOne">
+                <img src="../assets/icons/signup-icons/login-page-payment-icon.svg">
+            </div>
+            <div class="signupChildContainerTwo">
+
+                Convenient payment options, Pay on-line or on the spot
+            </div>
+        </div>
+
+        <div class="signupParentContainer">
+            <div class="signupChildContainerOne">
+                <img src="../assets/icons/signup-icons/login-page-business-icon.svg">
+            </div>
+            <div class="signupChildContainerTwo">
+
+                Check-in and drive the business growth
+            </div>
+        </div>
+
+
+        <div class="signupParentContainer">
+            <div class="signupChildContainerOne">
+                <img src="../assets/icons/signup-icons/login-page-feedback-icon.svg">
+            </div>
+            <div class="signupChildContainerTwo">
+
+                Give feedback to improve your experience
+            </div>
+        </div>
+
+    </div>
+    <div class="formFieldsContainer">
+        <div class="formFieldContainer" *ngIf="isConsumerSignUp && !isGoogleSignupMobileNumberpopup">
+            <form [formGroup]="consumerSignupForm" (ngSubmit)="signup()">
+                <p class="newUserRegisterHeading">Register Now as a New User!</p>
+                <div class="SignupfieldSection">
+                    <div class="inputFieldcontainer" style="margin-bottom:0px;">
+                        <input minlength="3" maxlength="45" type="text" id="name" formControlName="name" placeholder="Name*">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <div *ngIf="consumerSignupForm.controls.name.touched && consumerSignupForm.controls.name.errors">
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.name.errors.maxlength && !consumerSignupForm.controls.name.errors.pattern">Name must be maximum 45 characters long</div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.name.errors.minlength && !consumerSignupForm.controls.name.errors.pattern">Name must be minimum 3 characters long</div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.name.errors.pattern">Only alphabets and space are allowed</div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.name.errors.invalidStatus">{{consumerSignupForm.controls.name.errors.invalidStatus}}</div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.name.errors.required">Enter Name </div>
+                    </div>
+                </div>
+                <div class="SignupfieldSection">
+                    <div class="inputFieldcontainer" style="margin-bottom:0px;">
+                        <input type="text" id="email" formControlName="email" placeholder="E-mail*">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="hintError customError" *ngIf="consumerSignupForm.controls.email.touched && consumerSignupForm.controls.email.errors && !emailStatus">
+                        <div *ngIf="consumerSignupForm.controls.email.errors.required">
+                            <span>Enter Email</span>
+                        </div>
+                    </div>
+                    <div class="errorStatusMsz" *ngIf="emailStatus!=''">
+                        <div class="hintError customError">
+                            <span>{{emailStatus}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="SignupfieldSection">
+                    <div class="inputFieldcontainer" style="margin-bottom:0px;">
+                        <input maxlength="10" (keypress)="onlyNumberKey($event)" type="text" id="mobile" formControlName="mobile" placeholder="Mobile No.">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                    </div>
+                    <div class="hintError customError" *ngIf="mobileNumberStatus!=''">
+                        <span>{{mobileNumberStatus}}</span>
+                    </div>
+                </div>
+                <div class="SignupfieldSection">
+                    <div class="inputFieldcontainer" style="margin-bottom:0px;">
+                        <input minlength="6" maxlength="15" type="password" id="password" formControlName="password" placeholder="Password*">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <div *ngIf="consumerSignupForm.controls.password.touched && consumerSignupForm.controls.password.errors">
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.password.errors.required">Enter Password </div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.password.errors.minlength">Password must be at least 6 characters long</div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.password.errors.maxlength">Password must be maximum 15 characters long</div>
+                    </div>
+                </div>
+                <div class="SignupfieldSection">
+                    <div class="inputFieldcontainer" style="margin-bottom:0px;">
+                        <input type="password" id="cpassword" formControlName="cpassword" placeholder="Confirm Password*">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <div *ngIf="consumerSignupForm.controls.cpassword.errors">
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.cpassword.errors.MatchPassword"><span>Password Entries Do Not Match.</span> </div>
+                        <div class="hintError customError" *ngIf="consumerSignupForm.controls.cpassword.touched && consumerSignupForm.controls.cpassword.errors.required"><span>Enter Confirm Password</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rememberMeAndForgotPasswordContainer" style="padding-bottom:10px;">
+                    <div>
+                        <input type="checkbox" formControlName="terms" value="yes" id="input_terms"><span class="termsText">
+                    <span>I agree to the <a id="terms_signup_a" (click)="showTermsAndConditionsBox()" class="termsacceptlink">terms & conditions</a></span></span>
+                    </div>
+                </div>
+                <div class="validationMsgContainer" *ngIf="formError && !isAlreadyExist">
+                    <p class="hintError">Fill All Fields.</p>
+                </div>
+                <!-- <div class="validationMsgContainer" *ngIf="passwordFormError">
+                    <p class="hintError">Enter correct data</p>
+                </div> -->
+                <div class="validationMsgContainer" *ngIf="isAlreadyExist">
+                    <p class="hintError">{{dataAlreadyExistMsg}}</p>
+                </div>
+                <div class="submitButtonContainer">
+                    <p *ngIf="consumerSignupProcessStart">Processing...</p>
+                    <button [hidden]="consumerSignupProcessStart" type="button" id="button_submit" class="submitButton" (click)="signup()">Submit</button>
+                </div>
+            </form>
+            <div class="seperatorLineContainer">
+                <!--<div class="seperatorLines">
+                    <p></p>
+                </div>
+                <div class="seperatorText">
+                    <p>or Sign Up with</p>
+                </div>
+                <div class="seperatorLines">
+                    <p></p>
+                </div>-->
+            </div>
+            <div class="loginWithSocialContainer">
+                <!--<div class="facebookSignUpBtn" (click)="signupWithFacebook()">
+                    <i class="fa fa-facebook"></i> Facebook
+                </div>
+                <div class="googleSignUpBtn" (click)="signupWithGoogle()">
+                    <i class="fa fa-google-plus"></i>Google
+                </div>-->
+            </div>
+            <div class="signupLinkContainer">
+                <div>
+                    <span>Already Registered User?</span>
+                    <a (click)="showLoginForm()">Login</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="formFieldContainer" *ngIf="isGoogleSignupMobileNumberpopup && !showOTPBoxForGoogleSignUp">
+            <div class="verfiyOTPContainer" style="flex-direction:column;padding-top:0px">
+                <form [formGroup]="googleMobileForm" (ngSubmit)="googleSignUp()" style="padding:10px;">
+                    <h4 style="color:#000;">Hi {{googleuserdata['name']}}</h4>
+                    <p style="color:#000;">Welcome to Huddil! You are just a few steps away from joining the huddil</p>
+                    <input maxlength="10" (keypress)="onlyNumberKey($event)" type="text" placeholder="Enter mobile number" formControlName="mobile">
+                    <button type="submit">Submit</button>
+                </form>
+                <p *ngIf="googleUserSubmitprocessStart" class="hintError" style="margin-top:20px;">processing...</p>
+                <p *ngIf="googleMobileErrorMsz!=''" class="hintError" style="margin-top:20px;">{{googleMobileErrorMsz}}</p>
+            </div>
+        </div>
+        <div class="formFieldContainer" *ngIf="showOTPBoxForGoogleSignUp">
+            <div class="verfiyOTPContainer" style="flex-direction:column;padding-top:0px">
+                <form [formGroup]="googleMobileFormOTP" (ngSubmit)="googleSignUpOTPVerify()" style="padding:10px;">
+                    <h4 style="color:#000;">Hi {{googleuserdata['name']}}</h4>
+                    <p style="color:#000;">Please enter OTP which you received in your registered mobile number</p>
+                    <input maxlength="6" (keypress)="onlyNumberKey($event)" type="text" placeholder="Enter otp" formControlName="otp">
+                    <button type="submit">Verify</button>
+                </form>
+                <p *ngIf="googleUserSubmitprocessStart" class="hintError" style="margin-top:20px;">processing...</p>
+                <p *ngIf="googleMobileErrorMsz!=''" class="hintError" style="margin-top:20px;">{{googleMobileErrorMsz}}</p>
+            </div>
+        </div>
+        <div class="formFieldContainer" *ngIf="isConsumerlogin && !isGoogleSignupMobileNumberpopup">
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="headingContainer">
+                    <span>Hey ! it's good to see you again</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Enter Email ID" formControlName="username">
+
+                </div>
+                <div class="loginValidationMsg" *ngIf="form.controls.username.touched && !form.controls.username.valid">Enter Email ID
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Enter Password" formControlName="password">
+
+                </div>
+                <div *ngIf="form.controls.password.touched && form.controls.password.errors">
+                    <div class="loginValidationMsg" *ngIf="form.controls.password.errors.required">Enter Password </div>
+                    <div class="loginValidationMsg" *ngIf="form.controls.password.errors.invalidStatus">{{form.controls.password.errors.invalidStatus}} </div>
+                </div>
+                <div class="submitButtonContainer">
+                    <p class="hintError" *ngIf="loginError && !invalidEmailForSignIn">Fill all fields</p>
+                    <p class="hintError" *ngIf="invalidEmailForSignIn">Enter valid email id.</p>
+                </div>
+
+                <div class="submitButtonContainer">
+
+                    <button type="submit" [hidden]="showLoading" class="consumerModuleButtons submitButton" id="button_login_Submit">Sign in</button>
+                </div>
+                <div class="submitButtonContainer">
+                    <p *ngIf="showLoading">Processing...</p>
+                </div>
+                <div class="loginRememberMeAndForgotPasswordContainer">
+                    <div>
+                        <input class="marginRight10" id="input_rememberMe" type="checkbox" formControlName="remember">Remember Me
+                    </div>
+                    <div>
+                        <i class="fa fa-unlock-alt marginRight10"></i>
+                        <span (click)="goToForgottPasswordPage()">Forgot Password?</span>
+                    </div>
+                </div>
+                <div class="seperatorLineContainer">
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                    <div class="seperatorText">
+                        <p>or Sign In with</p>
+                    </div>
+                    <div class="seperatorLines">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="loginWithSocialContainer">
+                    <div class="facebookSignUpBtn" (click)="signupWithFacebook()">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </div>
+                    <div class="googleSignUpBtn" (click)="signupWithGoogle()">
+                        <i class="fa fa-google-plus"></i>Google
+                    </div>
+                </div>
+
+                <div class="signupLinkContainerforLogin">
+                    <div>
+                        <span>Not a Member?</span>
+                        <a (click)="showConsumerSignUp()">Sign Up</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="loaderContainer" *ngIf="isDataLoading">
+            <img src="../assets/loading.gif">
+        </div>
+        <div class="formFieldContainer" *ngIf="isVerifyOTP">
+            <div class="verfiyOTPContainer">
+                <form [formGroup]="OTPform">
+                    <input maxlength="6" (keypress)="onlyNumberKey($event)" type="text" placeholder="Enter OTP" formControlName="otpValue" id="input_OTP">
+                    <button type="submit" (click)="signUpAfterGettingMobileOTP()" id="button_verify">Verify</button>
+                    <p class="processingText" *ngIf="isOTPSendingProcessStart">Processing...</p>
+                    <p class="hintError" *ngIf="otpFormError">Enter OTP</p>
+                </form>
+            </div>
+
+        </div>
+        <div class="formFieldContainer" *ngIf="ismobileVerified">
+            <div class="verfiyOTPContainer">
+                <p class="processingText">{{status}}</p>
+            </div>
+        </div>
+        <div class="formFieldContainer" *ngIf="isTermsAndCondition">
+            <div class="termsAndConditionContainer">
+                <div class="descriptionContainer">
+                    <p>{{this.meetupService.consumerTermstext}}</p>
+                </div>
+                <div class="okButtonContainer"><button (click)="closeTermsAndConditionsPopUp()">OK</button></div>
+            </div>
+        </div>
+    </div>
+
+</div>

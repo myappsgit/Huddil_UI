@@ -1,0 +1,17 @@
+.sliderContainer img {
+    width: 750px;
+    height: 425px;
+    object-fit: cover;
+}
+
+.t-slider-controls .rightArrow {
+    float: right!important;
+}
+
+.t-slider-controls .leftArrow {
+    float: left!important;
+}
+
+.sliderContainer {
+    min-height: 300px;
+}

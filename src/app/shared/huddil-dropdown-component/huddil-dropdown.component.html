@@ -1,0 +1,10 @@
+<div class="huddilSelect" [attr.id]="randomidHuddilSelect">
+    <div class="parentDiv" (click)=showCustomSelect(); [attr.id]="randomParentDiv">
+
+        <span><label class="selectIcon" [innerHtml]="icon"></label> {{selectedItem}}</span>
+        <i class="material-icons">keyboard_arrow_down</i>
+    </div>
+    <ul class="selectOptions" [hidden]="!isShowCustomMenu" [attr.id]="randomSelectOptions">
+        <li *ngFor="let item of data" (click)="selectItem(item.id,item.name)">{{item.name}}</li>
+    </ul>
+</div>

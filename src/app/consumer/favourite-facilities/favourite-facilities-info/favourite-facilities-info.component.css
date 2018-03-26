@@ -1,0 +1,241 @@
+.mainContainer {
+    background-color: black;
+}
+
+.imgMeetingRoom {
+    object-fit: cover;
+    width: 300px;
+    height: 169px;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: 65px;
+}
+
+.facilityLocationHeadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 65px;
+}
+
+.ratingContainer img {
+    width: 24px;
+    height: 21px;
+}
+
+.facilityLocationHeadingContainer span,
+.ratingContainer span {
+    font-size: 12px;
+    color: #555;
+    padding-top: 6px;
+}
+
+.facilityLocationHeadingContainer span i {
+    padding-right: 6px;
+}
+
+.facilityLocationHeadingContainer h3 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 17px;
+    color: #555;
+    font-weight: normal;
+}
+
+.ratingContainer p {
+    font-size: 13px;
+}
+
+.facilityLocationContainer {
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -3px;
+    margin-bottom: -1px;
+}
+
+.facilityLocationHeadingContainer img {
+    width: 16px;
+    height: 15px;
+}
+
+.facilityLocationHeadingContainer p:first-child {
+    font-size: 20px;
+    color: #8C8C8C;
+}
+
+.facilityLocationHeadingContainer p:last-child {
+    margin-top: -16px;
+    font-size: 13px;
+    color: #B9B9B9;
+}
+
+.facilityPriceContainer {
+    background-color: #004DB7;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 42px;
+    align-items: center;
+}
+
+.facilityPriceContainer p {
+    margin: 0px;
+}
+
+.moneyIcon {
+    padding-right: 11px;
+    font-size: 17px;
+    font-weight: lighter;
+}
+
+.facilityCapacityDivision {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #7C7C7C;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: -7px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.facilityDetailsContainer {
+    border: 1px solid #D6D6D6;
+    margin-top: -4px;
+    background-color: white;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.facilityIconsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.facilityIconsContainer i {
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #E8E8E8;
+    margin-top: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-top: 12px;
+    height: 27px;
+    margin-top: 6px;
+    padding-left: 9px;
+    padding-top: 8px;
+    height: 23px;
+    margin-top: 11px;
+    color: #505050;
+}
+
+.newFacilityIcon {
+    border: 1px solid #E8E8E8;
+    padding-top: 8px;
+    padding-left: 4px;
+    padding-right: 5px;
+    height: 23px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #969696;
+    cursor: pointer;
+}
+
+.facilityThumbnail {
+    position: relative;
+    cursor: pointer;
+}
+
+.iconOnThumbnmail {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 40px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.iconOnThumbnmail .fa-pencil {
+    background: #fff;
+    color: #000;
+}
+
+.iconOnThumbnmail .fa-bell {
+    background: green;
+    color: #fff;
+}
+
+.iconOnThumbnmail i {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.facilityApprovedColor {
+    color: green;
+}
+
+.facilityNotApprovedColor {
+    color: red
+}
+
+.facilityPriceContainer select {
+    background-color: #6A96FF;
+    border: none;
+    color: white;
+    padding: 3px;
+}
+
+.ratingCountContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65px;
+}
+
+.ratingCountContainer i {
+    opacity: 0.5;
+}
+
+.buttonContainer i {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-size: 19px;
+    color: red;
+}
+
+.buttonContainer img {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    height: 45px;
+    width: 80px;
+    color: white;
+    border-color: white;
+}
+
+.dateCalendar i,
+.dateCalendar img {
+    font-size: 17px;
+    padding-right: 10px;
+}
+
+.dateCalendar {
+    display: flex;
+    align-items: center;
+}

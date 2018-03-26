@@ -1,0 +1,27 @@
+.mapChangeTypeContainer {
+    margin-top: 10px;
+    background: #3c3c3c;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.whatsaroundTitle {
+    color: #fff;
+    margin: 0px;
+}
+
+#details_nearby_select {
+    height: 30px;
+}
+
+.consumerMap {
+    width: 730px;
+}
+
+.serviceproviderMap {
+    width: 580px;
+}

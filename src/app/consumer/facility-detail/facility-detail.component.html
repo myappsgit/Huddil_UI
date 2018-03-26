@@ -1,0 +1,413 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']" class="clickableItem">Home</li>
+        <span>&rarr;</span>
+        <li (click)="goBack();">Facility Listing</li>
+        <span>&rarr;</span>
+        <li *ngIf="facilitiesData!=null">{{facilitiesData.title}}</li>
+    </ul>
+</div>
+<div class="loadingContainer" *ngIf="isLoadingData">
+    <img src="../../assets/loading.gif" />
+</div>
+<div class="detailPage" *ngIf="facilitiesData!=null && !isLoadingData">
+    <div id="consumerParentContainer">
+
+        <div class="roomDetailDiv">
+            <div class="roomTitleDiv">
+                <div class="roomTitle">
+                    <p *ngIf="facilityLocationNameData.name != facilitiesData.title" style="font-size: 20px;" class="thumbnailTitle"><span>{{facilityLocationNameData.name}}</span> , <span style="font-size: 16px">{{facilitiesData.title}}</span></p>
+                    <p *ngIf="facilityLocationNameData.name == facilitiesData.title" style="font-size: 20px;" class="thumbnailTitle"><span>{{facilityLocationNameData.name}}</span></p>
+                    <div class="mapiconAndPlace">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <sub>{{facilitiesData.locality}},{{facilitiesData.city}}</sub>
+                    </div>
+                </div>
+                <div>
+                    <rating [ratingValue]="facilitiesData.averageRating"></rating>
+
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div class="displayOverThumbnail">
+                    <div>
+                        <i class="fa fa-heart" [class.isfavourite]="facilitiesData.favorites" aria-hidden="true" (click)="likeDislikeFunction(facilitiesData.favorites)"></i>
+                        <label style="color:#fff;padding-left:10px;font-size:12px;">{{facilitiesData.facilityType}}</label>
+                    </div>
+
+                    <img title="Huddil Certified" *ngIf="facilitiesData.status=='8'" src="assets/certified.svg" alt="Certified" class="certification" />
+                </div>
+                <div id="banner-section">
+                    <image-slider [facilitiyPhotos]="facilitiesData.facilityPhotos"></image-slider>
+                </div>
+            </div>
+            <div class="descriptionTitleDiv">
+                <div>
+                    <div class="descriptionTitle">
+                        <span (click)="showDescription()" [class.selected]="forDescription"><strong>Overview</strong></span>
+                    </div>
+                    <div class="rating">
+                        <span [class.selected]="forReview" (click)="showreview()"><strong>Reviews</strong></span>
+                    </div>
+                </div>
+                <div>
+                    <button id="button_enquireWithUs" class="callNowButton" (click)="showCallNowPopUp()"><i class="fa fa-phone callNowIcon"></i>Enquire With Us</button>
+                </div>
+
+            </div>
+            <div class="description" *ngIf="forDescription">
+                <p>{{facilitiesData.description}}</p>
+                <div class="addressDiv">
+                    <div class="addressInnerDiv">
+
+                        <div class="address">
+                            <p><strong>{{facilitiesData.title}} </strong> - ({{facilitiesData.facilityType}})</p>
+                            <p class="">
+                                <span>Address : </span>{{facilitiesData.location.name}}, {{facilitiesData.location.address}}, {{facilitiesData.locality}}, {{facilitiesData.city}}
+                            </p>
+
+                            <p><span>LandMark :</span> {{facilitiesData.location.landmark}}</p>
+                            <!--<p><span>Contact Number :</span> {{facilitiesData.contactNo}}</p>
+                            <p><span>Email id :</span> {{facilitiesData.emailId}}</p>-->
+
+                        </div>
+                    </div>
+
+                </div>
+                <map [mapInfo]="facilitiesData" [moduleName]="consumer"></map>
+                <!--<div class="NearByRestaurantsTitle" style="width:725px;margin-top:10px;">
+                    <p class="whatsaroundTitle"><strong>What's Around</strong></p>
+                    <select id="details_nearby_select" (change)="changeNearbyOption()">
+                       
+                         <option selected="true" value="hotels">Hotels</option>
+                        <option value="atm">ATM</option>
+                       
+                         <option value="bank">Bank</option>
+                         <option value="bus_station"> Bus Station</option>
+                           <option value="cafe"> Cafe</option>
+                            <option value="hospital"> Hospital</option>
+                              <option value="parking"> Parking</option>
+                               <option value="restaurant"> Restaurant</option>
+                               <option value="train_station"> Railway Station</option>
+
+                    </select>
+                </div>
+                <div id="consumerMap" style="width: 750px;height: 400px;">
+
+                </div>-->
+                <div class="cancelPolicy">
+                    <p>Cancellation Policy</p>
+                    <p *ngIf="facilitiesData.facilityCancellationCharges.duration1==0 && facilitiesData.facilityCancellationCharges.duration2==0 && facilitiesData.facilityCancellationCharges.duration3==0">No Cancellation Policies</p>
+                    <p class="policies" *ngIf="facilitiesData.facilityCancellationCharges.duration1!=0">{{facilitiesData.facilityCancellationCharges.percentage1}} % Cancellation Charge : Bookings cancelled before {{facilitiesData.facilityCancellationCharges.duration1}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilitiesData.facilityCancellationCharges.duration2!=0">{{facilitiesData.facilityCancellationCharges.percentage2}} % Cancellation Charge : Bookings cancelled before {{facilitiesData.facilityCancellationCharges.duration2}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilitiesData.facilityCancellationCharges.duration3!=0">{{facilitiesData.facilityCancellationCharges.percentage3}} % Cancellation Charge : Bookings cancelled before {{facilitiesData.facilityCancellationCharges.duration3}} Days of the start date</p>
+
+                </div>
+            </div>
+            <div class="review" *ngIf="forReview">
+                <facility-reviews [facilityReviewsData]="listOfReviews"></facility-reviews>
+
+            </div>
+
+        </div>
+
+        <div class="priceAndFecilityDiv">
+            <div class="facilitySeatsAreaInfoContainer">
+                <div class="facilitySeatsAreaInfoItem"><img style="padding-right:6px;" src="../../assets/icons/seat.svg"> {{facilitiesData.capacity}} Seats</div>
+                <div (click)="showCalendar();" style="cursor:pointer;background: #004DB7;color: #fff;" class="facilitySeatsAreaInfoItem"> <i style="padding-right:8px;cursor:pointer;" class="fa fa-calendar" aria-hidden="true"></i> Scheduler</div>
+                <div class="facilitySeatsAreaInfoItem"><img style="width: 12%;padding-right: 6px;" src="../../assets/icons/area.svg">{{facilitiesData.size}} Sq ft
+                </div>
+            </div>
+            <div class="priceCatalogues">
+                <div class="costPerHour">
+                    <span>Per Hour</span>
+                    <span class="amount" *ngIf="facilitiesData.facilityType!='Co-Working Space'"><i class="fa fa-inr" aria-hidden="true"></i> {{facilitiesData.costPerHour}}</span>
+                    <span style="font-size: 15px;font-weight: normal;" class="amount" *ngIf="facilitiesData.facilityType=='Co-Working Space'">Not applicable</span>
+                </div>
+                <div class="costPerDay">
+                    <span>Per Day</span>
+                    <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> {{facilitiesData.costPerDay}} <label style="font-weight:normal;" *ngIf="facilitiesData.facilityType=='Co-Working Space'"> / seat</label></span>
+                </div>
+                <div class="costPerMonth">
+                    <span>Per Month</span>
+                    <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> {{facilitiesData.costPerMonth}} <label style="font-weight:normal;" *ngIf="facilitiesData.facilityType=='Co-Working Space'"> / seat</label></span>
+                </div>
+            </div>
+            <form [formGroup]="form" class="textFields">
+                <div class="priceTableDiv">
+                    <div class="datePickerContainer">
+                        <div class="dateContainer">
+                            <input formControlName="startDate" id="startTime" class="fromDate" type="text" placeholder="Start date">
+                            <i class="fa fa-calendar-o calender" aria-hidden="true"></i>
+                        </div>
+                        <div class="dateContainer">
+                            <input formControlName="endDate" id="endTime" class="toDate" type="text" placeholder="End Date">
+                            <i class="fa fa-calendar-o calender" aria-hidden="true"></i>
+                        </div>
+                        <input (keypress)="onlyNumberKey($event)" [hidden]="facilityType!='Co-Working Space'" formControlName="seats" id="seats" class="seats" type="text" placeholder="Seats">
+                    </div>
+                    <div class="costFormProcessingMsz" *ngIf="isProcessing">
+                        <p>Processing...</p>
+                    </div>
+                    <p class="costFormErrorMsz" *ngIf="this.meetupService.costFormErrorMessage1!=''">{{this.meetupService.costFormErrorMessage1}}</p>
+                    <!--<p class="costFormErrorMsz" *ngIf="costFormErrorMessage1!=''">{{costFormErrorMessage1}}</p>-->
+                    <div class="price" *ngIf="this.meetupService.calculateCost!=null && this.meetupService.IsAvailableForBooking">
+                        <table>
+                            <tbody>
+                                <tr class="normalFont">
+                                    <td>Base Price</td>
+                                    <td><i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.basePrice}}</td>
+                                </tr>
+                                <tr class="normalFont">
+                                    <td>CGST ({{this.meetupService.calculateCost.cGst}} %)</td>
+                                    <td><i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.cGstCost}}</td>
+                                </tr>
+                                <tr class="normalFont">
+                                    <td>SGST ({{this.meetupService.calculateCost.sGst}} %)</td>
+                                    <td><i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.sGstCost}}</td>
+                                </tr>
+                                <tr class="normalFont" *ngIf="this.meetupService.calculateCost.offer>0">
+                                    <td>Offer</td>
+                                    <td> - <i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.offer}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="rememberMeAndForgotPasswordContainer" *ngIf="this.meetupService.calculateCost!=null && this.meetupService.IsAvailableForBooking && facilitiesData.location.facilityTermsConditionses != ''">
+                        <div>
+                            <input type="checkbox" value="yes" formControlName="terms" id="checkBox_terms" (click)="onTermsAndConditionsSelect()"><span class="termsText">
+                            <span>I agree to the <a id="terms_signup_a" (click)="showTermsAndConditionsBox()" class="termsacceptlink">terms & conditions</a></span></span>
+                        </div>
+                    </div>
+                    <p class="costFormErrorMsz" *ngIf="this.termsErrorMessage1!=''">{{this.termsErrorMessage1}}</p>
+                    <div class="bookNowAndTotalParent" *ngIf="this.meetupService.calculateCost!=null && this.meetupService.IsAvailableForBooking">
+                        <button class="totalButton"><div class="totalDivision" id = "button_total"><span class="total">Total </span><span> <i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.totalCost | number:'1.2' }}</span></div></button>
+                        <button class="bookNowButton" [class.bookNowButton]="facilitiesData.location.facilityTermsConditionses == ''" [class.disableButtonColor]="facilitiesData.location.facilityTermsConditionses != ''" name="bookNow" (click)="bookNow()" id="button_bookNow">Book Now</button>
+                    </div>
+                </div>
+            </form>
+            <div class="amenitiesDiv">
+                <div class="amenitiesTitle">
+                    <p>Amenities - {{facilitiesData.title}}</p>
+                </div>
+                <div class="amenities">
+                    <div class="powerContainer" *ngFor="let amenities of amenitiesList">
+                        <div class="powerbackupDiv">
+                            <div class="svgImg" [innerHtml]=amenities.icon></div>
+
+                            <span>{{amenities.name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="openingHourDateDiv">
+                <div class="openingDateTitle">
+                    <p>Opening Hours/Date</p>
+                </div>
+                <div class="openingDateTimeTable">
+
+                    <table>
+                        <tbody>
+                            <tr *ngFor="let facilitytiming of facilityTiming">
+                                <td class="day">{{days[facilitytiming.weekDay]}}</td>
+                                <td *ngIf="facilitytiming.openingTime!='00:00:00'" class="fromTime">{{facilitytiming.openingTime | slice:0:5}}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                                <td *ngIf="facilitytiming.closingTime!='00:00:00'" class="toTime">{{facilitytiming.closingTime | slice:0:5}}</td>
+                                <td class="closed" *ngIf="facilitytiming.openingTime=='00:00:00' && facilitytiming.closingTime=='00:00:00'">Closed</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+            </div>
+            <div class="offerDiv">
+                <div class="offersTitle">
+                    <p class="specialOfferTitle">Special Offers</p>
+                </div>
+                <div class="openingHourDateDiv" style="margin-top: 0px;text-align: center;" *ngIf="facilitiesData.facilityOfferses.length==0">
+                    <p style="padding: 10px;">
+                        No Offers
+                    </p>
+                </div>
+
+                <div class="offersContainer" *ngIf="facilitiesData.facilityOfferses.length>0">
+                    <i class="material-icons">local_offer</i>
+                    <div class="offerData">
+                        <h3>{{facilitiesData.title}}</h3>
+                        <label>{{facilitiesData.facilityOfferses[0].startDate | date}} to {{facilitiesData.facilityOfferses[0].endDate | date}}</label>
+                    </div>
+                    <div class="offerPercentage"><strong>{{facilitiesData.facilityOfferses[0].price}}</strong><sub>%</sub></div>
+                </div>
+                <!--
+
+
+                <div class="offerOne" *ngIf="facilitiesData.facilityOfferses.length>0">
+                    <div class="offerImg">
+                        <img src="assets/icons/offerImage.png" />
+                    </div>
+                    <div class="offerDesc">
+
+                        <sub><small><i class="fa fa-tag" aria-hidden="true"></i>{{facilitiesData.facilityOfferses[0].startDate}} - {{facilitiesData.facilityOfferses[0].endDate}}</small> </sub>
+                    </div>
+                    <div class="offerBtnDiv">
+                        <button class="offerBtn"><strong><span>{{facilitiesData.facilityOfferses[0].price}}%</span></strong></button>
+                    </div>
+                </div>-->
+            </div>
+            <!--<div class="nearByRestorents">
+                <div class="NearByRestaurantsTitle">
+                    <p class="whatsaroundTitle"><strong>What's Around</strong></p>
+                    <select id="details_nearby_select" (change)="changeNearbyOption()">
+                       
+                         <option selected="true" value="hotels">Hotels</option>
+                        <option value="atm">ATM</option>
+                       
+                         <option value="bank">Bank</option>
+                         <option value="bus_station"> Bus Station</option>
+                           <option value="cafe"> Cafe</option>
+                            <option value="hospital"> Hospital</option>
+                              <option value="parking"> Parking</option>
+                               <option value="restaurant"> Restaurant</option>
+                               <option value="train_station"> Railway Station</option>
+
+                    </select>
+                </div>
+
+                <div id="nearBy_map" style="width:448px;height:300px;"></div>
+
+            </div>-->
+        </div>
+
+    </div>
+
+    <div class="nearByLocationContainer">
+        <div class="nearbyLocTitleDiv">
+            <p>Nearby - You May Also Like</p>
+        </div>
+        <p *ngIf="noNearByFacilities">No Near By Facilities</p>
+        <div class="nearbyLocationparent" *ngIf="!noNearByFacilities">
+
+            <facility-listing-info [facilityDetailsInfo]="facility" *ngFor="let facility of nearbyFacilitiesList"></facility-listing-info>
+
+
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()" id="button_ok">OK</button>
+        </div>
+
+    </div>
+</div>
+<div *ngIf="this.meetupService.isCallNowPopUp" class="confirmAlert ">
+    <div class="mszbox zoomIn callNowPopUp" [class.zoomOut]="!this.meetupService.isCallNowPopUp">
+        <div class="callNowPopUpHeader">
+            <span>Enquiry Details</span>
+        </div>
+        <div class="callNowPopup-body">
+            <div class="CallNowpopUpSection" *ngIf="this.meetupService.calculateCost!=null && this.meetupService.IsAvailableForBooking">
+                <table class="callNowPopUpTable">
+
+                    <tbody>
+                        <tr>
+                            <td>From</td>
+                            <td>To</td>
+                            <td>Price</td>
+                            <td>Total Price</td>
+
+                        </tr>
+                        <tr>
+                            <td>{{startDateValue}}</td>
+                            <td>{{endDateValue}}</td>
+                            <td>{{this.meetupService.calculateCost.basePrice | number:'1.2'}}</td>
+                            <td>{{this.meetupService.calculateCost.totalCost | number:'1.2' }}</td>
+                        </tr>
+
+                    </tbody>
+                    <div style="height:20px;"></div>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>SGST</td>
+                            <td>Offer</td>
+                            <td *ngIf="seatValue">No of Seats</td>
+
+                        </tr>
+                        <tr>
+                            <td>{{this.meetupService.calculateCost.cGst}} %</td>
+                            <td>{{this.meetupService.calculateCost.sGst}} %</td>
+                            <td *ngIf="this.meetupService.calculateCost.offer>0"><i class="fa fa-inr" aria-hidden="true"></i> {{this.meetupService.calculateCost.offer}}</td>
+                            <td *ngIf="this.meetupService.calculateCost.offer ==0">- </td>
+                            <td *ngIf="seatValue">{{seatNumber}}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+            <form [formGroup]="enquiryDetailsForm" (ngSubmit)="sendEnquiryDetails()">
+                <div class="callNowInformationContainer">
+
+                    <input id="input_name" type="text" placeholder="Enter name" formControlName="name">
+                </div>
+                <div class="callNowInformationContainer">
+
+                    <input id="input_mobileNumber" type="text" maxlength="10" (keypress)="onlyNumberKey($event)" placeholder="Enter mobile" formControlName="mobile">
+                </div>
+                <div class="callNowInformationContainer">
+
+                    <input id="input_email" type="text" placeholder="Enter Email" formControlName="emailId">
+                </div>
+                <div class="callNowInformationContainer">
+                    <textarea id="textArea_tellUs" placeholder="Tell Us" [value]="tellUsValue" formControlName="txtTellUs"></textarea>
+                </div>
+                <div *ngIf="enquiryDetailFormError != '' && !isSendingEnquiryProcessing">
+                    <p class="costFormErrorMsz">{{enquiryDetailFormError}}</p>
+                </div>
+                <div class="costFormProcessingMsz" *ngIf="isSendingEnquiryProcessing">
+                    <p>Processing...</p>
+                </div>
+                <div class="popup-footer callNowPopUpFooter">
+                    <button id="button_cancel_enquiry" class="consumerModuleButtons" (click)="closeCallNowPopUp()">Cancel</button>
+                    <span></span>
+                    <button id="button_send_enquiry" class="consumerModuleButtons" type="submit" [class.noClick]="isSendingEnquiryProcessing">Send Enquiry</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div *ngIf="this.meetupService.isTermsAndConditionExistForSP" class="confirmAlert ">
+    <div class="mszbox zoomIn callNowPopUp" [class.zoomOut]="!this.meetupService.isTermsAndConditionExistForSP">
+        <div class="callNowPopUpHeader">
+            <span>Terms And Conditions</span>
+            <img class="closeIcon" src="assets/icons/close.svg" (click)="closeSPTCPSPopup()">
+        </div>
+
+        <div class="popup-body">
+            <span>{{facilityTermsAndConditionData}}
+                </span>
+        </div>
+    </div>
+
+</div>
+
+<app-footer></app-footer>

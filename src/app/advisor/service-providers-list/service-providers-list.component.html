@@ -1,0 +1,94 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+
+            <ul>
+                <li>Service Providers List</li>
+            </ul>
+
+        </div>
+        <div class="service-provider-page payment-history-container">
+
+            <div class="serviceProviderHeadingContainer">
+                <div>
+                    <p class="heading">Service Provider Details</p>
+                </div>
+
+                <div class="seachFilterContainer">
+                    <i class="fa fa-search searchIcon" aria-hidden="true"></i>
+                    <form class="partnerForm" [formGroup]="searchForm" (ngSubmit)="getServiceProviderDetails()">
+                        <input type="text" placeholder="Enter UserName / EmailId / Mobile Number" formControlName="searchControl" id="input_search">
+                        <button class="filterFindButton  advisorModuleButtons" type="submit" id="button_search"><i class="material-icons">search</i></button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div *ngIf="isNoData" class="noResultContainer">
+                <h4>No result found</h4>
+            </div>
+            <div class="loader loadingContainer" *ngIf="showLoader">
+                <img src="././assets/loading.gif">
+            </div>
+            <div style="text-align:center;margin-top:20px;" *ngIf="this.errorMessage !=''">{{errorMessage}}</div>
+            <div class="tableContainer" *ngIf="showServiceProviderDetails">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Name
+
+                            </th>
+                            <th>Email Id
+
+                            </th>
+                            <th>Mobile Number
+
+                            </th>
+                            <!--<th>Status
+
+                            </th>-->
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let spData of serviceProviderDetails">
+                            <td>{{spData.userName}}</td>
+                            <td>{{spData.emailId}}</td>
+                            <td>{{spData.mobileNo}}</td>
+                            <!--<td>{{getUserStatus(spData.active)}}</td>-->
+                            <td><i class="fa fa-eye iconDsegin" aria-hidden="true" (click)="showFacilityDetailsPage(spData)"></i></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" (click)="closePopup(0)" id="button_ok_SessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)" id="button_ok_SessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

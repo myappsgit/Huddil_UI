@@ -1,0 +1,59 @@
+<header [class.transparent]="isTransparent">
+    <div style="cursor:pointer;" (click)="goHomePage();" class="header-left">
+        <img class="huddil-logo" [class.bigLogo]="isTransparent" src="../assets/huddil-logo.svg">
+    </div>
+    <div class="header-right" *ngIf="!this.meetupService.isLoggedIn">
+
+        <div><a style="cursor:pointer;" (click)="showHowItWorks()">How it works</a></div>
+        <div><a class="topMenuRound" (click)="goToLogin()">Login</a></div>
+        <div><a class="topMenuRound" (click)="goToSPSignup()">Partner With Us</a></div>
+
+
+
+    </div>
+    <div class="header-right loggedInHeader" *ngIf="this.meetupService.isLoggedIn">
+        <!--<div><i class="fa fa-bell"></i></div>-->
+        <div [routerLink]="['/consumer/my-bookings']"><a>My Bookings</a></div>
+
+
+
+
+        <div (click)="showMenuPopup()"><a *ngIf="this.meetupService.consumerUserData!=undefined">{{this.meetupService.consumerUserData}} <i class="fa fa-user-circle-o"></i></a></div>
+
+    </div>
+    <div class="userMenuContainer" *ngIf="isShowMenuPopup">
+        <div class="userMenuFieldsContainer">
+            <div (click)="goToEditProfilePage()" class="userMenuSubFieldsContainer"><i class="fa fa-address-card" aria-hidden="true"></i>
+                <p>Edit Profile</p>
+            </div>
+            <div (click)="goTofavourite()" class="userMenuSubFieldsContainer"><i class="fa fa-heart" aria-hidden="true"></i>
+                <p>Favourites</p>
+            </div>
+            <div (click)="goToAttendees()" class="userMenuSubFieldsContainer"><i class="fa fa-users" aria-hidden="true"></i>
+                <p>Attendees</p>
+            </div>
+            <div (click)="goToChangePassword()" class="userMenuSubFieldsContainer"><i class="fa fa-key" aria-hidden="true"></i>
+                <p>Change Password</p>
+            </div>
+            <div (click)="logout()" class="userMenuSubFieldsContainer"><i class="fa fa-power-off" aria-hidden="true"></i>
+                <p>Logout</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" (click)="closePopup()" id="button_ok">OK</button>
+        </div>
+
+    </div>
+</div>

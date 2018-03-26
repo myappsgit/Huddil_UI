@@ -1,0 +1,111 @@
+<div class="container">
+
+    <router-outlet></router-outlet>
+
+</div>
+<div class="confirmAlert" *ngIf="this.meetupService.isLoginPopUp">
+    <div class="loginAlertBox zoomIn" [class.zoomOut]="!this.meetupService.isLoginPopUp">
+        <img class="closeIcon" src="assets/icons/close.svg" (click)="closePopUp()">
+
+        <user-signUp></user-signUp>
+    </div>
+</div>
+<div class="confirmAlert" *ngIf="this.meetupService.isShowCalendarPopup">
+    <div class="calendarMszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowCalendarPopup">
+        <img class="closeIcon" src="assets/icons/close.svg" (click)="closeCalendarPopUp()">
+
+        <huddil-calendar-component></huddil-calendar-component>
+    </div>
+</div>
+
+<div *ngIf="this.meetupService.isShowHowItWorksPopup">
+
+    <div id="mainpopup" class="popupBackground zoomIn" [class.zoomOut]="!this.meetupService.isShowHowItWorksPopup">
+        <div class="mszbox" style="padding:0px; ">
+            <img class="closeIcon" src="assets/icons/close.svg" (click)="closeShowHowItWorks()">
+            <!--
+            <i class="fa fa-times closeIcon" (click)="closeShowHowItWorks()" aria-hidden="true"></i>-->
+            <h2 class="howitswork">How It Works</h2>
+            <hr>
+
+            <p class="howItsWorkContent">
+
+                For consumer, Huddil helps you to find co-working spaces, meeting rooms, training rooms and business centres</p>
+            <p class="Uncover">Uncover a Space to start your business and grow your network</p>
+            <p class="howItsWorkContent">Need to book a meeting room,desk or a private office? Search our platform of full-service co-working spaces,business centres,book by the hour/day/month.</p>
+            <div class="discoverTabs">
+                <div class="discoverSubtabs">
+                    <div class="discover"><img src="assets/discover.png">
+                    </div>
+                    <div class="discoverContent">
+                        <p>Discover</p>
+                        <p>Simply search by location and filter based on availability.</p>
+                    </div>
+                </div>
+                <div class="discoverSubtabs">
+                    <div class="bookTab"><img src="assets/book.png">
+                    </div>
+                    <div class="discoverContent">
+                        <p>Book and Confirm</p>
+                        <p>Convenient payment options-Pay online or on the spot.</p>
+                    </div>
+                </div>
+
+                <div class="discoverSubtabs">
+                    <div class="checkTab"><img src="assets/checkin.png"></div>
+                    <div class="discoverContent">
+                        <p>Check-in</p>
+                        <!--<p>Our service provider are waiting for the day/hour to host you better.
+                        </p>-->
+                        <p>Our service providers are waiting to host you better.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="this.meetupService.isShowConsumerTCPSPopup">
+
+    <div id="mainpopup" class="popupBackground zoomIn" [class.zoomOut]="!this.meetupService.isShowConsumerTCPSPopup">
+        <div class="mszbox" style="padding:0px; ">
+            <!--<i class="fa fa-times closeIcon" (click)="closeConsumerTCPSPopup()" aria-hidden="true"></i>-->
+            <img class="closeIcon" src="assets/icons/close.svg" (click)="closeConsumerTCPSPopup()">
+            <div class="tcpsData" [innerHtml]="this.meetupService.consumerTermstext">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowSPTCPSPopup">
+
+    <div id="mainpopup" class="popupBackground zoomIn" [class.zoomOut]="!this.meetupService.isShowSPTCPSPopup">
+        <div class="mszbox" style="padding:0px; ">
+            <!--<i class="fa fa-times closeIcon" (click)="closeSPTCPSPopup()" aria-hidden="true"></i>-->
+            <img class="closeIcon" src="assets/icons/close.svg" (click)="closeSPTCPSPopup()">
+            <div class="tcpsData" [innerHtml]="this.meetupService.SPTermsText">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowTCPSLoginPopUp">
+
+    <div id="mainpopup" class="popupBackground zoomIn" [class.zoomOut]="!this.meetupService.isShowTCPSLoginPopUp">
+        <div class="mszbox" style="padding:0px; ">
+
+            <div *ngIf="userType=='7'" class="tcpsData" [innerHtml]="this.meetupService.SPTermsText"></div>
+
+            <div *ngIf="userType=='8'" class="tcpsData" [innerHtml]="this.meetupService.consumerTermstext">
+            </div>
+            <div class="tcpsButtonContainer">
+                <button class="denyButton consumerModuleButtons" (click)="denyTCPSrequest()">Deny</button>
+                <span></span>
+                <button class="acceptButton consumerModuleButtons" (click)="updateTCPSForUser()">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>

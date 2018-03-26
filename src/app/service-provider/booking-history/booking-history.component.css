@@ -1,0 +1,404 @@
+/*default page css */
+
+.service-provider-rightSide {
+    width: calc(100% - 200px);
+    min-height: 100vh;
+}
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*end sidbar */
+
+.service-provider-page {
+    padding: 25px;
+    padding-right: 0px;
+    min-height: 100vh;
+}
+
+
+/*end default css */
+
+
+/*filter CSS*/
+
+.searchBox {
+    display: flex;
+    border: 1px solid #8A8A8A;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBox input {
+    border: none;
+    width: 600px;
+    outline: none;
+    font-size: 12px;
+    color: #7F7F7F;
+}
+
+.searchBox i {
+    padding-left: 20px;
+    padding-right: 14px;
+    font-size: 20px;
+    color: #7F7F7F;
+}
+
+.filterSectionRight {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterSectionRight button {
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.filterFilterButton i {
+    padding-right: 4px;
+}
+
+.filterSearchButton {
+    background: #8A8A8A
+}
+
+.filterAddButton {
+    background: #004DB7
+}
+
+.searchBox {
+    display: flex;
+}
+
+.filterContainer {
+    box-shadow: 3px 8px 11px -12px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+}
+
+.filterDivision {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    font-size: 19px;
+    color: #656565;
+    align-items: center;
+}
+
+.filterDivision p {
+    margin-right: auto;
+    font-size: 18px;
+    color: #565656;
+    /*flex-box child property*/
+}
+
+.selectContainer {
+    height: 38px;
+    width: 175px;
+    padding-left: 27px;
+    border: 1px solid #aaa;
+    margin-right: 7px;
+    font-size: 12px;
+    color: #8F8F8F;
+}
+
+.inputContainer {
+    height: 34px;
+    width: 156px;
+    padding-left: 27px;
+    color: gray;
+    font-size: 13px;
+    border: 1px solid #aaa;
+}
+
+.iconContainer {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    font-size: 18px;
+    color: #8F8F8F;
+}
+
+
+/* extra filter box */
+
+.extraFilterBox {
+    z-index: 99999;
+    height: 0px;
+    border: 1px solid #c1c1c1;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.openFilterHeight {
+    height: 80px;
+    border: 1px solid #c1c1c1;
+    opacity: 1;
+}
+
+
+/*.extraFilterBox {
+    margin: 40px 0px;
+    border: 1px solid #c1c1c1;
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -31px;
+}*/
+
+.closeExtraFilterBox {
+    position: absolute;
+    right: -17px;
+    top: -17px;
+    border: 1px solid #A0A0A0;
+    color: #A0A0A0;
+    padding: 10px;
+    font-size: 19px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.extraFilterBox form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #8F8F8F;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+/* booking history table css */
+
+#spMainContainer {
+    background-color: #FFFFFF;
+    height: auto;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.booking {
+    border-right: 2px solid grey;
+    font-size: 18px;
+    padding-right: 15px;
+    color: #787878;
+}
+
+.view {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.viewAll {
+    text-decoration: none;
+    color: blue;
+    font-size: 11px;
+}
+
+.bookingDetailAndView img {
+    width: 40px;
+    height: 36px;
+}
+
+.tableDiv {
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    margin-top: 10px;
+}
+
+.tableDiv {
+    box-shadow: 0px 0px 6px 0px #ACACAC;
+    margin-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: center;
+    font-size: 14px;
+    color: #717171;
+}
+
+table tr {
+    height: 45px;
+}
+
+.paymentProgressBtn {
+    border: none;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: green;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.paymentCancelBtn {
+    border: none;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #C13737;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.paymentCompleteBtn {
+    border: none;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #2570C3;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+table .fa-eye {
+    color: #bdbdbd;
+    cursor: pointer;
+}
+
+.lastHeading {
+    width: 50px;
+}
+
+table tr:nth-child(even) {
+    background: #dae5f4;
+}
+
+.tableTitle {
+    border-bottom: 1px solid #bdbdbd;
+}
+
+table tbody tr:hover {
+    background-color: #bbdefb !important;
+    cursor: pointer;
+}
+
+.bookingDetailAndView i {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.service-provider-main-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.service-provider-leftSide {
+    width: 200px;
+}
+
+.activeColor {
+    background: #004DB7!important;
+}
+
+.extraFilterBox form div {
+    position: relative;
+}
+
+.filterFindButton {
+    width: 110px;
+    height: 40px;
+}
+
+.pagination-component {
+    margin-top: 20px;
+}
+
+huddil-dropdown-component {
+    border: 1px solid #c1c1c1;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.bookingIdSection {
+    width: 80px;
+    max-width: 50px;
+    word-wrap: break-word;
+}
+
+.bookingTitleSection {
+    word-wrap: break-word;
+    max-width: 120px;
+    width: 105px;
+}
+
+.bookingNameSection {
+    word-wrap: break-word;
+    width: 145px;
+    max-width: 120px;
+}
+
+.bookingTimeSection {
+    word-wrap: break-word;
+    width: 145px;
+    max-width: 120px;
+}
+
+.bookingDurationSection {
+    word-wrap: break-word;
+    word-wrap: break-word;
+    width: 200px;
+    max-width: 120px;
+}
+
+.bookingTotalPriceSection {
+    word-wrap: break-word;
+    width: 95px;
+    max-width: 100px;
+}
+
+.bookingPaymentMethodSection {
+    word-wrap: break-word;
+    width: 95px;
+    max-width: 100px;
+}
+
+.bookingStatusSection {
+    word-wrap: break-word;
+    width: 95px;
+    max-width: 100px;
+}

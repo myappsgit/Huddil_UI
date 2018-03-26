@@ -1,0 +1,37 @@
+.parentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 68px;
+    background: #fff;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.childContainerOne {
+    padding-top: 53px;
+}
+
+.goBack {
+    /*background: #004DB7;
+    color: #fff;
+    border-color: #004DB7;*/
+    width: 131px;
+    height: 48px;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.paragraph {
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: #8a8a8a;
+    color: #fff;
+    font-size: 14px;
+}

@@ -1,0 +1,336 @@
+/*breadcrumbs starts*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*breadcrumbs ends*/
+
+
+/*page CSS starts*/
+
+.attendeesListContainer {
+    padding-bottom: 30px;
+    min-height: 350px;
+    background: #fff;
+}
+
+.attendessListHeader {
+    flex-direction: row;
+    display: flex;
+    /*padding-left: 90px;
+    padding-top: 40px;*/
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E2E2E2;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.attendessListHeader p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.noAttendeesListContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #BCBCBC;
+    margin-top: 20px;
+}
+
+.noAttendeesListContainer p {
+    font-size: 25px;
+}
+
+.addEventButtonContainer button {
+    height: 40px;
+    width: 120px;
+    background-color: #6A97FF;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+.addEventButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+
+.listOfAttendeesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+    justify-content: center;
+}
+
+.attendeesListHeadingContainer {
+    width: 640px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #484848;
+    padding-left: 38px;
+    color: white;
+    height: 60px;
+    align-items: center;
+    font-size: 20px;
+}
+
+.attendeesListFieldsContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #A9A9A9;
+    padding: 30px;
+    width: 616px;
+}
+
+.attendeesListSubFieldsContainer {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.inputField {
+    height: 35px;
+    padding-left: 23px;
+    margin-bottom: 20px;
+    width: 96%;
+    border: 1px solid #aaa;
+}
+
+.attendeesListInputFields {
+    width: 170px;
+    height: 35px;
+    padding-left: 23px;
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+}
+
+.saveAttendeesButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.saveAttendeesButtonsContainer span {
+    width: 20px;
+}
+
+.addNewAttendeesContainer {
+    margin-bottom: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addNewAttendeesContainer a {
+    color: #6A98FF;
+    text-decoration: underline;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cancelButton {
+    width: 100px;
+    height: 42px;
+    font-size: 18px;
+    background-color: #A1A1A1;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.saveButton {
+    width: 100px;
+    height: 42px;
+    font-size: 18px;
+    background-color: #6A98FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.hintError {
+    color: red;
+    font-size: 11px;
+    font-weight: lighter!important;
+    margin-top: -26px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.removeItems {
+    position: absolute;
+    font-size: 15px;
+    color: bls;
+    right: -20px;
+    cursor: pointer;
+    color: red;
+    top: 12px;
+}
+
+
+/* Team List Container Start */
+
+.teamListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.teamListHeadingContainer {
+    background-color: #464646;
+    width: 80%;
+    color: white;
+    padding-left: 31px;
+    font-size: 17px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.individualTeamListHeadingContainer p {
+    margin: 0;
+}
+
+.listOfTeamsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.individualTeamListItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #D1D1D1;
+    color: black;
+    width: 996px;
+    padding-left: 30px;
+    padding-right: 28px;
+    margin-top: 3px;
+    height: 40px;
+}
+
+.individualTeamListHeadingContainer {
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.individualTeamListIconContainer {
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editIcon {
+    cursor: pointer;
+    margin: 5px;
+}
+
+.deleteIcon {
+    cursor: pointer;
+    margin: 5px;
+}
+
+.participantsContainer {
+    background-color: white;
+    border: 1px solid #828282;
+    display: none;
+}
+
+.participantsDetailsContainer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #828282;
+    align-items: center;
+    height: 40px;
+}
+
+.participantsDetailsContainer span {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Team List Container End */
+
+
+/*sliding down & sliding up animation*/
+
+.slide-down {
+    max-height: 99999px;
+}
+
+button {
+    background-color: #A1A1A1 !important;
+}
+
+button:hover {
+    background-color: #6A96FF !important;
+}
+
+button:focus {
+    background-color: #004DB7!important;
+}
+
+.loaderDivision {
+    display: flex;
+    justify-content: center;
+}
+
+.teamListHeadingContainer p {
+    margin: 0px;
+    /* height: 39px; */
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .teamListHeadingContainer {
+        width: 77%;
+    }
+    .individualTeamListItem {
+        width: 220px;
+        max-width: 480px;
+    }
+    .individualTeamListHeadingContainer {
+        width: 90%;
+    }
+    .individualTeamListIconContainer {
+        width: 10%;
+    }
+    .participantsDetailsContainer {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,279 @@
+.service-provider-rightSide {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+.service-provider-main-page {
+    display: flex;
+}
+
+.editProfileMainPage {
+    background: #fff;
+    padding: 25px!important;
+    min-height: 100vh;
+}
+
+.hintError {
+    color: red;
+    font-size: 11px;
+    font-weight: lighter!important;
+}
+
+
+/*header footer and breadcrums css starts*/
+
+
+/*breadcrumbs*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.breadcrumbsSection ul li:last-child {
+    cursor: inherit;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*page CSS starts*/
+
+
+/*page CSS starts*/
+
+.editProfileContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.editProfileHeadingContainer {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E2E2E2;
+}
+
+.editProfileHeadingContainer p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.heading {
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 35px;
+}
+
+.inputFieldcontainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.inputFieldcontainer input {
+    width: 350px;
+    height: 35px;
+    padding-left: 12px;
+    font-size: 12px;
+    border: 1px solid #e2e2e2;
+}
+
+.inputFieldcontainer i {
+    position: absolute;
+    font-size: 20px;
+    color: gray;
+    right: 10px;
+    top: 10px;
+}
+
+.fa-mobile {
+    font-size: 25px!important;
+}
+
+.editProfileFieldContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.buttonContainer button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.changeEmailContainer {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.changeEmailButtonContainer {
+    padding-left: 15px;
+}
+
+.changeEmailButtonContainer button {
+    width: 90px;
+    height: 40px;
+    background-color: #767676;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sendOTPButton {
+    width: 90px;
+    height: 40px;
+    background-color: #767676;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.VerifyButton {
+    width: 200px;
+    height: 40px;
+    background-color: #767676;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+/*pop-up CSS starts*/
+
+
+/* .confirmAlert {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.mszbox {
+    background-color: white;
+    border-radius: 5px;
+    height: auto;
+    margin: 20px auto;
+    width: 710px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out 0s;
+    position: relative;
+    /*padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 35px;
+}*/
+
+.closeIcon {
+    cursor: pointer;
+}
+
+.mszbox {
+    padding: 20px;
+}
+
+.mszbox h2 {
+    color: #757575;
+    font-size: 20px;
+    margin-top: -15px;
+}
+
+.mszbox p {
+    font-size: 16px;
+    color: #767676;
+    line-height: 30px;
+}
+
+.closeIconDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeIconDiv i {
+    font-size: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+/*pop-up css end*/
+
+.mobileNumberContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    align-items: center;
+}
+
+.sendOTPContainer {
+    height: 41px;
+    width: 321px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sendOTPContainer input[type="text"] {
+    width: 90px;
+    padding-left: 7px;
+}
+
+.sendOTPLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendOTPLoader img {
+    width: 50px;
+    height: 50px;
+}
+
+.editProfileButtons {
+    height: 37px;
+    margin-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}

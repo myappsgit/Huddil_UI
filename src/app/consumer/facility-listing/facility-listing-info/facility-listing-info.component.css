@@ -1,0 +1,361 @@
+.mainContainer {
+    background-color: black;
+}
+
+.imgMeetingRoom {
+    object-fit: cover;
+    width: 100%;
+    height: 169px;
+}
+
+.ratingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10px;
+}
+
+.facilityLocationHeadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.ratingContainer img {
+    width: 24px;
+    height: 21px;
+}
+
+.facilityLocationHeadingContainer span,
+.ratingContainer span {
+    font-size: 12px;
+    color: #A0A0A0;
+}
+
+.facilityLocationHeadingContainer span i {
+    padding-right: 6px;
+}
+
+.facilityLocationHeadingContainer h3 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    color: #515151;
+    font-weight: normal;
+}
+
+.ratingContainer p {
+    font-size: 13px;
+}
+
+.facilityLocationContainer {
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.facilityLocationHeadingContainer img {
+    width: 16px;
+    height: 15px;
+}
+
+.facilityLocationHeadingContainer p:first-child {
+    font-size: 20px;
+    color: #8C8C8C;
+}
+
+.facilityLocationHeadingContainer p:last-child {
+    margin-top: -16px;
+    font-size: 13px;
+    color: #B9B9B9;
+}
+
+.facilityPriceContainer {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 35px;
+    align-items: center;
+    border: 1px solid #c1c1c1;
+    margin-top: 15px;
+}
+
+.facilityPriceContainer p {
+    margin: 0px;
+    font-size: 18px;
+    color: #0081CB;
+}
+
+.moneyIcon {
+    padding-right: 11px;
+    font-size: 17px;
+    font-weight: lighter;
+}
+
+.facilityCapacityDivision {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #7C7C7C;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: auto;
+}
+
+.facilityPriceContainer .fa-inr {
+    padding-right: 5px;
+}
+
+.facilityDetailsContainer {
+    background-color: white;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+}
+
+.facilityIconsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3px;
+}
+
+.facilityIconsContainer i {
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #E8E8E8;
+    margin-top: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-top: 12px;
+    height: 27px;
+    margin-top: 6px;
+    padding-left: 9px;
+    padding-top: 8px;
+    height: 23px;
+    margin-top: 11px;
+    color: #505050;
+}
+
+.newFacilityIcon {
+    border: 1px solid #E8E8E8;
+    padding-top: 8px;
+    padding-left: 4px;
+    padding-right: 5px;
+    height: 23px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #969696;
+    cursor: pointer;
+}
+
+.facilityThumbnail {
+    position: relative;
+    cursor: pointer;
+    height: 169px;
+}
+
+.iconOnThumbnmail {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+}
+
+.iconOnThumbnmail span {
+    color: white;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.iconOnThumbnmail .fa-pencil {
+    background: #fff;
+    color: #000;
+}
+
+.iconOnThumbnmail .fa-bell {
+    background: green;
+    color: #fff;
+}
+
+.iconOnThumbnmail i {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.facilityApprovedColor {
+    color: green;
+}
+
+.facilityNotApprovedColor {
+    color: red
+}
+
+.facilityPriceContainer select {
+    border: none;
+    padding: 3px;
+    font-size: 12px;
+    color: #0081CB;
+}
+
+.ratingCountContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65px;
+}
+
+.ratingCountContainer i {
+    opacity: 0.5;
+}
+
+.buttonContainer i {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.booknowbtn {
+    background: #FE5200;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.buttonContainer button {
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    height: 30px;
+    width: auto;
+    background-color: #FE5200;
+    color: white;
+    border-color: white;
+}
+
+.certifiedIcon {
+    width: 25px;
+    padding-right: 18px;
+}
+
+.facilityTitleContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.titleHeading {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: flex-start;
+    width: 97%;
+    height: 40px;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
+    background: linear-gradient(transparent, #000);
+}
+
+.textMore {
+    font-size: 12px;
+    color: #969696;
+    cursor: pointer;
+    width: 72px;
+    margin: 0px;
+    height: 30px;
+    border: 1px solid #E8E8E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip .svgImg {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+}
+
+.tooltip {
+    position: absolute;
+    /* margin-top: -53px; */
+    /* margin-left: -71px; */
+    width: auto;
+    background-color: white;
+    border-radius: 6px;
+    padding: 6px 0;
+    border: 1px solid #8C8C8C;
+    box-shadow: 0px 0px 5px 0px #8C8C8C;
+    right: 11px;
+    /* display: flex; */
+    bottom: 41px;
+}
+
+.tooltip img {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.facilityIconsContainer .svgImg {
+    border: 1px solid #E8E8E8;
+    height: 20px;
+    width: 20px;
+    padding: 6px;
+    margin-right: 17px;
+}
+
+.dateCalendar i,
+.dateCalendar img {
+    font-size: 17px;
+    padding-right: 6px;
+    width: 14px;
+}
+
+.dateCalendar {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.handCursor {
+    cursor: pointer;
+}
+
+.facilityListingContainer {
+    border: 1px solid #c1c1c1;
+    width: 300px;
+    margin-bottom: 25px;
+}
+
+.facilityListingContainer:hover {
+    box-shadow: 0px 0px 7px 0px #c1c1c1;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .facilityListingContainer {
+        width: 346px;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    .facilityListingContainer {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:800px) {
+    .facilityListingContainer {
+        margin-right: 20px;
+    }
+}

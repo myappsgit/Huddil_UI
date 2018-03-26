@@ -1,0 +1,160 @@
+<landing-screen></landing-screen>
+<div class="clearfix"></div>
+<!--Start Main Page-->
+<div class="page-content">
+    <div class="headingMeetingOrEvent">
+        <p>The <span>right space</span> for your next meeting or event</p>
+    </div>
+    <!--space type boxes-->
+    <div class="localityType">
+        <div class="localityTypeContainer">
+            <div class="localityTypeItem">
+                <img src="../assets/meeting-Room.jpg" />
+                <div class="localityTypeTitle">
+                    <h2>Meeting Room</h2>
+                </div>
+                <div class="localityTypeItemHover">
+
+                    <div class="localityTypeItemMoreDetails" (click)="goToListingPageFromBoxes(1);">
+
+                        <i class="fa fa-search"></i>
+                        <p>Starting from</p>
+                        <h2><i class="fa fa-inr"></i>{{meetingRoomLeastCost}}</h2>
+                        <p>per month</p>
+                    </div>
+                </div>
+            </div>
+            <div class="localityTypeItem">
+                <img src="../assets/conference-room.jpg" />
+                <div class="localityTypeTitle">
+                    <h2>Conference Room</h2>
+                </div>
+                <div class="localityTypeItemHover">
+
+                    <div class="localityTypeItemMoreDetails" (click)="goToListingPageFromBoxes(4);">
+
+                        <i class="fa fa-search"></i>
+                        <p>Starting from</p>
+                        <h2><i class="fa fa-inr"></i>{{conferenceRoomLeastCost}}</h2>
+                        <p>per month</p>
+                    </div>
+                </div>
+            </div>
+            <div class="localityTypeItem">
+                <img src="../assets/co-working.jpg" />
+                <div class="localityTypeTitle">
+                    <h2>Co-working Room</h2>
+                </div>
+                <div class="localityTypeItemHover">
+
+                    <div class="localityTypeItemMoreDetails" (click)="goToListingPageFromBoxes(3);">
+
+                        <i class="fa fa-search"></i>
+                        <p>Starting from</p>
+                        <h2><i class="fa fa-inr"></i>{{coworkingRoomLeastCost}}</h2>
+                        <p>per month</p>
+                    </div>
+                </div>
+            </div>
+            <div class="localityTypeItem">
+                <img src="../assets/training-room.jpg" />
+                <div class="localityTypeTitle">
+                    <h2>Training Room</h2>
+                </div>
+                <div class="localityTypeItemHover">
+
+                    <div class="localityTypeItemMoreDetails" (click)="goToListingPageFromBoxes(2);">
+
+                        <i class="fa fa-search"></i>
+                        <p>Starting from</p>
+                        <h2><i class="fa fa-inr"></i>{{trainingRoomLeastCost}}</h2>
+                        <p>per month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <!--news,events and testimonials-->
+    <!--<div class="homeNewsEventsMainSection">
+
+        <div class="homeNewsEventsSection">
+            <div class="homeNewsEventsSection-left">
+                <div class="homeNewsEventsSection-header">
+                    <div (click)="showLatestNewsContainer()" class="homeNewsEventsSection-headerItem">
+                        <div class="headerItemContainer" [class.active]="isShowLatestNewsContainer">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>News</span>
+    </div>
+</div>
+<div (click)="showEventsContainer()" class="homeNewsEventsSection-headerItem">
+    <div class="headerItemContainer" [class.active]="isShowEventsContainer">
+        <i class="fa fa-calendar-o"></i>
+        <span>Events</span>
+    </div>
+</div>
+</div>
+<div class="latestNewsContainer" *ngIf="isShowLatestNewsContainer">
+    <latest-news></latest-news>
+</div>
+<div class="eventsContainer" *ngIf="isShowEventsContainer">
+    <events></events>
+</div>
+</div>
+<div class="homeNewsEventsSection-right">
+    <div class="homeNewsEventsSection-header">
+        <div class="homeNewsEventsSection-headerItem">
+            <i class="fa fa-comments-o"></i>
+            <span>Testimonial</span>
+        </div>
+    </div>
+    <div class="testimonialsContainer">
+        <testimonials></testimonials>
+    </div>
+</div>
+</div>
+
+</div>-->
+    <div class="clearfix"></div>
+    <!--why huddil-->
+    <div class="whyHuddil">
+
+        <div class="whyHuddilHeading">
+            <h2>Why book your workspace with <span class="highlightedText">Huddil</span></h2>
+            <p>Book a co-working space, business center or shared office space <br>nearby discover space to rent by the hour, day or month</p>
+        </div>
+        <div class="whyHuddilFeautresContainer">
+            <div class="whyHuddilFeautresItem">
+                <!--<h3>Huddil Certified </h3>-->
+                <img src="assets/huddil.svg" />
+                <p>Best infrastructure, Best Ambience . We ensure….. what you see on Huddil , you get that. Every facility is verified and certified by our team.</p>
+            </div>
+            <div class="whyHuddilFeautresItem">
+                <!--<h3>Global Reach </h3>-->
+                <img src="assets/Global Reach.svg" />
+                <p>Global Co-work Market Place. Put your facility on global map. Now Co-work spaces will get access to global customers through our sales force from USA , Singapore , UK and India.</p>
+            </div>
+            <div class="whyHuddilFeautresItem">
+                <!--<h3>Convenience </h3>-->
+                <img src="assets/Convenience.svg" />
+                <p>Bringing in more flexibility and simplicity. Select options suiting your needs at your convenient place and time. Book from anywhere, anytime! </p>
+            </div>
+        </div>
+        <!--<div class="whyHuddilBottomSection">
+            <button class="filterFindButton" (click)="openHowItWorkPopup();">Learn More About</button>
+        </div>-->
+
+    </div>
+    <div class="clearfix"></div>
+    <!--business app section-->
+    <div class="businessAppSection">
+
+        <img src="../assets/business-app.jpg" />
+
+    </div>
+</div>
+<!--End Main Page-->
+<div class="clearfix"></div>
+<!--footer-->
+<app-footer></app-footer>

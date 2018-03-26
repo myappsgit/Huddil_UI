@@ -1,0 +1,118 @@
+<advisor-header></advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+            <ul>
+
+                <li>Facility Listing</li>
+            </ul>
+        </div>
+        <div class="service-provider-page facility-listing-container">
+            <div class="filterContainer">
+                <div class="filterDivision">
+                    <p>Facilities</p>
+                    <div class="filterSectionRight">
+                        <form class="searchBox" [formGroup]="searchTitleForm" (ngSubmit)="searchFacilitiesByFilters(1)">
+                            <i class="material-icons searchIcon">search</i>
+
+                            <input type="search" formControlName="searchTitle" id="input_search" placeholder="Search by facility title">
+                            <button type="button" class="filterFindButton  advisorModuleButtons" id="button_filter" [class.activeColor]="isShowFilterBox" (click)="showExtraFilterBox()" id="button_filter">
+                                <img class="iconDesign" src="assets/icons/filter_icon.svg">
+                            </button>
+
+                            <button class="filterFindButton  advisorModuleButtons" type="submit" id="button_search">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="extraFilterBox" [class.openFilterHeight]="isShowFilterBox">
+
+                <form [formGroup]="form">
+                    <!--<div>
+                        <i class="material-icons iconContainer">supervisor_account</i>
+                        <select class="selectContainer" formControlName="selectFacility" id="select_facilityType">
+                            <option selected="true" disabled="true" value="">Facility Type</option>
+                            <option value="0">All</option>
+                            <option [value]="facilityName.id" *ngFor="let facilityName of  this.meetupService.listOfFacilityType">{{facilityName.name}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <i class="material-icons iconContainer">location_city</i>
+                        <select class="selectContainer" formControlName="selectCity" id="select_city" (change)="getlocalityDataBasedOnSelectedCity()">
+                            <option value="0">All</option>
+                            <option selected="true" disabled="true" value="">Select City</option>
+                            <option *ngFor="let cityName of  this.meetupService.listOfCities" value={{cityName.id}}>{{cityName.name}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <i class="fa fa-map-marker iconContainer" aria-hidden="true"></i>
+                        <select class="selectContainer" formControlName="selectLocality" id="select_locality">
+                            <option selected="true" disabled="true" value="">Locality</option>
+                            <option [value]="localitiesName.id" *ngFor="let localitiesName of listOfLocalities">{{localitiesName.name}}</option>
+                        </select>
+                    </div>-->
+                    <huddil-dropdown-component id="select_facilityType" [huddilDropdownData]="this.meetupService.listOfFacilityType" formControlName="selectFacility" [huddilDropdownOptions]="huddilDropdownOptionsForFacilityType" [(ngModel)]="selectFacility"></huddil-dropdown-component>
+                    <huddil-dropdown-component id="select_city" [huddilDropdownData]="this.meetupService.listOfCities" formControlName="selectCity" [huddilDropdownOptions]="huddilDropdownOptionsForCity" [(ngModel)]="selectCity"></huddil-dropdown-component>
+
+                    <huddil-dropdown-component id="select_locality" [huddilDropdownData]="listOfLocalities" formControlName="selectLocality" [huddilDropdownOptions]="huddilDropdownOptionsForLocality" [(ngModel)]="selectLocality"></huddil-dropdown-component>
+                    <!--<div>
+                        <i class="material-icons iconContainer">description</i>
+                        <select class="selectContainer" formControlName="status" id="select_status">
+                            <option value="0">All</option>
+                            <option [selected]="true" [disabled]="true" value="0">Status</option>
+                            <option value="1">Pending for approval</option>
+                            <option value="2">Rejected</option>
+                            <option value="3">Approved</option>
+                            <option value="4">Stopped or blocked</option>
+                            <option value="5">Pending Certification</option>
+                            <option value="6">Huddil Verified</option>
+                        </select>
+                    </div>-->
+                    <huddil-dropdown-component id="select_status" [huddilDropdownData]="statusOptions" formControlName="status" [huddilDropdownOptions]="huddilDropdownOptionsForStatusOptions" [(ngModel)]="status"></huddil-dropdown-component>
+                </form>
+            </div>
+            <div class="loader loadingContainer" *ngIf="showLoader">
+                <img src="././assets/loading.gif">
+            </div>
+            <div class="loader" *ngIf="noSearchDataFound">
+                <h4>No data found</h4>
+            </div>
+            <div *ngIf="errorMessage !=''" class="noRecordFoundContainer">
+                <h4>{{errorMessage}}</h4>
+            </div>
+            <div class="itemContainer">
+                <div class="spacingBetweenFacilityItemsContainer" *ngFor="let facility of advisorFacilitiesData">
+                    <facility-listing-info class="itemBlock" [facilityInfo]="facility"></facility-listing-info>
+                </div>
+            </div>
+        </div>
+        <pagination *ngIf="totalPaginationTabs>0" [totalPaginationTabs]="totalPaginationTabs" (displayPage_Output)="facilityByPagination($event)" [currentPage]="currentPage"></pagination>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" [hidden]="isSessionExpired" (click)="closePopup(0)" id="button_ok_SessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)" id="button_ok_SessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

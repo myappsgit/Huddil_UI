@@ -1,0 +1,50 @@
+<header>
+
+    <div class="headerContainer">
+        <div class="header-left">
+            <img class="huddilLogo" src="assets/huddil-logo.svg" />
+        </div>
+        <div class="header-right">
+            <ul>
+
+                <!--<li><i (click)="showNotificationPopUp()" class="fa fa-bell-o"></i></li> 
+                <li><i class="fa fa-user-circle-o"></i></li>-->
+                <li class="usernameBlock" *ngIf="currentUser!=null && this.meetupService.consumerUserData==undefined">{{currentUser.diaplayName}}</li>
+                <li class="usernameBlock" *ngIf="this.meetupService.consumerUserData!=undefined">{{this.meetupService.consumerUserData}}</li>
+                <li><i (click)="showLogOutPopUp()" class="fa fa-user-circle-o"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="userMenuContainer" *ngIf="isShowMenuPopup">
+        <div class="userMenuFieldsContainer">
+            <div [routerLink]="['/service-provider/edit-profile']" class="userMenuSubFieldsContainer">
+                <i class="fa fa-address-card" aria-hidden="true"></i>
+                <p>Edit Profile</p>
+            </div>
+            <div [routerLink]="['/service-provider/change-password']" class="userMenuSubFieldsContainer">
+                <i class="fa fa-key" aria-hidden="true"></i>
+                <p>Change Password</p>
+            </div>
+            <div (click)="logout()" class="userMenuSubFieldsContainer"><i class="fa fa-power-off" aria-hidden="true"></i>
+                <p>Logout</p>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button id="button_ok" class="consumerModuleButtons" (click)="closePopup()">OK</button>
+        </div>
+
+    </div>
+</div>

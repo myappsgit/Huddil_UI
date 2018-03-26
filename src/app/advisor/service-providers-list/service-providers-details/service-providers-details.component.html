@@ -1,0 +1,84 @@
+<advisor-header>
+
+
+
+</advisor-header>
+<div class="service-provider-main-page">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection">
+
+            <ul>
+
+                <li [routerLink]="['/advisor/service-providers-list']">Service Providers List</li>
+                <span>&rarr;</span>
+                <li>Service Provider Details</li>
+
+            </ul>
+
+        </div>
+        <div class=" service-provider-page booking-history-container">
+            <div class="blockUnblockDiv">
+                <div class="blockUnblockTitle">
+                    <a><strong>Service Provider Details - Status</strong></a>
+                </div>
+                <div class="blockUnblockBtnDiv">
+                    <button class="blockBtn" (click)="blockServiceProvider()" [class.blockButtonColor]="!showCommentBox" [disabled]="!showCommentBox" id="button_block">BLOCK</button>
+                    <button class="unblockBtn" (click)="unblockServiceProvider()" [class.unBlockButtonColor]="showCommentBox" [disabled]="showCommentBox" id="button_unBlock">UNBLOCK</button>
+                </div>
+            </div>
+            <div class="loaderContainer" *ngIf="isLaoding"><img src="./assets/loading.gif"></div>
+            <div class="spDetailsStatusDiv" *ngIf="!isLaoding && serviceProviderDetails != null">
+                <div class="StatusTitle">
+                    <p><strong>Owner Name</strong></p>
+                    <p><strong>Email Id</strong></p>
+                    <p><strong>Mobile Number</strong></p>
+                </div>
+                <div class="StatusData">
+                    <p>{{serviceProviderDetails.userName}}</p>
+                    <p>{{serviceProviderDetails.emailId}}</p>
+                    <p>{{serviceProviderDetails.mobileNo}}</p>
+
+                </div>
+            </div>
+
+            <div class="textAreaDiv" *ngIf="showCommentDialogue">
+                <form [formGroup]="form">
+                    <textarea rows="5" cols="50" class="textArea" formControlName="commentBox" id="textarea_comment" placeholder="Enter Your Comments Here"></textarea>
+                    <div *ngIf="error != null">
+                        <div class="hintError"><strong>{{error}}</strong> </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="updateCancelDiv" *ngIf="showCommentDialogue">
+                <button class="cancel" id="button_cancel" (click)="cancelBlockChanges()">CANCEL</button>
+                <button class="update" (click)="updateBlockStatus()" id="button_update">UPDATE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" id="button_ok_sessionNotExpired" (click)="closePopup(0)">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" id="button_ok_sessionExpired" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>
+
+<advisor-footer></advisor-footer>

@@ -1,0 +1,363 @@
+/*breadcrumbs starts*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+.bookingError {
+    color: red;
+    margin: 0px;
+}
+
+
+/*breadcrumbs ends*/
+
+
+/*booking summar Page css starts*/
+
+.bookingSummaryContainer {
+    padding-top: 35px;
+    padding-left: 90px;
+    padding-right: 90px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.bookingSummaryTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.bookingSummaryTitleContainer p {
+    font-size: 25px;
+}
+
+.bookingSummaryTitleContainer button {
+    height: 40px;
+    width: 110px;
+    font-size: 14px;
+    /*border: none;
+    background-color: #004DB7;
+    color: white;*/
+}
+
+.individualCircleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-flow: nowrap;
+    align-items: center;
+}
+
+.individualCircleContainer button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 50px;
+    background: #fff;
+    border: 2px solid #d3cfcf;
+    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.50);
+}
+
+.individualCircleContainer p {
+    width: 475px;
+    height: 12px;
+    background-color: #D8D8D8;
+}
+
+.circleHeadingContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: nowrap;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #565656;
+}
+
+.bookingContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-bottom: 130px;
+}
+
+.reviewBookingContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.bookingDetailsContainer {
+    border: 1px solid #ABABAB!important;
+}
+
+.ReviewHeadingContainer {
+    display: flex;
+    align-items: center;
+    background-color: #3C3C3C;
+    color: white;
+    padding-left: 16px;
+    height: 40px;
+}
+
+.individualBookingDetailContainer {
+    display: flex;
+    padding: 16px;
+    color: #3C3C3C;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CDCDCD;
+}
+
+.reviewBookingDetailsContainer div:last-child {
+    border-bottom-style: none;
+}
+
+.BookingpriceContainer {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    margin-top: 40px;
+}
+
+.priceDetails {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.priceDetails div:last-child {
+    border-bottom-style: none;
+}
+
+.individualpriceDetailContainer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CDCDCD;
+}
+
+.totalPriceContainer {
+    background-color: #484848;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    height: 40px;
+}
+
+.totalPriceHeading {
+    font-size: 25px;
+}
+
+.paymentTypeContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;
+    color: #3c3c3c;
+}
+
+.continueToPayContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.continueToPayContainer button {
+    width: 375px;
+    height: 40px;
+    font-size: 14px;
+    color: white;
+    background-color: #8D8D8D;
+    font-weight: bolder;
+    border: none;
+}
+
+.replanIcon {
+    padding-right: 8px;
+}
+
+.continueToPayContainer button:hover {
+    background-color: #6A96FF;
+    cursor: pointer;
+}
+
+.continueToPayContainer button:focus {
+    background-color: #004DB7;
+    cursor: pointer;
+}
+
+.paymentModeContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+    align-items: center;
+    font-size: 16px;
+}
+
+.rupeesIcon {
+    padding-right: 10px;
+}
+
+.reviewBookingDetailsContainer {
+    margin-top: 40px;
+}
+
+.activeCircle {
+    background-color: #6A96FF!important;
+    border: 1px solid white!important;
+    color: white;
+}
+
+.detailsSubContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .bookingSummaryContainer {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .bookingContainer {
+        flex-wrap: wrap;
+    }
+    .reviewBookingContainer {
+        width: 100%;
+    }
+    .BookingpriceContainer {
+        width: 100%;
+    }
+    .detailsSubContainer {
+        width: 44%;
+    }
+    .paymentTypeContainer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .continueToPayContainer button {
+        width: 420px;
+    }
+    .individualCircleContainer button {
+        width: 55px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 36px;
+    }
+    app-footer {
+        display: none;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    app-footer {
+        display: none;
+    }
+    .bookingSummaryContainer {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .bookingContainer {
+        flex-wrap: wrap;
+    }
+    .reviewBookingContainer {
+        width: 100%;
+    }
+    .BookingpriceContainer {
+        width: 100%;
+    }
+    .detailsSubContainer {
+        width: 44%;
+    }
+    .paymentTypeContainer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .continueToPayContainer button {
+        width: 575px;
+    }
+    .individualCircleContainer button {
+        width: 55px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 36px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:800px) {
+    app-footer {
+        display: none;
+    }
+    .bookingSummaryContainer {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .bookingContainer {
+        flex-wrap: wrap;
+    }
+    .reviewBookingContainer {
+        width: 100%;
+    }
+    .BookingpriceContainer {
+        width: 100%;
+    }
+    .detailsSubContainer {
+        width: 44%;
+    }
+    .paymentTypeContainer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .continueToPayContainer button {
+        width: 735px;
+    }
+    .individualCircleContainer button {
+        width: 55px;
+        height: 40px;
+        font-size: 15px;
+        border-radius: 36px;
+    }
+}
+
+@media screen and (min-width:801px) and (max-width:1024px) {
+    app-footer {
+        display: none;
+    }
+    .individualCircleContainer button {
+        width: 60px;
+    }
+}

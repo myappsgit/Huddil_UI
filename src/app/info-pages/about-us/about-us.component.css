@@ -1,0 +1,69 @@
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: white;
+    font-size: 20px;
+    padding: 25px;
+}
+
+.aboutContentLeft {
+    width: 20%;
+}
+
+.aboutContentText {
+    color: black;
+    font-size: 28px;
+    padding-top: 27px;
+    font-weight: bold;
+    width: 15%;
+    margin-left: 12%;
+}
+
+.aboutContentRight {
+    width: 70%;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.aboutContent {
+    color: #6A96FF;
+}
+
+.aboutParagaraphContent {
+    font-size: 16px;
+}
+
+.imageHeadingContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.contentContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(transparent, #000);
+    width: 100%;
+    padding-bottom: 52px;
+    bottom: 0px;
+}
+
+.headingContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleHeading {
+    font-size: 55px;
+    color: white;
+}
+
+.subTitleHeading {
+    font-size: 34px;
+    color: white;
+}

@@ -1,0 +1,186 @@
+/*breadcrumbs starts*/
+
+.breadcrumbsSection {
+    background: #6A96FF;
+    padding-left: 30px;
+}
+
+.breadcrumbsSection ul {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.breadcrumbsSection ul li {
+    color: #fff;
+    font-size: 12px;
+}
+
+.breadcrumbsSection ul span {
+    color: #fff;
+    padding: 0px 7px;
+}
+
+
+/*breadcrumbs ends*/
+
+#mybookingsParentContainer {
+    height: auto;
+    padding: 25px;
+    margin: auto;
+    background: #fff;
+}
+
+.bookingContainerTitle {
+    border-bottom: 1px solid #c1c1c1;
+    font-weight: bold;
+}
+
+.containerData {
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+}
+
+.tabsContainer {
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #aaa;
+    padding-left: 20px;
+}
+
+.tabs button {
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+table tbody tr:hover {
+    background-color: #bbdefb !important;
+    cursor: pointer;
+}
+
+.upcomingButton,
+.historyButton,
+.cancelButton {
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #e0e0e0;
+    color: #767676;
+}
+
+.upcomingContainer,
+.historyContainer,
+.canceldataContainer {
+    height: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.headSection {
+    background-color: #484848;
+}
+
+thead {
+    background-color: #484848;
+    color: white;
+}
+
+thead th {
+    width: 100px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    color: #989898;
+    text-align: center;
+    font-size: 12px;
+}
+
+.confirmButton {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 90px;
+    color: white;
+    background-color: transparent;
+    color: #989898;
+}
+
+.refund {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 90px;
+    color: #989898;
+    background-color: transparent;
+}
+
+.bookingContainerTitle p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.chat {
+    font-size: 30px;
+}
+
+.pendingButton {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 90px;
+    color: white;
+    background-color: #FF7400;
+}
+
+.selectedTab {
+    color: white;
+    background-color: #6A97FF;
+}
+
+.tabs button:active {
+    background-color: #004DB7;
+}
+
+
+/*.tabs button:hover {
+    background-color: #494949;
+    color: #ffffff;
+}*/
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .hideTableData {
+        display: none;
+    }
+    .bookingDetailsData,
+    .historyDetailsData,
+    .cancellationDetailsData {
+        flex-flow: wrap;
+        justify-content: center;
+    }
+}

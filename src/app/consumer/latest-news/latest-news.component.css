@@ -1,0 +1,26 @@
+.latestNews {
+    display: flex;
+    flex-direction: column;
+    flex-flow: row wrap;
+}
+
+.newsItemBlock img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    -webkit-object-fit: cover;
+}
+
+.newsItemBlock {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.newsItemBlock p {
+    margin: 0px;
+    margin-left: 15px;
+    font-size: 13px;
+    padding-right: 80px;
+    text-align: justify;
+    line-height: 22px;
+}

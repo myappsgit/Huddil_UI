@@ -1,0 +1,17 @@
+.paymentMainPage {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.success {
+    color: green;
+}
+
+.failed {
+    color: red;
+}

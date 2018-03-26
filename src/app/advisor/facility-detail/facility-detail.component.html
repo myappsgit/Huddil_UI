@@ -1,0 +1,297 @@
+<advisor-header></advisor-header>
+<div class="loader loadingContainer" *ngIf="!dataReady">
+    <img src="assets/loading.gif">
+</div>
+<div class="service-provider-main-page" *ngIf="dataReady">
+    <!--sidebar-->
+    <div class="service-provider-leftSide">
+        <advisor-sidebar></advisor-sidebar>
+    </div>
+
+    <!--right side seciton-->
+    <div class="service-provider-rightSide">
+        <!--breadcrumbs-->
+        <div class="breadcrumbsSection" *ngIf="facilityDetailsData != null">
+            <ul>
+
+                <li [routerLink]="['/advisor/facility-listing']">Facility Search View</li>
+                <span>&rarr;</span>
+                <li>{{facilityDetailsData.title}}</li>
+            </ul>
+        </div>
+        <div class="service-provider-page" *ngIf="facilityDetailsData != null">
+            <div class="roomDetailDiv">
+                <div class="roomTitleDiv">
+                    <div class="roomTitle">
+                        <p *ngIf="facilityLocationNameData.name != facilityDetailsData.title" style="margin:0px;font-size:20px;" class="thumbnailTitle"><span>{{facilityLocationNameData.name}}</span> , <span style="font-size: 16px">{{facilityDetailsData.title}}</span></p>
+                        <p *ngIf="facilityLocationNameData.name == facilityDetailsData.title" style="margin:0px;font-size:20px;" class="thumbnailTitle"><span>{{facilityLocationNameData.name}}</span></p>
+                        <div class="mapiconAndPlace">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <sub>{{facilityDetailsData.location.name}}, {{facilityDetailsData.locality}}, {{facilityDetailsData.city}}</sub>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="thumbnail">
+                    <div class="iconOnThumbnmail">
+                        <span>{{getStatusText(facilityDetailsData.status)}}</span>
+                        <!--<img *ngIf="facilityInfo.status==8 || facilityInfo.status==10 || facilityInfo.status==12 || facilityInfo.status==14" src="assets/certified.svg">-->
+                        <img *ngIf="facilityDetailsData.status==7" src="assets/icons/facility-icons/approve1.svg">
+                        <img *ngIf="facilityDetailsData.status==8" src="assets/icons/facility-icons/approve.svg">
+                        <img *ngIf="facilityDetailsData.status==5" src="assets/icons/facility-icons/request.svg">
+                        <img *ngIf="facilityDetailsData.status==3 || facilityDetailsData.status==4 || facilityDetailsData.status==6" src="assets/icons/facility-icons/rejected.svg">
+                        <img *ngIf="facilityDetailsData.status==1 || facilityDetailsData.status==2" src="assets/icons/facility-icons/pending.svg">
+                        <img *ngIf="facilityDetailsData.status==9 || facilityDetailsData.status==10" src="assets/icons/facility-icons/stopped.svg">
+                        <img *ngIf="facilityDetailsData.status==11 ||facilityDetailsData.status==12 || facilityDetailsData.status==13 || facilityDetailsData.status==14" src="assets/icons/facility-icons/blocked.svg">
+                    </div>
+                    <!--<img src="data:image/png;base64,{{facilityDetailsData.thumbnail}}" />-->
+                    <div id="banner-section">
+                        <image-slider [facilitiyPhotos]="facilityDetailsData.facilityPhotos"></image-slider>
+                    </div>
+                </div>
+                <div class="descTitleDiv">
+                    <div class="overViewWhatsAroundPoliciesTabs">
+                        <div class="descTitle">
+                            <p (click)="showOverview()" [class.selectedTab]="forOverviewDesc"><strong>Overview</strong></p>
+                        </div>
+                        <!-- <div class="descTitle">
+                            <p (click)="showWhatsAround()" [class.selectedTab]="forwhatsAroundDesc">What's Around</p>
+                        </div>
+                        <div class="descTitle">
+                            <p (click)="showPolicies()" [class.selectedTab]="forPoliciesDesc">Policies</p>
+                        </div> -->
+                        <div class="descTitle">
+                            <p (click)="showReviews()" [class.selectedTab]="forReview"><strong>Reviews</strong></p>
+                        </div>
+                        <div class="descTitle termsAndConditionsContainer" (click)="showTermsAndConditions()">
+                            <p [class.selectedTab]="isShowTermsAndConditions"><strong>Terms and Conditions</strong></p>
+                        </div>
+                    </div>
+                    <div class="rating">
+
+                        <rating [ratingValue]="facilityDetailsData.averageRating"></rating>
+                    </div>
+                </div>
+                <div class="review" *ngIf="forReview">
+                    <facility-reviews [facilityReviewsData]="listOfReviews"></facility-reviews>
+                </div>
+                <div class="description" *ngIf="isShowTermsAndConditions">
+                    <p *ngIf="facilityDetailsData.location.facilityTermsConditionses != ''">{{termsAndConditionDescription}}</p>
+                    <p *ngIf="facilityDetailsData.location.facilityTermsConditionses == ''">Terms and conditions not found.</p>
+                </div>
+
+                <div class="overviewdescription" *ngIf="forOverviewDesc">
+                    <p>{{facilityDetailsData.description}}</p>
+                    <p class="anyHelp"></p>
+                    <p class="hapyTohelp"></p>
+
+                    <div class="addressDiv">
+                        <div class="addressInnerDiv">
+                            <!--<div class="address">
+                            <p class="add">
+                                <span>Address:</span>3,sbi atm,hotel, testing address
+                            </p>
+                            <p class="add"><span>LandMark :</span> near test school</p>
+
+                        </div>-->
+                            <div class="address">
+                                <p>
+                                    <strong>{{facilityDetailsData.title}}</strong> - ({{facilityDetailsData.facilityType}})
+                                </p>
+                                <p class="add">
+                                    Address: {{facilityDetailsData.location.name}}, {{facilityDetailsData.location.address}}, {{facilityDetailsData.locality}}, {{facilityDetailsData.city}}
+                                </p>
+                                <p class="landMark">
+                                    Landmark : {{facilityDetailsData.location.landmark}}</p>
+                                <p class="nearBy">
+                                    Near By : {{facilityDetailsData.location.nearBy}}</p>
+                                <p><span>Contact Number :</span> {{facilityDetailsData.contactNo}}</p>
+                                <p><span>Email id :</span> {{facilityDetailsData.emailId}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mapDiv">
+                        <map [mapInfo]="facilityDetailsData" [moduleName]="service-provider"></map>
+                    </div>
+                </div>
+                <div class="whatsArounddescription" *ngIf="forwhatsAroundDesc">
+                    <p>Landmark:{{facilityDetailsData.location.landmark}}</p>
+                    <p>Near By: {{facilityDetailsData.location.nearBy}}</p>
+                    <p class="anyHelp"></p>
+                    <p class="hapyTohelp"></p>
+                </div>
+                <div class="policiesdescription" *ngIf="forPoliciesDesc">
+                    <p>Cancellation Policy</p>
+
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration1!=0">{{facilityDetailsData.facilityCancellationCharges.percentage1}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration1}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration2!=0">{{facilityDetailsData.facilityCancellationCharges.percentage2}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration2}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration3!=0">{{facilityDetailsData.facilityCancellationCharges.percentage3}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration3}} Days of the start date</p>
+
+                </div>
+
+
+                <div class="cancelPolicy" [hidden]="forPoliciesDesc || forwhatsAroundDesc || forReview || isShowTermsAndConditions">
+                    <p class="cancellationPoliciy">Cancellation Policy</p>
+                    <p *ngIf="facilityDetailsData.facilityCancellationCharges.duration1==0 && facilityDetailsData.facilityCancellationCharges.duration2==0 && facilityDetailsData.facilityCancellationCharges.duration3==0">No Cancellation Policies</p>
+
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration1!=0">{{facilityDetailsData.facilityCancellationCharges.percentage1}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration1}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration2!=0">{{facilityDetailsData.facilityCancellationCharges.percentage2}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration2}} Days of the start date</p>
+                    <p class="policies" *ngIf="facilityDetailsData.facilityCancellationCharges.duration3!=0">{{facilityDetailsData.facilityCancellationCharges.percentage3}} % Cancellation Charge : Bookings cancelled before {{facilityDetailsData.facilityCancellationCharges.duration3}} Days of the start date</p>
+
+                </div>
+            </div>
+
+            <div class="priceAndFecilityDiv">
+                <div class="approvedDiv">
+
+                    <div class="approveDeneyButtonDiv">
+                        <div class="approveDeneyButtonParent">
+                            <button *ngIf="statusValue==2 || statusValue==5" class="filterFindButton  advisorModuleButtons" (click)="veryFacility()" id="button_verify">Verify</button>
+                            <button *ngIf="statusValue==1 || statusValue==2" class="filterFindButton  advisorModuleButtons" (click)="updateFacilityStatus(1)" id="button_approve">Approve</button>
+                            <button *ngIf="statusValue==1 || statusValue==2" class="filterFindButton  advisorModuleButtons" (click)="showDeniedSection()" id="button_deny">Deny</button>
+                            <button *ngIf="statusValue==7 || statusValue==8" class="filterFindButton  advisorModuleButtons" (click)="showDeniedSection()" id="button_block">Block</button>
+                            <button *ngIf="statusValue==11 || statusValue==12" class="filterFindButton  advisorModuleButtons" (click)="updateFacilityStatus(1)" id="button_unblock">Unblock</button>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="deniedDivision" *ngIf="isDeniedSection">
+                    <form [formGroup]="advisorCommentBoxForm">
+                        <div class="textAreaDiv">
+                            <textarea rows="4 " cols="50 " formControlName="textAreaForComment" id="textarea_comment" class="textArea" placeholder="Enter Your Comments Here "></textarea>
+                        </div>
+                    </form>
+                    <div class="cancelUpdateBtnDiv ">
+                        <button class="cancelBtn" (click)="showDeniedSection()" id="button_cancel">Cancel</button>
+                        <button class="updateBtn" (click)="updateFacilityStatus(0)" id="button_update">Update</button>
+
+                    </div>
+                </div>
+                <div class="priceTableDiv">
+
+                    <div class="textFields">
+                        <label class="seatsSizeInformation">No. of seats : {{facilityDetailsData.capacity}}</label>
+                        <label class="seatsSizeInformation">Area of Size : {{facilityDetailsData.size}} sq.</label>
+
+                    </div>
+                    <div class="price">
+                        <table>
+                            <tbody>
+                                <tr *ngIf="facilityDetailsData.facilityType!='Co-Working Space'">
+                                    <td>Per Hour charge</td>
+                                    <td>
+                                        <i class="fa fa-inr" aria-hidden="true"></i> {{facilityDetailsData.costPerHour}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Per Day charge</td>
+                                    <td>
+                                        <i class="fa fa-inr" aria-hidden="true"></i> {{facilityDetailsData.costPerDay}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Per Month charge</td>
+                                    <td>
+                                        <i class="fa fa-inr" aria-hidden="true"></i> {{facilityDetailsData.costPerMonth}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="amenitiesDiv">
+                    <div class="amenitiesTitle">
+                        <p>Amenities -{{facilityDetailsData.title}}</p>
+                    </div>
+                    <div class="aminities">
+                        <div class="powerContainer">
+                            <div class="powerbackupDiv" *ngFor="let amenities of amenitiesList">
+
+                                <div class="svgImg" [innerHtml]=amenities.icon></div>
+                                <span>{{amenities.name}}</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="openingHourDateDiv">
+                    <div class="openingDateTitle">
+                        <p>Opening Hours/Date</p>
+                    </div>
+                    <div class="openingDateTimeTable">
+                        <table>
+                            <tbody>
+                                <tr *ngFor="let facilitytiming of facilityTiming">
+                                    <td class="day">{{days[facilitytiming.weekDay]}}</td>
+                                    <td *ngIf="facilitytiming.openingTime!='00:00:00'" class="fromTime">{{facilitytiming.openingTime | slice:0:5}}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                                    <td *ngIf="facilitytiming.closingTime!='00:00:00'" class="toTime">{{facilitytiming.closingTime | slice:0:5}}</td>
+                                    <td class="closed" *ngIf="facilitytiming.openingTime=='00:00:00' && facilitytiming.closingTime=='00:00:00'">Closed</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="offerDiv">
+                    <div class="offersTitle">
+                        <p class="specialOfferTitle">
+                            <strong>Special Offers</strong>
+                        </p>
+                    </div>
+                    <div *ngIf="facilityDetailsData.facilityOfferses.length==0" class="offersContainer" style="background: no-repeat;color: #404040;border: 1px solid #7c7c7c;margin-top: 0px;">
+                        <p style="width: 100%;text-align: center;">
+                            No offers
+                        </p>
+                    </div>
+
+                    <div class="offersContainer" *ngIf="facilityDetailsData.facilityOfferses.length>0">
+                        <i class="material-icons">local_offer</i>
+                        <div class="offerData">
+                            <h3>{{facilityDetailsData.title}}</h3>
+                            <label>{{facilityDetailsData.facilityOfferses[0].startDate | date}} to {{facilityDetailsData.facilityOfferses[0].endDate
+                                | date}}</label>
+                        </div>
+                        <div class="offerPercentage">
+                            <strong>{{facilityDetailsData.facilityOfferses[0].price}}</strong>
+                            <sub>%</sub>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="offerOne" *ngIf="facilityDetailsData.facilityOfferses.length>0">
+                        <div class="offerImg">
+                            <img src="assets/icons/offerImage.png" />
+                        </div>
+                        <div class="offerDesc">
+
+                            <sub><small><i class="fa fa-tag" aria-hidden="true"></i>{{facilityDetailsData.facilityOfferses[0].startDate}} - {{facilityDetailsData.facilityOfferses[0].endDate}}</small> </sub>
+                        </div>
+                        <div class="offerBtnDiv">
+                            <button class="offerBtn"><strong><span>{{facilityDetailsData.facilityOfferses[0].price}}%</span></strong></button>
+                        </div>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" *ngIf="!isSessionExpired" (click)="closePopup(0)" id="button_ok_sessionNotExpired">OK</button>
+            <button class="consumerModuleButtons" *ngIf="isSessionExpired" (click)="closePopup(1)" id="button_ok_sessionExpired">OK</button>
+        </div>
+
+    </div>
+</div>
+<advisor-footer></advisor-footer>

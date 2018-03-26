@@ -1,0 +1,110 @@
+<div id="spMainContainer">
+
+    <div id="tableContainer">
+        <div class="bookingDetailAndView">
+            <div class="bookAndView">
+                <span class="booking">Booking Details Dashboard</span>
+                <span class="view"><a [routerLink]="['/service-provider/booking-history']" class="viewAll">View All</a></span>
+            </div>
+            <i class="material-icons" (click)="showFilterBox()">filter_list</i>
+
+        </div>
+        <div class="extraFilterBox" *ngIf="isShowFilterBox">
+
+            <form [formGroup]="form">
+                <div>
+                    <i class="fa fa-user iconContainer" aria-hidden="true"></i>
+                    <select class="selectContainer" formControlName="selectFacility" id="select_facilityType">
+                        <option [selected]="true" [value] = "0">Select Facility Type</option>
+                        <option [value]="facilityName.id" *ngFor="let facilityName of this.meetupService.listOfFacilityType">{{facilityName.name}}</option>
+                        </select>
+                </div>
+                <div>
+                    <i class="fa fa-building iconContainer" aria-hidden="true"></i>
+                    <select class="selectContainer" formControlName="selectCity" id="select_city" (change)="getlocalityDataBasedOnSelectedCity()">
+                        <option [selected]="true" [value] = "0">Select City</option>
+                        <option *ngFor="let cityName of this.meetupService.listOfCities" [value]=cityName.id>{{cityName.name}}</option>
+                        </select>
+                </div>
+                <div>
+                    <i class="fa fa-map-marker iconContainer" aria-hidden="true"></i>
+                    <select class="selectContainer" formControlName="selectLocality" id="select_locality">
+                        <option [selected]="true" [value] = "0">Select Locality</option>
+                        <option [value]="localitiesName.id" *ngFor="let localitiesName of listOfLocalities">{{localitiesName.name}}</option>
+                        </select>
+                </div>
+
+                <div>
+                    <i class="fa fa-user iconContainer" aria-hidden="true"></i>
+                    <select class="selectContainer" formControlName="booking_status" id="select_bookingStatus">
+                        <option [selected]="true" [value] = "0">Select Booking Status</option>
+                        <option [value]="1">Pending</option>
+                        <option [value]="2">Cancelled</option>
+                        <option [value]="3">Confirmed</option>
+                         
+                        </select>
+                </div>
+                <div>
+                    <button (click)="searchBookingsByFilters()" class="filterSearchButton activeColor" id="button_search">Search</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="loadingContainer" *ngIf="isLoadingData">
+        <img src="../../assets/loading.gif" />
+    </div>
+    <div class="loadingContainer" *ngIf="noRecordFound">
+        <p>No record found</p>
+    </div>
+    <div class="loadingContainer" *ngIf="errorMsz!=''">
+        <p>{{errorMsz}}</p>
+    </div>
+
+    <div class="tableDiv" [hidden]="isLoadingData || noRecordFound || errorMsz!=''">
+        <table>
+            <thead>
+                <tr class="tableTitle">
+                    <th>Booking ID</th>
+                    <th>Room Name </th>
+                    <th>Address </th>
+                    <th>Consumer Name </th>
+                    <th>Date of booking </th>
+                    <th>Payment Mode </th>
+                    <th>Booking Status </th>
+                    <th class="lastHeading">View</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let booking of listOfBookings">
+                    <td>{{booking.id}}</td>
+                    <td>{{booking.title}}</td>
+                    <td>{{booking.name}}, {{booking.address}}</td>
+                    <td>{{booking.name}}</td>
+                    <td>{{booking.displayName}}</td>
+                    <td>{{booking.paymentMethod}}</td>
+                    <td>{{displayStatus(booking.status)}}</td>
+                    <td><i (click)="showBookingDetails(booking.id)" class="fa fa-eye"></i></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="this.meetupService.isShowPopup" class="confirmAlert ">
+    <div class="mszbox zoomIn" [class.zoomOut]="!this.meetupService.isShowPopup">
+        <div class="popup-header" [class.warning]="this.meetupService.isWarningPopup">
+            <h3 *ngIf="this.meetupService.isWarningPopup"> Alert!</h3>
+            <h3 *ngIf="!this.meetupService.isWarningPopup"> Success!</h3>
+        </div>
+        <div class="popup-body">
+            {{this.meetupService.popupMessage}}
+        </div>
+        <div class="popup-footer">
+            <button class="consumerModuleButtons" [hidden]="this.meetupService.isInvalidSessionPopupDisplayed" (click)="closePopup(0)">OK</button>
+            <button class="consumerModuleButtons" *ngIf="this.meetupService.isInvalidSessionPopupDisplayed" (click)="closePopup(1)">OK</button>
+        </div>
+
+    </div>
+</div>

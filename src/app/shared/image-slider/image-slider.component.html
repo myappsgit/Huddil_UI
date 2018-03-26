@@ -1,0 +1,53 @@
+<div *ngIf="noImageFound" class="slide"> <img src="assets/noThumbFound.png"></div>
+<p class="loadingContainer" *ngIf="!sliderReady"><img src="../../assets/loading.gif" /></p>
+<!--<div class="carousel" *ngIf="sliderReady">
+    <div class="carousel-inner">
+        <div class="slide" [class.active]="index==0" *ngFor="let photo of facilitiPhotos; let index = index">
+            <img [src]="photo">
+        </div>
+
+    </div>
+    <div class="left-arrow">
+        <div class="arrow arrow-left"></div>
+    </div>
+    <div class="right-arrow">
+        <div class="arrow arrow-right"></div>
+    </div>
+
+</div>-->
+<div class="sliderContainer">
+    <div class="trent-slider" *ngIf="sliderReady">
+        <img *ngIf="!sliderReady" src="assets/noThumbFound.png">
+        <div class="t-slide" [class.current-t-slide]="index==0" *ngFor="let photo of facilitiPhotos; let index = index">
+            <img [src]="photo" />
+        </div>
+
+        <div class="t-slider-controls">
+            <div class="arrow rightArrow">
+                <div class="arrow-container">
+                    <div class="arrow-icon">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow leftArrow">
+                <div class="arrow-container">
+                    <div class="arrow-icon">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="t-load-bar">
+                <div class="inner-load-bar"></div>
+            </div>
+            <div class="t-dots-container">
+                <div class="t-slide-dots-wrap">
+                    <div class="t-slide-dots">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

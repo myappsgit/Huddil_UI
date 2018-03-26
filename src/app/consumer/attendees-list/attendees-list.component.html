@@ -1,0 +1,70 @@
+<consumer-header></consumer-header>
+<div class="breadcrumbsSection">
+    <ul>
+        <li [routerLink]="['']">Home</li>
+        <span>&rarr;</span>
+        <li>Attendees List</li>
+
+    </ul>
+</div>
+<div class="attendeesListContainer">
+
+    <div class="attendessListHeader">
+        <p>Attendees List
+        </p>
+    </div>
+
+
+    <div *ngIf="showIfNoAttendeesData" class="noAttendeesListContainer">
+        <p>No attendees list available</p>
+    </div>
+
+    <div class="addEventButtonContainer">
+        <button class="add-button" (click)="showAddAttendeesField()" id="add_team">Add Team</button>
+    </div>
+
+    <!-- Team List Container Start  -->
+
+    <div class="teamListContainer" *ngIf="showTeamList">
+
+        <div class="teamListHeadingContainer">
+            <p>Team List</p>
+        </div>
+
+        <div class="listOfTeamsContainer" *ngIf="teamArray != null">
+
+            <div *ngFor="let teamDetails of teamArray">
+
+                <div class="individualTeamListItem">
+                    <div class="individualTeamListHeadingContainer" (click)="showParticipantsDetails(teamDetails.id)">
+                        <p>{{teamDetails.name}}</p>
+                    </div>
+                    <div class="individualTeamListIconContainer">
+                        <i class="fa fa-pencil editIcon" aria-hidden="true" (click)="editTeam(teamDetails.id,teamDetails.name)"></i>
+                        <i class="fa fa-trash deleteIcon" aria-hidden="true" (click)="removeMeetingWithParticipants(teamDetails.id)"></i>
+                    </div>
+                </div>
+
+
+                <div class="participantsContainer" id="participantsDetails{{teamDetails.id}}">
+                    <div class="participantsDetailsContainer" *ngFor="let participantsDetails of teamParticipants">
+                        <span>{{participantsDetails.name}}</span>
+                        <span>{{participantsDetails.phoneNo}}</span>
+                        <span>{{participantsDetails.emailId}}</span>
+                    </div>
+                    <div *ngIf="noParticipantsAvailable">
+                        <h5>No participants available for this team</h5>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Team List Container End  -->
+
+</div>
+<app-footer></app-footer>
