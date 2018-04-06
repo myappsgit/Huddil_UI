@@ -142,7 +142,7 @@ export class MeetupService {
 
         let protocol = location.protocol;
         //this.baseUrl = protocol + '//localhost:4200/';
-        this.baseUrl = protocol + '//ec2-52-66-92-15.ap-south-1.compute.amazonaws.com';
+        this.baseUrl = protocol + '//ec2-13-127-142-136.ap-south-1.compute.amazonaws.com';
         //this.baseUrl = protocol + '//huddil.com/';
 
         this.originurl = (platformLocation as any).location.origin;
